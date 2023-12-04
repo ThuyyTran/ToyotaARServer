@@ -1,0 +1,344 @@
+2023-11-29 09:39:56,973 - ERROR - predict: Cannot save the query image to file 'query_images/6bba385e-9795-4bc0-8337-64d660ce6606.jpg'
+2023-11-29 09:40:01,430 - ERROR - predict: Cannot save the query image to file 'query_images/74c1f332-7e09-4f77-b930-b6514c9099a7.jpg'
+2023-11-29 09:40:22,624 - ERROR - predict: Cannot save the query image to file 'query_images/0a9a9dd1-bdc0-4000-a127-80220a90c3a1.jpg'
+2023-11-29 09:40:35,801 - ERROR - predict: Cannot save the query image to file 'query_images/fae8777d-766b-4930-961a-5241ce4b0637.jpg'
+2023-11-29 09:40:56,675 - ERROR - predict: Cannot save the query image to file 'query_images/a666913c-91b1-4aab-966b-630c4246d246.jpg'
+2023-11-29 09:54:36,204 - ERROR - predict: Cannot save the query image to file 'query_images/d6174366-7cb5-4fb3-b7eb-8001b56a72f2.jpg'
+2023-11-29 09:54:43,702 - ERROR - predict: Cannot save the query image to file 'query_images/75e7dd72-5706-4f6c-8445-1d6179d39420.jpg'
+2023-11-29 09:54:51,434 - ERROR - predict: Cannot save the query image to file 'query_images/24f51f73-b50a-4146-ab34-60a48cf23487.jpg'
+2023-11-29 10:00:33,737 - ERROR - predict: Cannot save the query image to file 'query_images/9b6eb6b0-a7d3-4529-9d68-ac5f294034c1.jpg'
+2023-11-29 10:13:03,045 - ERROR - predict: Cannot save the query image to file 'query_images/02f3c167-4e9e-4ba2-8661-e3ee633e43e8.jpg'
+2023-11-29 10:13:16,750 - ERROR - predict: Cannot save the query image to file 'query_images/c2f4c5ea-00de-4ee7-98a3-17ebd9d48212.jpg'
+2023-11-29 10:17:01,484 - ERROR - predict: Cannot save the query image to file 'query_images/bb565131-a722-4d90-a040-223fe916b9b9.jpg'
+2023-11-29 10:17:11,917 - ERROR - predict: Cannot save the query image to file 'query_images/095a48de-838d-4d14-a581-5ea0faa085ad.jpg'
+2023-11-29 10:17:20,596 - ERROR - predict: Cannot save the query image to file 'query_images/6010a461-f9cb-4b0e-aecd-a4e43016a643.jpg'
+2023-11-29 10:19:34,863 - ERROR - predict: Cannot save the query image to file 'query_images/b1a62d24-3547-4e6d-9dd3-e6f82d505fdb.jpg'
+2023-11-29 10:19:46,156 - ERROR - predict: Cannot save the query image to file 'query_images/c97eaba1-56e7-41c2-8a1d-bb8ec74e47c8.jpg'
+2023-11-29 10:19:54,424 - ERROR - predict: Cannot save the query image to file 'query_images/ca49883e-6077-4adb-9a99-ec3f06ec6159.jpg'
+2023-11-29 10:20:02,699 - ERROR - predict: Cannot save the query image to file 'query_images/886c926b-ad93-4a77-a02d-f96a2f142ed5.jpg'
+2023-11-29 10:20:07,756 - ERROR - predict: Cannot save the query image to file 'query_images/cc2b85da-615e-475d-8151-06867aad0859.jpg'
+2023-11-29 10:20:15,272 - ERROR - predict: Cannot save the query image to file 'query_images/3ad0fe53-e1aa-4c84-8e51-e1f411702e57.jpg'
+2023-11-29 10:20:19,928 - ERROR - predict: Cannot save the query image to file 'query_images/aa676675-1b4d-40b1-a8e8-3a050e230085.jpg'
+2023-11-29 10:20:29,139 - ERROR - predict: Cannot save the query image to file 'query_images/e469046a-09b3-4581-838e-f5e14bcb4e8f.jpg'
+2023-11-29 10:20:40,875 - ERROR - predict: Cannot save the query image to file 'query_images/a348d033-897c-48aa-87b6-cd03fea4f10f.jpg'
+2023-11-29 10:20:48,115 - ERROR - predict: Cannot save the query image to file 'query_images/0a04013a-b094-4f1e-825d-90f7fca4e268.jpg'
+2023-11-29 10:20:54,411 - ERROR - predict: Cannot save the query image to file 'query_images/ee530263-b52e-4c6d-a0d4-290a3ac67426.jpg'
+2023-11-29 10:21:00,267 - ERROR - predict: Cannot save the query image to file 'query_images/8ecfa2b1-5e09-422f-a7aa-88a20e757d8d.jpg'
+2023-11-29 10:21:07,828 - ERROR - predict: Cannot save the query image to file 'query_images/4fd73ffb-8407-446e-9e35-b0e146ef1e35.jpg'
+2023-11-29 10:21:15,979 - ERROR - predict: Cannot save the query image to file 'query_images/db0fbff4-2188-4af0-86fe-a8315e3bc02d.jpg'
+2023-11-29 10:21:25,348 - ERROR - predict: Cannot save the query image to file 'query_images/93d9ca11-5847-49bf-9577-4d84f4c9bc5a.jpg'
+2023-11-29 10:21:29,880 - ERROR - predict: Cannot save the query image to file 'query_images/d95107f4-91a1-465d-81ea-849053dc3afa.jpg'
+2023-11-29 10:21:39,359 - ERROR - predict: Cannot save the query image to file 'query_images/74897cd9-08a5-447e-ac07-c6d64f4f81b9.jpg'
+2023-11-29 10:21:44,832 - ERROR - predict: Cannot save the query image to file 'query_images/021212f8-af06-44a4-af50-f4064d46a8e7.jpg'
+2023-11-29 10:21:51,947 - ERROR - predict: Cannot save the query image to file 'query_images/cff5ed4e-459b-44f8-abcd-6bacbf84f587.jpg'
+2023-11-29 10:22:37,343 - ERROR - predict: Cannot save the query image to file 'query_images/76a1913a-07b3-4ddd-aa23-7ba3bae13875.jpg'
+2023-11-29 10:22:45,719 - ERROR - predict: Cannot save the query image to file 'query_images/648a2c3f-de0e-472d-b2b4-64a977abbdb2.jpg'
+2023-11-29 10:22:53,872 - ERROR - predict: Cannot save the query image to file 'query_images/73d44e12-f9b0-4eb1-a0c9-95a2b1a8e82f.jpg'
+2023-11-29 10:23:02,180 - ERROR - predict: Cannot save the query image to file 'query_images/13b1a282-8552-4440-8c87-8b8a12e30ca2.jpg'
+2023-11-29 10:23:09,545 - ERROR - predict: Cannot save the query image to file 'query_images/962bc7d8-46f9-4ab2-8092-9cc6605a30d6.jpg'
+2023-11-29 10:23:14,288 - ERROR - predict: Cannot save the query image to file 'query_images/3fcecb85-257c-4824-bdfa-f582e731aeb9.jpg'
+2023-11-29 10:23:17,746 - ERROR - predict: Cannot save the query image to file 'query_images/141dc7ee-ca7b-4965-a93e-dbe58e82d717.jpg'
+2023-11-29 10:23:21,638 - ERROR - predict: Cannot save the query image to file 'query_images/d606b3c9-b8c4-45f8-8980-4acdf2aabaf2.jpg'
+2023-11-29 10:23:26,606 - ERROR - predict: Cannot save the query image to file 'query_images/e51729a5-1b0f-413c-aa68-53f1c7ee61f8.jpg'
+2023-11-29 10:24:21,578 - ERROR - predict: Cannot save the query image to file 'query_images/1f9ac52b-a111-4b70-88c1-4d050b435a57.jpg'
+2023-11-29 10:25:22,078 - ERROR - predict: Cannot save the query image to file 'query_images/5f4d585c-ba86-4118-9785-d650f8987521.jpg'
+2023-11-29 10:25:27,051 - ERROR - predict: Cannot save the query image to file 'query_images/4ce2b60a-b8d6-4893-b8b0-2a66c6d28c29.jpg'
+2023-11-29 10:26:53,715 - ERROR - predict: Cannot save the query image to file 'query_images/86441675-2953-4ac2-a312-a6e541ca96f8.jpg'
+2023-11-29 10:26:54,017 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 270, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 95, in crop_sod_images
+    sod_images = helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 517, in extract_mask_ClipSeg_model
+    cv2.imwrite('mask.jpg',mask)
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imwrite'
+> Overload resolution failed:
+>  - img is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'img'
+
+2023-11-29 10:26:58,753 - ERROR - predict: ALERT: Request 86441675-2953-4ac2-a312-a6e541ca96f8 time out
+2023-11-29 10:26:58,753 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 10:27:41,279 - ERROR - predict: Cannot save the query image to file 'query_images/d29ff687-dbda-424e-a16b-d36351dd31f0.jpg'
+2023-11-29 10:28:19,742 - ERROR - predict: Cannot save the query image to file 'query_images/c1244db0-ff90-4820-8264-1aa06b6ce827.jpg'
+2023-11-29 10:29:16,877 - ERROR - predict: Cannot save the query image to file 'query_images/f6cce7b1-0062-4a1c-b33e-c32e752507ef.jpg'
+2023-11-29 10:30:03,371 - ERROR - predict: Cannot save the query image to file 'query_images/251f1ba0-bdcc-41a8-a4c2-5cdfdfa2d690.jpg'
+2023-11-29 10:30:07,511 - ERROR - predict: Cannot save the query image to file 'query_images/3daca5f9-ebed-4125-865d-279ff873c62f.jpg'
+2023-11-29 10:30:17,283 - ERROR - predict: Cannot save the query image to file 'query_images/9515ae49-0553-49db-b7de-88b89ec60026.jpg'
+2023-11-29 10:31:22,747 - ERROR - predict: Cannot save the query image to file 'query_images/7a310c58-80c9-45e9-a755-1de56db5b9e9.jpg'
+2023-11-29 10:31:28,183 - ERROR - predict: Cannot save the query image to file 'query_images/fd29463f-e923-4470-9427-22c9ef1c53a9.jpg'
+2023-11-29 10:32:03,091 - ERROR - predict: Cannot save the query image to file 'query_images/f7bf22c0-1657-408f-9e25-d5f3d97f8850.jpg'
+2023-11-29 10:32:08,088 - ERROR - predict: ALERT: Request f7bf22c0-1657-408f-9e25-d5f3d97f8850 time out
+2023-11-29 10:32:08,088 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 10:32:09,709 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 270, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 95, in crop_sod_images
+    sod_images = helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 524, in extract_mask_ClipSeg_model
+    cv2.drawContours(mask, contours, -1, (0, 255, 0), 3)
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'drawContours'
+> Overload resolution failed:
+>  - image is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'image'
+
+2023-11-29 10:33:08,165 - ERROR - predict: Cannot save the query image to file 'query_images/dfab715a-6ab5-4064-9794-6a8acfa7b407.jpg'
+2023-11-29 10:33:29,740 - ERROR - predict: Cannot save the query image to file 'query_images/f45597f5-e528-4d47-8993-3bab2eda1960.jpg'
+2023-11-29 10:33:33,248 - ERROR - predict: Cannot save the query image to file 'query_images/09e4f3ff-5ee3-4bb4-8025-0621187f5342.jpg'
+2023-11-29 10:34:31,822 - ERROR - predict: Cannot save the query image to file 'query_images/e74fea25-b7e6-474d-bc95-4bc017b741b8.jpg'
+2023-11-29 10:37:03,400 - ERROR - predict: Cannot save the query image to file 'query_images/2d9221f5-c03f-4af6-8282-74313a1f3961.jpg'
+2023-11-29 10:37:08,460 - ERROR - predict: Cannot save the query image to file 'query_images/94eb91b5-0dfe-47be-a542-0f898fd47afd.jpg'
+2023-11-29 10:37:12,744 - ERROR - predict: Cannot save the query image to file 'query_images/a889a31b-c0b5-46fe-b8ec-c5620c993f66.jpg'
+2023-11-29 10:37:17,755 - ERROR - predict: Cannot save the query image to file 'query_images/afa33fcc-37b6-4da5-921a-6d1d58c1651c.jpg'
+2023-11-29 10:37:22,066 - ERROR - predict: Cannot save the query image to file 'query_images/86f68502-c6c5-443c-97a7-c90c3238f01f.jpg'
+2023-11-29 10:37:37,542 - ERROR - predict: Cannot save the query image to file 'query_images/80720abc-ab1a-4947-9bdf-7e47a852ea72.jpg'
+2023-11-29 10:37:37,758 - ERROR - predict: Cannot save the query image to file 'query_images/4ce9ce0c-8cc7-4d7a-845e-3182d543facf.jpg'
+2023-11-29 10:37:44,098 - ERROR - predict: Cannot save the query image to file 'query_images/b8f71b22-ae82-430b-9578-338794918f60.jpg'
+2023-11-29 10:37:50,296 - ERROR - predict: Cannot save the query image to file 'query_images/67110841-95b4-467c-aefc-cf54007587e0.jpg'
+2023-11-29 10:37:55,204 - ERROR - predict: Cannot save the query image to file 'query_images/24f0a4bf-ee5f-4d81-a669-92b6d5e8f506.jpg'
+2023-11-29 10:37:59,811 - ERROR - predict: Cannot save the query image to file 'query_images/9e1ef904-a161-49b0-8394-899a271ce82a.jpg'
+2023-11-29 10:38:00,289 - ERROR - predict: Cannot save the query image to file 'query_images/2c14ff75-8c5e-426e-8a93-231eae3862cc.jpg'
+2023-11-29 10:39:00,204 - ERROR - predict: Cannot save the query image to file 'query_images/fa6f9166-dad2-4e39-92e9-ec67b7dbf3da.jpg'
+2023-11-29 10:39:07,289 - ERROR - predict: Cannot save the query image to file 'query_images/62d681f1-9bda-4297-b441-2ebb718a612d.jpg'
+2023-11-29 10:39:37,180 - ERROR - predict: Cannot save the query image to file 'query_images/ca1aadc0-20da-478c-90b4-6101320bf3c4.jpg'
+2023-11-29 10:39:43,767 - ERROR - predict: Cannot save the query image to file 'query_images/3479d0d9-d771-4e92-a534-8b6ccd336cb1.jpg'
+2023-11-29 10:39:47,584 - ERROR - predict: Cannot save the query image to file 'query_images/b97b6763-08f1-4c2b-af56-aaecc632d744.jpg'
+2023-11-29 10:40:03,252 - ERROR - predict: Cannot save the query image to file 'query_images/65f83258-327e-4093-b555-565288dc2b28.jpg'
+2023-11-29 10:40:19,407 - ERROR - predict: Cannot save the query image to file 'query_images/c58e6bb3-922f-44f4-95b5-94207daf8504.jpg'
+2023-11-29 10:40:28,127 - ERROR - predict: Cannot save the query image to file 'query_images/980d120b-f5cb-4f19-94fd-d7b8b01076dd.jpg'
+2023-11-29 10:40:49,151 - ERROR - predict: Cannot save the query image to file 'query_images/65c0a59a-e1a5-440e-b8e9-0d3b91e1816a.jpg'
+2023-11-29 10:40:57,385 - ERROR - predict: Cannot save the query image to file 'query_images/ebbde471-3d67-498c-927f-f4dbcf34a21e.jpg'
+2023-11-29 10:41:03,900 - ERROR - predict: Cannot save the query image to file 'query_images/93bcab19-a133-48e1-b686-c4ba4c5add04.jpg'
+2023-11-29 10:41:15,785 - ERROR - predict: Cannot save the query image to file 'query_images/91c971fd-bad6-4d06-984a-4cf173b497f9.jpg'
+2023-11-29 10:41:22,019 - ERROR - predict: Cannot save the query image to file 'query_images/702ed7aa-8989-4f18-8905-0f74b8d177c4.jpg'
+2023-11-29 10:41:37,270 - ERROR - predict: Cannot save the query image to file 'query_images/cbd378a7-2d0e-405a-a4e6-fa49dcf3cd58.jpg'
+2023-11-29 10:41:52,364 - ERROR - predict: Cannot save the query image to file 'query_images/b25d265c-e8d1-4e40-ba65-950f59cb3f05.jpg'
+2023-11-29 10:42:06,978 - ERROR - predict: Cannot save the query image to file 'query_images/4454c780-f25c-4e6f-90bc-a35382028d90.jpg'
+2023-11-29 10:42:21,173 - ERROR - predict: Cannot save the query image to file 'query_images/c50a5a97-37e2-4757-bc15-3320b1acacfa.jpg'
+2023-11-29 10:42:28,066 - ERROR - predict: Cannot save the query image to file 'query_images/720c183a-aa38-48d2-834a-0ea199709437.jpg'
+2023-11-29 10:42:30,822 - ERROR - predict: Cannot save the query image to file 'query_images/506d7858-9599-4465-bc34-57c61247f5b0.jpg'
+2023-11-29 10:42:34,196 - ERROR - predict: Cannot save the query image to file 'query_images/cf725e60-b92f-4018-9296-62ad3b300419.jpg'
+2023-11-29 10:42:34,549 - ERROR - predict: Cannot save the query image to file 'query_images/60aee81c-0c51-4a17-b5df-b3a26695909a.jpg'
+2023-11-29 10:42:44,905 - ERROR - predict: Cannot save the query image to file 'query_images/217d53b4-f6c3-4572-9eb8-13dc8322cf7d.jpg'
+2023-11-29 10:42:57,455 - ERROR - predict: Cannot save the query image to file 'query_images/8f967bac-a068-4491-9b1a-79bd0ea6f4d9.jpg'
+2023-11-29 10:43:16,573 - ERROR - predict: Cannot save the query image to file 'query_images/6ececcb5-a94c-43f9-8975-63670e4a3a73.jpg'
+2023-11-29 10:50:39,934 - ERROR - predict: Cannot save the query image to file 'query_images/a351ad87-d877-47dd-b541-80c53e9f1fcb.jpg'
+2023-11-29 10:50:49,192 - ERROR - predict: Cannot save the query image to file 'query_images/3f2bc818-e46c-49d1-b6e6-47eade570d88.jpg'
+2023-11-29 10:53:03,281 - ERROR - predict: Cannot save the query image to file 'query_images/373eacf8-b8cf-4086-9cdc-cb80a3b86639.jpg'
+2023-11-29 10:53:06,823 - ERROR - predict: Cannot save the query image to file 'query_images/fa1541d5-f83e-4c64-aeff-f7a2ef6d6273.jpg'
+2023-11-29 10:53:37,300 - ERROR - predict: Cannot save the query image to file 'query_images/4b5d6467-9798-40b3-80f3-357f87f9d150.jpg'
+2023-11-29 10:57:01,826 - ERROR - predict: Cannot save the query image to file 'query_images/a613b037-2d92-4273-9156-3205ea3355bb.jpg'
+2023-11-29 10:57:09,566 - ERROR - predict: Cannot save the query image to file 'query_images/f40d813a-fbd7-4f0e-91fa-9c98524e557c.jpg'
+2023-11-29 10:58:50,060 - ERROR - predict: Cannot save the query image to file 'query_images/e3c62ea3-5d04-4e17-8f28-aca17a04f7f9.jpg'
+2023-11-29 10:58:53,871 - ERROR - predict: Cannot save the query image to file 'query_images/edc28fb8-5af8-43d3-8dd3-e235f526b2ec.jpg'
+2023-11-29 11:02:01,817 - ERROR - predict: Cannot save the query image to file 'query_images/924645c3-ba73-4a4e-84df-7fd96bf18b98.jpg'
+2023-11-29 11:02:04,875 - ERROR - predict: Cannot save the query image to file 'query_images/0080f7d3-0d4a-4320-b263-eb4d0d0b73f5.jpg'
+2023-11-29 11:08:18,563 - ERROR - predict: Cannot save the query image to file 'query_images/7c25edf4-a184-4876-97d0-2f5aa2f9851b.jpg'
+2023-11-29 11:10:08,456 - ERROR - predict: Cannot save the query image to file 'query_images/a9786c4a-d146-43e5-a443-42790cad89e9.jpg'
+2023-11-29 11:10:12,284 - ERROR - predict: Cannot save the query image to file 'query_images/78f09d74-00ed-4437-9a14-360cb222d114.jpg'
+2023-11-29 11:11:16,301 - ERROR - predict: Cannot save the query image to file 'query_images/2f4384c0-16d5-489f-b50b-8b9a7be9ce1d.jpg'
+2023-11-29 11:11:28,746 - ERROR - predict: Cannot save the query image to file 'query_images/d4abb427-fcce-436a-a768-21cf9711d0b0.jpg'
+2023-11-29 11:14:47,853 - ERROR - predict: Cannot save the query image to file 'query_images/24ca08f5-30b6-4441-a05b-817f11fb06c8.jpg'
+2023-11-29 11:15:01,375 - ERROR - predict: Cannot save the query image to file 'query_images/4e7c4096-24c0-47f4-a690-d5e47613b32c.jpg'
+2023-11-29 11:15:23,489 - ERROR - predict: Cannot save the query image to file 'query_images/38a01999-b7d7-431b-9bfb-6b2c7fe0c1e2.jpg'
+2023-11-29 11:15:40,568 - ERROR - predict: Cannot save the query image to file 'query_images/8cfe20e4-3d6c-44ed-b9a5-ccbd7ea2cf35.jpg'
+2023-11-29 11:38:05,774 - ERROR - predict: Cannot save the query image to file 'query_images/5e924429-8289-4734-9adf-0e7fba06d5ac.jpg'
+2023-11-29 11:39:11,887 - ERROR - predict: Cannot save the query image to file 'query_images/92b98172-2db8-4aa1-b8c9-d51b6faa75a9.jpg'
+2023-11-29 11:41:13,045 - ERROR - predict: Cannot save the query image to file 'query_images/4c82dadb-d1ea-43be-bf4b-01e221cb7548.jpg'
+2023-11-29 11:41:49,106 - ERROR - predict: Cannot save the query image to file 'query_images/09036308-37e6-4a73-99bb-2c083fd648ad.jpg'
+2023-11-29 11:42:14,191 - ERROR - predict: Cannot save the query image to file 'query_images/ab03fcae-1d31-4038-be6d-1deff17425d4.jpg'
+2023-11-29 11:42:17,736 - ERROR - predict: Cannot save the query image to file 'query_images/0c82e445-3dc7-4507-9b3e-4f49f90d6f2b.jpg'
+2023-11-29 11:47:48,519 - ERROR - predict: Cannot save the query image to file 'query_images/681ef070-6311-4d2a-bdc5-68e7d45b3087.jpg'
+2023-11-29 11:52:58,166 - ERROR - predict: Cannot save the query image to file 'query_images/729cb802-8880-4328-877b-f9d1083316ca.jpg'
+2023-11-29 11:53:42,101 - ERROR - predict: Cannot save the query image to file 'query_images/556acee3-83ae-489d-badd-18e019104266.jpg'
+2023-11-29 11:54:12,434 - ERROR - predict: Cannot save the query image to file 'query_images/7b10805c-4557-494d-bd00-801102983586.jpg'
+2023-11-29 11:59:07,985 - ERROR - predict: Cannot save the query image to file 'query_images/f20b76dc-80a2-4897-9590-e1de0dbafc68.jpg'
+2023-11-29 11:59:43,421 - ERROR - predict: Cannot save the query image to file 'query_images/c8d77b7c-5fa4-4493-9b4a-6e59f585172c.jpg'
+2023-11-29 12:26:22,467 - ERROR - predict: Cannot save the query image to file 'query_images/3cb68bd7-5586-4aa8-9f2f-1af9b1339f09.jpg'
+2023-11-29 12:26:37,369 - ERROR - predict: Cannot save the query image to file 'query_images/4dc06dae-1eb2-412d-af49-49885a81963a.jpg'
+2023-11-29 12:26:44,101 - ERROR - predict: Cannot save the query image to file 'query_images/41fb7859-1126-49b8-a036-83774aad617e.jpg'
+2023-11-29 12:32:37,448 - ERROR - predict: Cannot save the query image to file 'query_images/03734f53-adf0-4094-9f8a-2baeecb74bff.jpg'
+2023-11-29 12:33:31,904 - ERROR - predict: Cannot save the query image to file 'query_images/8608643f-1e46-4000-aee8-56b2d8d9a15e.jpg'
+2023-11-29 12:34:21,116 - ERROR - predict: Cannot save the query image to file 'query_images/f34e3d6b-2942-4833-8cb8-692596ae287d.jpg'
+2023-11-29 13:49:59,360 - ERROR - predict: Cannot save the query image to file 'query_images/ad5818c8-fcf5-4109-b615-73d5f56d42e2.jpg'
+2023-11-29 13:50:11,373 - ERROR - predict: Cannot save the query image to file 'query_images/6e72ce66-fa07-4abe-863f-2985577f6b04.jpg'
+2023-11-29 13:50:32,891 - ERROR - predict: Cannot save the query image to file 'query_images/39ed73c0-47f6-4ee7-a7a1-1c28a12933b2.jpg'
+2023-11-29 13:50:45,094 - ERROR - predict: Cannot save the query image to file 'query_images/9812202f-bf78-4c87-bb6b-6bc476020159.jpg'
+2023-11-29 13:51:04,505 - ERROR - predict: Cannot save the query image to file 'query_images/d69084fb-7a0e-4164-8c85-495af0216ae8.jpg'
+2023-11-29 13:51:20,911 - ERROR - predict: Cannot save the query image to file 'query_images/1d6fe62c-9058-4ad9-b27a-a177971230b4.jpg'
+2023-11-29 13:51:51,728 - ERROR - predict: Cannot save the query image to file 'query_images/d4d4d27b-2572-472f-93b3-f1e8b7389b25.jpg'
+2023-11-29 13:52:01,986 - ERROR - predict: Cannot save the query image to file 'query_images/f3f6c962-5583-4ab5-b82f-adf9dc12c8ce.jpg'
+2023-11-29 13:52:17,739 - ERROR - predict: Cannot save the query image to file 'query_images/4f0d319b-6937-4ea4-9eb6-b60e01a5685b.jpg'
+2023-11-29 13:52:40,587 - ERROR - predict: Cannot save the query image to file 'query_images/f7999d6c-6c2a-4e14-b814-26c5ada1dce7.jpg'
+2023-11-29 13:52:55,134 - ERROR - predict: Cannot save the query image to file 'query_images/5e98baf8-47c6-49c8-85f4-198d9434e218.jpg'
+2023-11-29 13:53:10,203 - ERROR - predict: Cannot save the query image to file 'query_images/2dc73ca5-bfbb-4a03-a2f8-e2ebf0de4eca.jpg'
+2023-11-29 13:53:37,300 - ERROR - predict: Cannot save the query image to file 'query_images/b3281021-0cd5-4f78-b6e7-b478d7bfda72.jpg'
+2023-11-29 14:06:43,674 - ERROR - predict: Cannot save the query image to file 'query_images/23d8ce7f-e665-4925-bfea-cca59dbd879f.jpg'
+2023-11-29 14:07:00,529 - ERROR - predict: Cannot save the query image to file 'query_images/97b613a4-82b0-4895-a2e4-a3c35160e2cf.jpg'
+2023-11-29 14:07:06,534 - ERROR - predict: Cannot save the query image to file 'query_images/849ffe3c-d68a-46a7-abfb-87ce6e659239.jpg'
+2023-11-29 14:07:34,429 - ERROR - predict: Cannot save the query image to file 'query_images/9bf4af85-eecf-4176-ae78-6d8dadcc9dc3.jpg'
+2023-11-29 14:08:03,182 - ERROR - predict: Cannot save the query image to file 'query_images/6a3a2bc8-d211-416b-90e8-5a8072515127.jpg'
+2023-11-29 14:11:37,998 - ERROR - predict: Cannot save the query image to file 'query_images/3d7a448e-6cf3-4502-9ef6-a32375b2a478.jpg'
+2023-11-29 14:11:38,567 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 270, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 95, in crop_sod_images
+    sod_images = helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 511, in extract_mask_ClipSeg_model
+    images[0].save('/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/SaveQuery/'+current_time.strftime("%Y%m%d_%H%M%S")+'.png')
+AttributeError: 'numpy.ndarray' object has no attribute 'save'
+2023-11-29 14:11:42,928 - ERROR - predict: ALERT: Request 3d7a448e-6cf3-4502-9ef6-a32375b2a478 time out
+2023-11-29 14:11:42,930 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 14:12:34,788 - ERROR - predict: Cannot save the query image to file 'query_images/ddceadd0-f900-4b26-8b44-3fad1e69822a.jpg'
+2023-11-29 14:13:52,765 - ERROR - predict: Cannot save the query image to file 'query_images/3923d179-030b-4c6d-b0e0-d1b97ee32133.jpg'
+2023-11-29 14:14:11,248 - ERROR - predict: Cannot save the query image to file 'query_images/7363e230-b1db-4690-a5a5-6271b2c42475.jpg'
+2023-11-29 14:14:52,578 - ERROR - predict: Cannot save the query image to file 'query_images/4c1f65f6-bdf2-4e9f-b9b0-cfd3079300c3.jpg'
+2023-11-29 14:15:02,645 - ERROR - predict: Cannot save the query image to file 'query_images/729374bc-a876-4860-8f0f-d9cb6ba0ff5f.jpg'
+2023-11-29 14:15:08,491 - ERROR - predict: Cannot save the query image to file 'query_images/a19527eb-b9f8-4fa0-b9e6-a89f6904351c.jpg'
+2023-11-29 14:15:11,916 - ERROR - predict: Cannot save the query image to file 'query_images/cfa8ce5c-41a8-42ef-b6fb-a6d7e7b4e31d.jpg'
+2023-11-29 14:15:13,325 - ERROR - predict: Cannot save the query image to file 'query_images/21628328-ae08-422b-bd42-348878545040.jpg'
+2023-11-29 14:16:28,387 - ERROR - predict: Cannot save the query image to file 'query_images/997d7141-2771-41b8-a931-5d444aa07a19.jpg'
+2023-11-29 14:17:29,398 - ERROR - predict: Cannot save the query image to file 'query_images/f5fb2e30-a297-4bb8-8eff-88dd3f5c811f.jpg'
+2023-11-29 14:19:11,806 - ERROR - predict: Cannot save the query image to file 'query_images/a2563f11-5f20-4c38-8520-c8319cd5486a.jpg'
+2023-11-29 14:19:19,586 - ERROR - predict: Cannot save the query image to file 'query_images/b09b6a0c-14b5-4160-9581-678a1f345122.jpg'
+2023-11-29 14:19:29,674 - ERROR - predict: Cannot save the query image to file 'query_images/7b232479-7943-40c7-b08c-48463ed1f48f.jpg'
+2023-11-29 14:19:48,757 - ERROR - predict: Cannot save the query image to file 'query_images/27b9fb72-47ac-43d4-bdbb-ab09ee6668cf.jpg'
+2023-11-29 14:20:04,086 - ERROR - predict: Cannot save the query image to file 'query_images/ec8ce9f1-9e2c-4b19-bf96-4838c771c7bd.jpg'
+2023-11-29 14:20:09,269 - ERROR - predict: Cannot save the query image to file 'query_images/cbdcc289-5cc3-46fc-a109-0444b1d10b2c.jpg'
+2023-11-29 14:20:26,511 - ERROR - predict: Cannot save the query image to file 'query_images/7f6c3c19-9192-456f-b43b-75411a410241.jpg'
+2023-11-29 14:20:30,010 - ERROR - predict: Cannot save the query image to file 'query_images/3e885ec1-b9b9-41cc-a64d-f466a450b239.jpg'
+2023-11-29 14:20:47,164 - ERROR - predict: Cannot save the query image to file 'query_images/3770b163-6054-457a-a5fe-4aed5d843b0e.jpg'
+2023-11-29 14:22:31,778 - ERROR - predict: Cannot save the query image to file 'query_images/bc22ffb6-515a-4d2a-8a20-38f3e0bcc036.jpg'
+2023-11-29 14:22:48,341 - ERROR - predict: Cannot save the query image to file 'query_images/a40454d0-e71a-4885-adcc-8105f9b6aa31.jpg'
+2023-11-29 14:22:54,584 - ERROR - predict: Cannot save the query image to file 'query_images/30e38f05-e80c-43c4-aa8b-f68a7ef38864.jpg'
+2023-11-29 14:23:04,992 - ERROR - predict: Cannot save the query image to file 'query_images/29dcb825-deee-4bd6-bc8e-25f583b8547c.jpg'
+2023-11-29 14:23:21,058 - ERROR - predict: Cannot save the query image to file 'query_images/5cc6b5cb-1e0e-440a-b790-137f790b6433.jpg'
+2023-11-29 14:23:25,312 - ERROR - predict: Cannot save the query image to file 'query_images/16cae767-573b-4df5-9cdb-a5d3c82ba3b9.jpg'
+2023-11-29 14:28:17,688 - ERROR - predict: Cannot save the query image to file 'query_images/71192ebd-863c-478f-8e94-6c2acae20c18.jpg'
+2023-11-29 14:28:22,674 - ERROR - predict: ALERT: Request 71192ebd-863c-478f-8e94-6c2acae20c18 time out
+2023-11-29 14:28:22,674 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 14:29:09,286 - ERROR - predict: Cannot save the query image to file 'query_images/45d34fdf-2bcf-4d2d-978a-0dde280f84a2.jpg'
+2023-11-29 14:30:15,524 - ERROR - predict: Cannot save the query image to file 'query_images/c1dbdf87-4558-4ee9-bc29-aac07e1c2959.jpg'
+2023-11-29 14:30:56,278 - ERROR - predict: Cannot save the query image to file 'query_images/4c231672-4236-4a23-b52a-61bfa98e19e1.jpg'
+2023-11-29 14:32:06,729 - ERROR - predict: Cannot save the query image to file 'query_images/3f5bc3b3-183c-46d9-8e5e-cbc24cf7dce1.jpg'
+2023-11-29 14:32:11,757 - ERROR - predict: ALERT: Request 3f5bc3b3-183c-46d9-8e5e-cbc24cf7dce1 time out
+2023-11-29 14:32:11,766 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 14:32:44,391 - ERROR - predict: Cannot save the query image to file 'query_images/488d3113-64ba-4ebb-924f-946c2c746a1b.jpg'
+2023-11-29 14:34:11,824 - ERROR - predict: Cannot save the query image to file 'query_images/76fde025-90b0-428f-9f14-7b0dc64cc029.jpg'
+2023-11-29 14:34:23,109 - ERROR - predict: Cannot save the query image to file 'query_images/93b7599b-8175-48c7-b2ae-d952d58810cf.jpg'
+2023-11-29 14:35:15,516 - ERROR - predict: Cannot save the query image to file 'query_images/2563ac40-5a04-4f02-be94-515f83080dc3.jpg'
+2023-11-29 14:37:09,108 - ERROR - predict: Cannot save the query image to file 'query_images/55cca4a1-64e0-4549-b843-26b10ad693c9.jpg'
+2023-11-29 14:38:14,111 - ERROR - predict: Cannot save the query image to file 'query_images/f1b6c5e9-aefe-480a-9dd5-b0c7b2fb330b.jpg'
+2023-11-29 14:39:21,433 - ERROR - predict: Cannot save the query image to file 'query_images/1857e83a-080e-4c2b-bad6-98066a5169d2.jpg'
+2023-11-29 14:40:51,089 - ERROR - predict: Cannot save the query image to file 'query_images/beee024f-1056-4d35-84b5-9b848e850432.jpg'
+2023-11-29 14:40:56,123 - ERROR - predict: ALERT: Request beee024f-1056-4d35-84b5-9b848e850432 time out
+2023-11-29 14:40:56,123 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 14:41:23,750 - ERROR - predict: Cannot save the query image to file 'query_images/9e8d4f20-5349-474f-8615-79ff8b68904c.jpg'
+2023-11-29 14:41:24,557 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 334, in <module>
+    run()
+  File "cnn_cluster.py", line 275, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 210, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 180, in extract_feat_batch_by_arrays
+    newsize = calculate_resized_dimensions(images[i],500)
+NameError: name 'calculate_resized_dimensions' is not defined
+2023-11-29 14:41:28,551 - ERROR - predict: ALERT: Request 9e8d4f20-5349-474f-8615-79ff8b68904c time out
+2023-11-29 14:41:28,552 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 14:42:05,576 - ERROR - predict: Cannot save the query image to file 'query_images/f9b62414-d0ff-4303-a268-73d08d354008.jpg'
+2023-11-29 14:42:06,216 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 334, in <module>
+    run()
+  File "cnn_cluster.py", line 275, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 210, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 189, in extract_feat_batch_by_arrays
+    feats, feats_atscale1 = extract_vectors_by_arrays2(self.model, torch.tensor(imglist), self.normalize, pad=pad,ms=ms, msp=msp)
+ValueError: only one element tensors can be converted to Python scalars
+2023-11-29 14:42:10,455 - ERROR - predict: ALERT: Request f9b62414-d0ff-4303-a268-73d08d354008 time out
+2023-11-29 14:42:10,455 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-29 14:42:57,134 - ERROR - predict: Cannot save the query image to file 'query_images/337794fb-61e2-49e0-af9b-811b4081a092.jpg'
+2023-11-29 14:43:04,263 - ERROR - predict: Cannot save the query image to file 'query_images/db9ba66c-efb1-45c0-8fa2-6d4443d08cf5.jpg'
+2023-11-29 14:43:10,066 - ERROR - predict: Cannot save the query image to file 'query_images/f60275ba-4cf1-4968-96cb-3cc86b8a7a8a.jpg'
+2023-11-29 14:43:28,314 - ERROR - predict: Cannot save the query image to file 'query_images/a3ec0f93-b140-453a-b12f-82b1799e1e12.jpg'
+2023-11-29 14:43:40,531 - ERROR - predict: Cannot save the query image to file 'query_images/736d7aef-26af-4f71-b701-9b73e09dd860.jpg'
+2023-11-29 14:44:08,598 - ERROR - predict: Cannot save the query image to file 'query_images/f85b425b-1f75-4d04-8ae7-aecfeb10cf4e.jpg'
+2023-11-29 14:46:02,283 - ERROR - predict: Cannot save the query image to file 'query_images/e9e586c1-e0e3-45be-8df3-c2bacbf88a44.jpg'
+2023-11-29 14:47:18,839 - ERROR - predict: Cannot save the query image to file 'query_images/36edd4ba-979d-4613-9bf5-aaf8075a7c59.jpg'
+2023-11-29 14:49:29,215 - ERROR - predict: Cannot save the query image to file 'query_images/a7caf988-dff8-48c0-a01b-ee00c9581625.jpg'
+2023-11-29 14:49:34,768 - ERROR - predict: Cannot save the query image to file 'query_images/526addfc-96b6-4df4-9949-43e5a4a69b2b.jpg'
+2023-11-29 14:50:01,361 - ERROR - predict: Cannot save the query image to file 'query_images/4245bb2b-7286-42c5-a238-e8b0f4192fe9.jpg'
+2023-11-29 14:50:19,317 - ERROR - predict: Cannot save the query image to file 'query_images/1d2daf62-9279-40b6-9f29-aa87ca1f4871.jpg'
+2023-11-29 14:50:23,392 - ERROR - predict: Cannot save the query image to file 'query_images/f2be6e06-e665-4f0b-b031-7ddf8264fe3c.jpg'
+2023-11-29 14:50:27,412 - ERROR - predict: Cannot save the query image to file 'query_images/15e75053-35fa-4e8c-aba7-9abeb0c063fb.jpg'
+2023-11-29 14:50:36,530 - ERROR - predict: Cannot save the query image to file 'query_images/45fafb18-653d-42a9-8b51-3573bcf20a48.jpg'
+2023-11-29 14:50:40,538 - ERROR - predict: Cannot save the query image to file 'query_images/c272bf71-7542-4e2e-8df6-a03dda93310a.jpg'
+2023-11-29 14:50:47,693 - ERROR - predict: Cannot save the query image to file 'query_images/b3acec5b-2b36-45d8-a83d-004c7febf0e6.jpg'
+2023-11-29 14:50:55,774 - ERROR - predict: Cannot save the query image to file 'query_images/fb10de5b-104c-441e-aeb0-dc7db41142c8.jpg'
+2023-11-29 14:51:17,147 - ERROR - predict: Cannot save the query image to file 'query_images/921e6c72-d597-4a99-8d3b-fc09667304a3.jpg'
+2023-11-29 14:51:32,540 - ERROR - predict: Cannot save the query image to file 'query_images/cd62912a-0afa-4f20-8f90-99cd98635b59.jpg'
+2023-11-29 14:51:45,149 - ERROR - predict: Cannot save the query image to file 'query_images/293f8f28-e7d9-4a5b-8647-384f013076e4.jpg'
+2023-11-29 14:52:10,493 - ERROR - predict: Cannot save the query image to file 'query_images/bb90fad6-f37f-43e2-bad9-1f673fed7a7f.jpg'
+2023-11-29 14:54:14,730 - ERROR - predict: Cannot save the query image to file 'query_images/cc7f6dd3-4f3e-445b-a1ac-1f4d613499d6.jpg'
+2023-11-29 14:55:25,731 - ERROR - predict: Cannot save the query image to file 'query_images/78546fc9-a698-4673-a9d2-9497712e9c96.jpg'
+2023-11-29 14:55:42,900 - ERROR - predict: Cannot save the query image to file 'query_images/ce29bbab-f52b-4e21-91d2-977efcb2bd14.jpg'
+2023-11-29 14:56:16,583 - ERROR - predict: Cannot save the query image to file 'query_images/1300e400-9c19-4fcb-9f59-3d54967270b3.jpg'
+2023-11-29 14:56:25,332 - ERROR - predict: Cannot save the query image to file 'query_images/54a2a7d5-c4ca-420f-b0da-24c633cda9a4.jpg'
+2023-11-29 14:56:27,037 - ERROR - predict: Cannot save the query image to file 'query_images/79358585-c575-45e0-a050-46bfedf6bb5f.jpg'
+2023-11-29 14:56:31,719 - ERROR - predict: Cannot save the query image to file 'query_images/2d6c7154-a182-4ce7-859b-cad017c5750d.jpg'
+2023-11-29 14:56:33,540 - ERROR - predict: Cannot save the query image to file 'query_images/468064dd-15ed-4d41-980e-510da1de0339.jpg'
+2023-11-29 14:56:37,954 - ERROR - predict: Cannot save the query image to file 'query_images/8483e0a4-c500-4405-a0f8-1893f7daa2b3.jpg'
+2023-11-29 14:56:38,407 - ERROR - predict: Cannot save the query image to file 'query_images/ef6908c2-e7e7-4c65-97b8-2b63ca0e2d25.jpg'
+2023-11-29 14:56:42,432 - ERROR - predict: Cannot save the query image to file 'query_images/41fb3d5a-3913-4b67-96e2-914a472c990b.jpg'
+2023-11-29 14:56:48,137 - ERROR - predict: Cannot save the query image to file 'query_images/281bf9b5-caab-4535-8529-abb6a63813e8.jpg'
+2023-11-29 14:56:53,679 - ERROR - predict: Cannot save the query image to file 'query_images/550906ae-2eb8-4d0c-aba0-28ba9fbdf6bd.jpg'
+2023-11-29 14:56:57,235 - ERROR - predict: Cannot save the query image to file 'query_images/d6f16059-a120-4991-a38c-04cf5de6d699.jpg'
+2023-11-29 14:57:04,789 - ERROR - predict: Cannot save the query image to file 'query_images/5cc304ba-5dac-4237-acf2-5568b39ccdfe.jpg'
+2023-11-29 14:58:51,851 - ERROR - predict: Cannot save the query image to file 'query_images/1cb8069f-de5d-4c43-9f3d-9dd353d5519b.jpg'
+2023-11-29 14:58:56,313 - ERROR - predict: Cannot save the query image to file 'query_images/3bbf37c3-8c71-4c91-8d8a-98c9ac1f594f.jpg'
+2023-11-29 14:59:54,238 - ERROR - predict: Cannot save the query image to file 'query_images/4228b1e1-f302-4ac3-870a-236db4d0ef7b.jpg'
+2023-11-29 15:00:14,411 - ERROR - predict: Cannot save the query image to file 'query_images/a4cb3747-29eb-42ee-a265-6c27bd2e234d.jpg'
+2023-11-29 15:03:23,512 - ERROR - predict: Cannot save the query image to file 'query_images/18ded348-fccf-4485-b51b-64981a772b41.jpg'
+2023-11-29 15:03:29,547 - ERROR - predict: Cannot save the query image to file 'query_images/54497836-e2c0-4afd-a5fc-be0af35ce2a8.jpg'
+2023-11-29 15:04:52,276 - ERROR - predict: Cannot save the query image to file 'query_images/aca12e49-dafa-4da7-aa44-2070143e4fa9.jpg'
+2023-11-29 15:05:00,890 - ERROR - predict: Cannot save the query image to file 'query_images/f898331d-0dd3-4c14-8198-74dd028017e5.jpg'
+2023-11-29 15:05:29,019 - ERROR - predict: Cannot save the query image to file 'query_images/526d499a-a95c-4f89-8b54-9c2eeeea16de.jpg'
+2023-11-29 15:05:46,401 - ERROR - predict: Cannot save the query image to file 'query_images/1c0fc611-a6a2-4dd1-99cd-6b52be8f8a66.jpg'
+2023-11-29 15:05:47,916 - ERROR - predict: Cannot save the query image to file 'query_images/60a52c3f-582f-49f8-8c1d-9cde10419a2c.jpg'
+2023-11-29 15:08:20,217 - ERROR - predict: Cannot save the query image to file 'query_images/62c9a522-a0d7-46db-9726-de249e435a5a.jpg'
+2023-11-29 15:08:23,026 - ERROR - predict: Cannot save the query image to file 'query_images/9a4f09bb-e7a3-4ef4-baef-f804a4fbfa97.jpg'
+2023-11-29 15:11:34,628 - ERROR - predict: Cannot save the query image to file 'query_images/ae8267f7-dd25-4190-93f6-ff8e30ddcff9.jpg'
+2023-11-29 15:11:38,081 - ERROR - predict: Cannot save the query image to file 'query_images/98a62452-472f-4e0c-9642-9b3e3dac308f.jpg'
+2023-11-29 15:13:47,677 - ERROR - predict: Cannot save the query image to file 'query_images/f366ebb4-2b34-4473-8002-cbd70d3d17d0.jpg'
+2023-11-29 15:13:53,983 - ERROR - predict: Cannot save the query image to file 'query_images/5b25088d-e4de-4460-b73f-6ec4673d47cd.jpg'
+2023-11-29 15:16:20,185 - ERROR - predict: Cannot save the query image to file 'query_images/c9df085b-9181-4813-9049-639d650f60b5.jpg'
+2023-11-29 15:16:23,204 - ERROR - predict: Cannot save the query image to file 'query_images/8552c120-4b04-4e74-97c0-100fabd3959c.jpg'
+2023-11-29 15:17:41,233 - ERROR - predict: Cannot save the query image to file 'query_images/be85ed95-cf44-45ca-8862-e5468c15229e.jpg'
+2023-11-29 15:17:45,221 - ERROR - predict: Cannot save the query image to file 'query_images/b4fe05df-f0f9-468d-8c8a-f619228e3ac5.jpg'
+2023-11-29 15:19:14,669 - ERROR - predict: Cannot save the query image to file 'query_images/18040efd-19dc-4e2f-bafb-d7081ce4b187.jpg'
+2023-11-29 15:24:18,438 - ERROR - predict: Cannot save the query image to file 'query_images/95afb746-6e74-4555-9a55-fd828d62f070.jpg'
+2023-11-29 15:24:35,182 - ERROR - predict: Cannot save the query image to file 'query_images/8a3baa7e-d864-46dd-9532-48dba398ce26.jpg'
+2023-11-29 15:26:28,639 - ERROR - predict: Cannot save the query image to file 'query_images/fce0fced-6bd8-4e95-b998-b54603c1c827.jpg'
+2023-11-29 15:32:26,495 - ERROR - predict: Cannot save the query image to file 'query_images/6a459845-6a1d-4c7e-88ca-f22e27c9f933.jpg'
+2023-11-29 17:34:52,097 - ERROR - predict: Cannot save the query image to file 'query_images/fd4057ee-9aaf-4809-9a95-356da859035b.jpg'
+2023-11-29 17:35:05,311 - ERROR - predict: Cannot save the query image to file 'query_images/0c6b702d-0682-48bb-bc96-7471197291c7.jpg'

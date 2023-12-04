@@ -1,0 +1,280 @@
+2023-12-01 09:39:22,428 - ERROR - predict: Cannot save the query image to file 'query_images/250f4550-d430-434f-99a3-06fd5d2eaefe.jpg'
+2023-12-01 10:02:54,051 - ERROR - predict: Cannot save the query image to file 'query_images/b09cfaa3-bf69-4f87-94f8-20933bffa6ee.jpg'
+2023-12-01 10:03:03,018 - ERROR - predict: Cannot save the query image to file 'query_images/cae626bf-19db-4691-a8e2-9e8941e00dfa.jpg'
+2023-12-01 10:03:10,408 - ERROR - predict: Cannot save the query image to file 'query_images/ddd7e29c-2106-45f2-b4a3-751b779c010f.jpg'
+2023-12-01 10:03:17,407 - ERROR - predict: Cannot save the query image to file 'query_images/9aa7bbd5-9030-4638-a49d-4888d7686de1.jpg'
+2023-12-01 10:03:21,342 - ERROR - predict: Cannot save the query image to file 'query_images/0808c7da-ab49-4e02-9f96-d5690f3f2db8.jpg'
+2023-12-01 10:32:53,400 - ERROR - predict: Cannot save the query image to file 'query_images/eb6a37b7-b1c9-406f-b31c-529f901ab9ed.jpg'
+2023-12-01 10:32:58,282 - ERROR - predict: ALERT: Request eb6a37b7-b1c9-406f-b31c-529f901ab9ed time out
+2023-12-01 10:32:58,282 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:43:08,304 - ERROR - predict: Cannot save the query image to file 'query_images/7b745e9b-5ee8-462a-8c72-1d892a8efef3.jpg'
+2023-12-01 10:43:13,310 - ERROR - predict: ALERT: Request 7b745e9b-5ee8-462a-8c72-1d892a8efef3 time out
+2023-12-01 10:43:13,310 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:44:43,646 - ERROR - predict: Cannot save the query image to file 'query_images/64f084a5-f623-4b9a-932d-8b528d53e2bd.jpg'
+2023-12-01 10:44:48,660 - ERROR - predict: ALERT: Request 64f084a5-f623-4b9a-932d-8b528d53e2bd time out
+2023-12-01 10:44:48,660 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:47:09,895 - ERROR - predict: Cannot save the query image to file 'query_images/dcaa86db-8d71-4bb8-8f92-8620e1e05368.jpg'
+2023-12-01 10:47:14,888 - ERROR - predict: ALERT: Request dcaa86db-8d71-4bb8-8f92-8620e1e05368 time out
+2023-12-01 10:47:14,889 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:48:38,900 - ERROR - predict: Cannot save the query image to file 'query_images/8d8c5b75-5823-495b-b052-eac9e7344ea8.jpg'
+2023-12-01 10:48:43,920 - ERROR - predict: ALERT: Request 8d8c5b75-5823-495b-b052-eac9e7344ea8 time out
+2023-12-01 10:48:43,968 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:51:14,123 - ERROR - predict: Cannot save the query image to file 'query_images/fc9d134e-ec47-407f-8c5f-54841e34dee8.jpg'
+2023-12-01 10:56:34,545 - ERROR - predict: Cannot save the query image to file 'query_images/77d1e96a-c02f-4c88-8eb4-30913dd890f9.jpg'
+2023-12-01 10:56:39,552 - ERROR - predict: ALERT: Request 77d1e96a-c02f-4c88-8eb4-30913dd890f9 time out
+2023-12-01 10:56:39,553 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:57:06,064 - ERROR - predict: Cannot save the query image to file 'query_images/0a938abd-0c3b-45b7-9fe6-97c73a381a17.jpg'
+2023-12-01 10:57:11,059 - ERROR - predict: ALERT: Request 0a938abd-0c3b-45b7-9fe6-97c73a381a17 time out
+2023-12-01 10:57:11,060 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:58:56,155 - ERROR - predict: Cannot save the query image to file 'query_images/2153b89b-3a43-46b8-8c7a-e87915baeb29.jpg'
+2023-12-01 10:59:01,153 - ERROR - predict: ALERT: Request 2153b89b-3a43-46b8-8c7a-e87915baeb29 time out
+2023-12-01 10:59:01,154 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 10:59:29,740 - ERROR - predict: Cannot save the query image to file 'query_images/877d8885-6810-4b9b-9048-980fcbf4215b.jpg'
+2023-12-01 10:59:34,741 - ERROR - predict: ALERT: Request 877d8885-6810-4b9b-9048-980fcbf4215b time out
+2023-12-01 10:59:34,741 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:01:20,098 - ERROR - predict: Cannot save the query image to file 'query_images/622a9d8d-2f66-41a7-b4e6-b64e4f63eecf.jpg'
+2023-12-01 11:01:25,094 - ERROR - predict: ALERT: Request 622a9d8d-2f66-41a7-b4e6-b64e4f63eecf time out
+2023-12-01 11:01:25,094 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:01:38,155 - ERROR - predict: Cannot save the query image to file 'query_images/daf06add-163f-4752-b0f4-69d8f6b7bf2f.jpg'
+2023-12-01 11:01:43,152 - ERROR - predict: ALERT: Request daf06add-163f-4752-b0f4-69d8f6b7bf2f time out
+2023-12-01 11:01:43,153 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:02:14,545 - ERROR - predict: Cannot save the query image to file 'query_images/1f638639-efb2-468e-b222-5a826a1bd6a5.jpg'
+2023-12-01 11:02:19,550 - ERROR - predict: ALERT: Request 1f638639-efb2-468e-b222-5a826a1bd6a5 time out
+2023-12-01 11:02:19,550 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:03:12,227 - ERROR - predict: Cannot save the query image to file 'query_images/1ba702ec-f54b-4eff-9797-5bfb3e00f242.jpg'
+2023-12-01 11:03:17,232 - ERROR - predict: ALERT: Request 1ba702ec-f54b-4eff-9797-5bfb3e00f242 time out
+2023-12-01 11:03:17,232 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:03:42,217 - ERROR - predict: Cannot save the query image to file 'query_images/00195dd6-805e-4585-9f81-35394f0b8efd.jpg'
+2023-12-01 11:03:47,211 - ERROR - predict: ALERT: Request 00195dd6-805e-4585-9f81-35394f0b8efd time out
+2023-12-01 11:03:47,211 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:04:19,401 - ERROR - predict: Cannot save the query image to file 'query_images/e13b2ee3-0a3f-4967-9875-9287466974b4.jpg'
+2023-12-01 11:04:24,395 - ERROR - predict: ALERT: Request e13b2ee3-0a3f-4967-9875-9287466974b4 time out
+2023-12-01 11:04:24,396 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:05:29,758 - ERROR - predict: Cannot save the query image to file 'query_images/e7a0e763-3a69-4865-882b-6fdfb4e063cb.jpg'
+2023-12-01 11:05:34,750 - ERROR - predict: ALERT: Request e7a0e763-3a69-4865-882b-6fdfb4e063cb time out
+2023-12-01 11:05:34,751 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:08:40,423 - ERROR - predict: Cannot save the query image to file 'query_images/cada6f67-7962-42d0-af36-d4121f230326.jpg'
+2023-12-01 11:08:45,420 - ERROR - predict: ALERT: Request cada6f67-7962-42d0-af36-d4121f230326 time out
+2023-12-01 11:08:45,421 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:13:06,065 - ERROR - predict: Cannot save the query image to file 'query_images/307bda6f-7809-4326-92ef-1bd22f131aa6.jpg'
+2023-12-01 11:13:11,067 - ERROR - predict: ALERT: Request 307bda6f-7809-4326-92ef-1bd22f131aa6 time out
+2023-12-01 11:13:11,067 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:15:41,317 - ERROR - predict: Cannot save the query image to file 'query_images/fe737aab-48f5-4dfd-bad2-3a6b03064662.jpg'
+2023-12-01 11:15:46,311 - ERROR - predict: ALERT: Request fe737aab-48f5-4dfd-bad2-3a6b03064662 time out
+2023-12-01 11:15:46,311 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:17:11,471 - ERROR - predict: Cannot save the query image to file 'query_images/408c2bed-4472-49d8-b841-925d627d5ecd.jpg'
+2023-12-01 11:17:16,514 - ERROR - predict: ALERT: Request 408c2bed-4472-49d8-b841-925d627d5ecd time out
+2023-12-01 11:17:16,514 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:41:50,451 - ERROR - predict: Cannot save the query image to file 'query_images/188a407d-5702-4076-81fb-fc91dc8af114.jpg'
+2023-12-01 11:41:59,874 - ERROR - predict: Cannot save the query image to file 'query_images/5cdd084a-cbbe-434e-bd6e-75704755a569.jpg'
+2023-12-01 11:42:30,631 - ERROR - predict: Cannot save the query image to file 'query_images/0bbe09e9-f214-4e38-a953-4528a532e6fa.jpg'
+2023-12-01 11:42:35,627 - ERROR - predict: ALERT: Request 0bbe09e9-f214-4e38-a953-4528a532e6fa time out
+2023-12-01 11:42:35,628 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:42:41,608 - ERROR - predict: Cannot save the query image to file 'query_images/a2005bd7-5bdc-4b56-b77a-4fe70fc77803.jpg'
+2023-12-01 11:42:46,095 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 334, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 95, in crop_sod_images
+    sod_images = helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 508, in extract_mask_ClipSeg_model
+    outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values).logits
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1464, in forward
+    conditional_pixel_values=conditional_pixel_values,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1374, in get_conditional_embeddings
+    raise ValueError("Make sure to pass as many prompt images as there are query images")
+ValueError: Make sure to pass as many prompt images as there are query images
+2023-12-01 11:42:46,602 - ERROR - predict: ALERT: Request a2005bd7-5bdc-4b56-b77a-4fe70fc77803 time out
+2023-12-01 11:42:46,602 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:43:09,145 - ERROR - predict: Cannot save the query image to file 'query_images/5a642e04-1c7b-420c-80e4-1abad83cf605.jpg'
+2023-12-01 11:43:10,882 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 313, in <module>
+    run(multi_db_obj_arr)
+  File "faiss_cluster.py", line 263, in run
+    search_result_dict = faiss_search(dbs, logger, feature_dict)
+  File "faiss_cluster.py", line 144, in faiss_search
+    distances = np.vsplit(distances, 2)
+  File "<__array_function__ internals>", line 6, in vsplit
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/numpy/lib/shape_base.py", line 991, in vsplit
+    return split(ary, indices_or_sections, 0)
+  File "<__array_function__ internals>", line 6, in split
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/numpy/lib/shape_base.py", line 873, in split
+    'array split does not result in an equal division') from None
+ValueError: array split does not result in an equal division
+2023-12-01 11:43:14,156 - ERROR - predict: ALERT: Request 5a642e04-1c7b-420c-80e4-1abad83cf605 time out
+2023-12-01 11:43:14,157 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:43:28,083 - ERROR - predict: Cannot save the query image to file 'query_images/1f4eb5ee-41d1-40eb-8413-17bb3d8dc64d.jpg'
+2023-12-01 11:43:29,568 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 313, in <module>
+    run(multi_db_obj_arr)
+  File "faiss_cluster.py", line 263, in run
+    search_result_dict = faiss_search(dbs, logger, feature_dict)
+  File "faiss_cluster.py", line 142, in faiss_search
+    distances, indices = db_in_use['index'].search([ms_query_feats], retr_num)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/faiss/class_wrappers.py", line 327, in replacement_search
+    n, d = x.shape
+AttributeError: 'list' object has no attribute 'shape'
+2023-12-01 11:43:33,075 - ERROR - predict: ALERT: Request 1f4eb5ee-41d1-40eb-8413-17bb3d8dc64d time out
+2023-12-01 11:43:33,076 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:43:53,327 - ERROR - predict: Cannot save the query image to file 'query_images/d5335eca-965d-4a5b-b0b2-369c428ac558.jpg'
+2023-12-01 11:43:54,818 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 313, in <module>
+    run(multi_db_obj_arr)
+  File "faiss_cluster.py", line 263, in run
+    search_result_dict = faiss_search(dbs, logger, feature_dict)
+  File "faiss_cluster.py", line 142, in faiss_search
+    distances, indices = db_in_use['index'].search(np.array([ms_query_feats]), retr_num)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/faiss/class_wrappers.py", line 327, in replacement_search
+    n, d = x.shape
+ValueError: too many values to unpack (expected 2)
+2023-12-01 11:43:58,321 - ERROR - predict: ALERT: Request d5335eca-965d-4a5b-b0b2-369c428ac558 time out
+2023-12-01 11:43:58,321 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:44:18,100 - ERROR - predict: Cannot save the query image to file 'query_images/677f18b3-7734-4d8b-bbb3-730f6dec23aa.jpg'
+2023-12-01 11:44:19,661 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 313, in <module>
+    run(multi_db_obj_arr)
+  File "faiss_cluster.py", line 263, in run
+    search_result_dict = faiss_search(dbs, logger, feature_dict)
+  File "faiss_cluster.py", line 144, in faiss_search
+    distances = np.vsplit(distances, 2)
+  File "<__array_function__ internals>", line 6, in vsplit
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/numpy/lib/shape_base.py", line 991, in vsplit
+    return split(ary, indices_or_sections, 0)
+  File "<__array_function__ internals>", line 6, in split
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/numpy/lib/shape_base.py", line 873, in split
+    'array split does not result in an equal division') from None
+ValueError: array split does not result in an equal division
+2023-12-01 11:44:23,096 - ERROR - predict: ALERT: Request 677f18b3-7734-4d8b-bbb3-730f6dec23aa time out
+2023-12-01 11:44:23,097 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 11:45:13,439 - ERROR - predict: Cannot save the query image to file 'query_images/5537b32c-7938-4d43-b8ef-a45d0f02afb7.jpg'
+2023-12-01 11:45:25,501 - ERROR - predict: Cannot save the query image to file 'query_images/8d632b2c-f5db-4a9e-87a0-11dbcb3a82e4.jpg'
+2023-12-01 11:45:38,604 - ERROR - predict: Cannot save the query image to file 'query_images/97899b80-a087-4520-8260-8a6db3c9bc9b.jpg'
+2023-12-01 11:45:45,481 - ERROR - predict: Cannot save the query image to file 'query_images/62ed7a4e-6619-4927-a6ac-d772fb3662b9.jpg'
+2023-12-01 11:46:14,439 - ERROR - predict: Cannot save the query image to file 'query_images/6a3c2271-deb2-4bef-8db2-348a0abbf5e4.jpg'
+2023-12-01 11:46:19,289 - ERROR - predict: Cannot save the query image to file 'query_images/b371c998-56a8-4946-a76d-d3d1614e321d.jpg'
+2023-12-01 11:46:30,421 - ERROR - predict: Cannot save the query image to file 'query_images/daad985c-0e4b-4e10-ba2a-30fd394b3843.jpg'
+2023-12-01 11:46:41,958 - ERROR - predict: Cannot save the query image to file 'query_images/81a1b7e9-882e-4200-941d-07616d4740fa.jpg'
+2023-12-01 11:48:10,314 - ERROR - predict: Cannot save the query image to file 'query_images/b7c2ddac-94be-4c2c-92c6-d7cedfddea99.jpg'
+2023-12-01 11:48:16,818 - ERROR - predict: Cannot save the query image to file 'query_images/13d379f9-96ca-4645-b62d-9161063ccb96.jpg'
+2023-12-01 11:48:32,380 - ERROR - predict: Cannot save the query image to file 'query_images/edd391bb-7946-4133-bc25-c2d9a884bf10.jpg'
+2023-12-01 11:48:36,730 - ERROR - predict: Cannot save the query image to file 'query_images/c14cc47c-ea55-461e-9161-0639b06a1053.jpg'
+2023-12-01 11:48:40,996 - ERROR - predict: Cannot save the query image to file 'query_images/2bf0ecbb-daa1-4cdf-b992-529ade6bcc8c.jpg'
+2023-12-01 11:48:57,804 - ERROR - predict: Cannot save the query image to file 'query_images/edff8236-1e39-413b-a91e-69cc80f1b76c.jpg'
+2023-12-01 11:49:03,017 - ERROR - predict: Cannot save the query image to file 'query_images/be2ea086-dc1a-4351-8cf3-a7db9b433e64.jpg'
+2023-12-01 11:49:08,957 - ERROR - predict: Cannot save the query image to file 'query_images/7a92e5ba-d9ba-4021-a288-97819eb8f69f.jpg'
+2023-12-01 11:49:14,046 - ERROR - predict: Cannot save the query image to file 'query_images/3827fb1c-3206-4706-a84b-9c51f55d379b.jpg'
+2023-12-01 11:50:11,245 - ERROR - predict: Cannot save the query image to file 'query_images/4ab6c28a-60ba-4164-b3d5-12d00f57df5a.jpg'
+2023-12-01 11:50:15,709 - ERROR - predict: Cannot save the query image to file 'query_images/f90e8d09-ef57-41fd-a56d-3a133c1f563f.jpg'
+2023-12-01 11:50:19,333 - ERROR - predict: Cannot save the query image to file 'query_images/2c98374e-a50a-4214-8631-3ce0dd7bb4f9.jpg'
+2023-12-01 11:50:23,399 - ERROR - predict: Cannot save the query image to file 'query_images/202b66b7-6e71-41d2-b222-ad850b5406cd.jpg'
+2023-12-01 11:50:27,607 - ERROR - predict: Cannot save the query image to file 'query_images/4595f88b-271a-4cbf-9078-3931e0fa9452.jpg'
+2023-12-01 11:50:34,079 - ERROR - predict: Cannot save the query image to file 'query_images/954c81f5-d31a-48df-ab40-cbf9dab3cbb4.jpg'
+2023-12-01 11:50:37,621 - ERROR - predict: Cannot save the query image to file 'query_images/296b18cb-a84a-448a-a5a1-23ebdd54480f.jpg'
+2023-12-01 11:50:41,428 - ERROR - predict: Cannot save the query image to file 'query_images/cc5b6d07-33ff-446f-8d9e-bfc9e5df26d8.jpg'
+2023-12-01 11:50:44,953 - ERROR - predict: Cannot save the query image to file 'query_images/3fb30de7-c687-4da7-be59-9e2f30dbe61f.jpg'
+2023-12-01 11:50:48,811 - ERROR - predict: Cannot save the query image to file 'query_images/bbab2457-38e4-480b-aee1-1f4328cc4e61.jpg'
+2023-12-01 11:50:52,290 - ERROR - predict: Cannot save the query image to file 'query_images/0d3f7cac-1bbc-4d32-bbd8-4193718b3fa5.jpg'
+2023-12-01 11:50:55,214 - ERROR - predict: Cannot save the query image to file 'query_images/c82da64b-749b-4b6a-8fcc-3956e86bf1c7.jpg'
+2023-12-01 11:50:59,342 - ERROR - predict: Cannot save the query image to file 'query_images/74c11e12-7f36-4e3c-a27b-4c393a488a15.jpg'
+2023-12-01 11:51:04,031 - ERROR - predict: Cannot save the query image to file 'query_images/ae322f07-f8c5-49d3-97d2-2379a92e304e.jpg'
+2023-12-01 11:51:25,264 - ERROR - predict: Cannot save the query image to file 'query_images/6e52b337-318d-484c-8fbb-5e0298d817cc.jpg'
+2023-12-01 11:51:30,223 - ERROR - predict: Cannot save the query image to file 'query_images/7b6f1260-983c-485d-b367-d91aba9e465d.jpg'
+2023-12-01 11:51:34,920 - ERROR - predict: Cannot save the query image to file 'query_images/66ea9abc-6d01-4821-a305-349318aecb41.jpg'
+2023-12-01 11:51:38,497 - ERROR - predict: Cannot save the query image to file 'query_images/3e59f82b-d0ee-42d8-8866-8a7d2137b3b0.jpg'
+2023-12-01 11:51:43,104 - ERROR - predict: Cannot save the query image to file 'query_images/e7753049-27cd-4c1c-b98b-cb2db78f9661.jpg'
+2023-12-01 11:51:47,659 - ERROR - predict: Cannot save the query image to file 'query_images/6e0846ce-ec5d-4bfd-8d2f-851e1cdb43d9.jpg'
+2023-12-01 11:53:13,693 - ERROR - predict: Cannot save the query image to file 'query_images/ad362928-4938-4e09-a0e6-2c969e7a6f6a.jpg'
+2023-12-01 11:53:21,181 - ERROR - predict: Cannot save the query image to file 'query_images/395561bf-6a68-4b48-a9be-5da39467c175.jpg'
+2023-12-01 11:54:05,690 - ERROR - predict: Cannot save the query image to file 'query_images/26bed031-403b-4782-91c9-4ced1e5684eb.jpg'
+2023-12-01 11:54:12,764 - ERROR - predict: Cannot save the query image to file 'query_images/c0b8f30e-4223-423a-888a-a9f67da04911.jpg'
+2023-12-01 11:54:17,768 - ERROR - predict: Cannot save the query image to file 'query_images/1f5a09b1-3af8-40d5-b6a5-3c4309ccd5be.jpg'
+2023-12-01 11:54:22,818 - ERROR - predict: Cannot save the query image to file 'query_images/53cc5c7e-4058-4eb2-8ee3-b7ac869a23e0.jpg'
+2023-12-01 11:54:29,059 - ERROR - predict: Cannot save the query image to file 'query_images/90147292-cf10-4ed7-939a-39d322b9f526.jpg'
+2023-12-01 11:54:54,250 - ERROR - predict: Cannot save the query image to file 'query_images/13d51f7b-ac49-407a-91f1-ee8d84e3464e.jpg'
+2023-12-01 11:55:17,103 - ERROR - predict: Cannot save the query image to file 'query_images/8c5484bb-d4b5-4221-bc5a-01a460188fc6.jpg'
+2023-12-01 11:55:25,086 - ERROR - predict: Cannot save the query image to file 'query_images/c4e4fa3a-69fd-47f7-b836-2d257030836a.jpg'
+2023-12-01 11:56:37,009 - ERROR - predict: Cannot save the query image to file 'query_images/1c9b844a-9a10-4e4c-be7c-2cbea934fbba.jpg'
+2023-12-01 11:56:48,220 - ERROR - predict: Cannot save the query image to file 'query_images/f82ff606-6744-4764-bd9d-c06913bf828c.jpg'
+2023-12-01 11:56:59,161 - ERROR - predict: Cannot save the query image to file 'query_images/69c2a7cd-1319-4158-b731-dfe42c65286a.jpg'
+2023-12-01 11:57:08,465 - ERROR - predict: Cannot save the query image to file 'query_images/e46b6339-a328-4b5a-8b37-6c31eb49790b.jpg'
+2023-12-01 11:57:13,378 - ERROR - predict: Cannot save the query image to file 'query_images/d2613eb9-05ad-4dc4-9b5b-41abd7b6e8ff.jpg'
+2023-12-01 11:57:18,559 - ERROR - predict: Cannot save the query image to file 'query_images/9119532b-3374-403f-bee9-2b04b61e6f08.jpg'
+2023-12-01 11:57:26,618 - ERROR - predict: Cannot save the query image to file 'query_images/815580a6-ae33-4fa9-839b-188a087329b0.jpg'
+2023-12-01 11:57:33,324 - ERROR - predict: Cannot save the query image to file 'query_images/d538d116-83e8-4189-80c4-a41ab6cd6eb1.jpg'
+2023-12-01 11:57:40,163 - ERROR - predict: Cannot save the query image to file 'query_images/e5517e85-47d2-456f-a906-5ce13977cfc5.jpg'
+2023-12-01 11:57:43,939 - ERROR - predict: Cannot save the query image to file 'query_images/c100f3ef-7bdc-407e-aa58-05a62c499dce.jpg'
+2023-12-01 11:57:49,808 - ERROR - predict: Cannot save the query image to file 'query_images/ed8470f3-4fdb-4da1-b117-8c83799dc1c7.jpg'
+2023-12-01 14:51:35,454 - ERROR - predict: Cannot save the query image to file 'query_images/0a2cffb4-8a5e-4873-892a-651c8b38e484.jpg'
+2023-12-01 14:51:40,479 - ERROR - predict: ALERT: Request 0a2cffb4-8a5e-4873-892a-651c8b38e484 time out
+2023-12-01 14:51:40,479 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 14:56:44,076 - ERROR - predict: Cannot save the query image to file 'query_images/727492b5-ce48-466c-8f1a-38adf5741e6c.jpg'
+2023-12-01 14:56:49,068 - ERROR - predict: ALERT: Request 727492b5-ce48-466c-8f1a-38adf5741e6c time out
+2023-12-01 14:56:49,069 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-12-01 15:00:36,624 - ERROR - predict: Cannot save the query image to file 'query_images/dbadf538-005c-48a2-9a8a-30cfee9f6780.jpg'
+2023-12-01 15:02:06,659 - ERROR - predict: Cannot save the query image to file 'query_images/f8b20ab1-9c90-458a-a8a4-b36a6d34435a.jpg'
+2023-12-01 15:03:42,436 - ERROR - predict: Cannot save the query image to file 'query_images/d459659c-42d0-4d3a-9462-3a40fcd1b001.jpg'
+2023-12-01 15:04:47,881 - ERROR - predict: Cannot save the query image to file 'query_images/22b448e1-4998-450e-80ff-bff56fe90d2e.jpg'
+2023-12-01 15:05:17,301 - ERROR - predict: Cannot save the query image to file 'query_images/0b583ec2-e0a1-44d5-b843-85b5c1574167.jpg'
+2023-12-01 15:05:35,509 - ERROR - predict: Cannot save the query image to file 'query_images/13707a4e-d884-4042-9ece-c4e78e3ff176.jpg'
+2023-12-01 15:05:45,108 - ERROR - predict: Cannot save the query image to file 'query_images/4c678f1a-97aa-4f83-abb1-e934e43f0f09.jpg'
+2023-12-01 15:07:21,587 - ERROR - predict: Cannot save the query image to file 'query_images/33e13e56-8450-4b4d-9839-d5f6455fd434.jpg'
+2023-12-01 15:07:31,499 - ERROR - predict: Cannot save the query image to file 'query_images/ed2cc917-8f85-4ae5-9103-3bff8dfbd508.jpg'
+2023-12-01 15:07:52,899 - ERROR - predict: Cannot save the query image to file 'query_images/42fe8961-3ecf-4901-abb9-5bdc855e7439.jpg'
+2023-12-01 15:08:00,351 - ERROR - predict: Cannot save the query image to file 'query_images/8e731769-d29d-4665-b133-fa17ddee5189.jpg'
+2023-12-01 15:08:12,334 - ERROR - predict: Cannot save the query image to file 'query_images/cdb2dbeb-110c-4a25-9c09-2635a39db385.jpg'
+2023-12-01 15:08:22,099 - ERROR - predict: Cannot save the query image to file 'query_images/79eb7a30-48a1-491a-90b0-cbc2442bf657.jpg'
+2023-12-01 15:08:29,161 - ERROR - predict: Cannot save the query image to file 'query_images/8e881c28-1b96-4a77-bc75-6d2fc91cf0f0.jpg'
+2023-12-01 15:37:05,696 - ERROR - predict: Cannot save the query image to file 'query_images/91f873f3-fe07-44e0-aed8-9222f1642616.jpg'
+2023-12-01 15:37:17,830 - ERROR - predict: Cannot save the query image to file 'query_images/ff0d15e3-f826-46e2-9185-7244dbf1310b.jpg'
+2023-12-01 15:37:22,515 - ERROR - predict: Cannot save the query image to file 'query_images/bac8bc78-7575-4db6-b853-6c0765e015d5.jpg'
+2023-12-02 07:34:19,650 - ERROR - _log: 103.151.123.117 - - [02/Dec/2023 07:34:19] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+2023-12-03 16:37:40,648 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-12-03 16:41:20,071 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-12-03 16:50:17,098 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-12-03 21:00:34,046 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-12-04 02:44:19,281 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-12-04 03:48:13,443 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-12-04 05:32:14,949 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+

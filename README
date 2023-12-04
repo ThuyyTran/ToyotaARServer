@@ -1,0 +1,6 @@
+* How to setup
+   1. Download file gl18-tl-resnet101-gem-w-a4d43db.pth and put it in the folder data/networks/
+
+* How to run
+   1. python search_cluster.py
+   2. python cbir_app.py

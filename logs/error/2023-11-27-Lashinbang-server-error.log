@@ -1,0 +1,1635 @@
+2023-11-27 10:09:21,448 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 19, in <module>
+    from flask import Flask, request, jsonify, abort, render_template
+ModuleNotFoundError: No module named 'flask'
+2023-11-27 10:09:32,176 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 20, in <module>
+    from flask_cors import CORS, cross_origin
+ModuleNotFoundError: No module named 'flask_cors'
+2023-11-27 10:09:50,797 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 26, in <module>
+    from pytz import timezone, utc
+ModuleNotFoundError: No module named 'pytz'
+2023-11-27 10:10:02,224 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 54, in <module>
+    db_config = config[settings.DATABASE_KEY]
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/configparser.py", line 963, in __getitem__
+    raise KeyError(key)
+KeyError: 'DATABASE'
+2023-11-27 10:11:44,541 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 55, in <module>
+    db_config = config[settings.DATABASE_KEY]
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/configparser.py", line 963, in __getitem__
+    raise KeyError(key)
+KeyError: 'DATABASE'
+2023-11-27 10:11:59,332 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 54, in <module>
+    db_config = config[settings.DATABASE_KEY]
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/configparser.py", line 963, in __getitem__
+    raise KeyError(key)
+KeyError: 'DATABASE'
+2023-11-27 10:21:48,505 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 54, in <module>
+    db_config = config[settings.DATABASE_KEY]
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/configparser.py", line 963, in __getitem__
+    raise KeyError(key)
+KeyError: 'revamp'
+2023-11-27 10:25:06,185 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cbir_app.py", line 54, in <module>
+    db_config = config[settings.DATABASE_KEY]
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/configparser.py", line 963, in __getitem__
+    raise KeyError(key)
+KeyError: 'DATABASE'
+2023-11-27 10:41:42,515 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 320, in <module>
+    model2 = CNN(useRmac=True, use_solar=True)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 93, in __init__
+    state = torch.load('data/networks/model_best.pth.tar')
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'data/networks/model_best.pth.tar'
+2023-11-27 10:43:46,414 - ERROR - multi_pop: Connection failed in 1 times
+2023-11-27 10:43:51,550 - ERROR - multi_pop: Connection failed in 2 times
+2023-11-27 10:44:01,561 - ERROR - multi_pop: Connection failed in 3 times
+2023-11-27 10:44:16,577 - ERROR - multi_pop: Connection failed in 4 times
+2023-11-27 10:44:16,643 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 627, in _connect
+    raise err
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 332, in <module>
+    run()
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 254, in run
+    requests = helpers.multi_pop(
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 83, in multi_pop
+    arr = p.execute()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/client.py", line 1472, in execute
+    conn = self.connection_pool.get_connection("MULTI", self.shard_hint)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 1086, in get_connection
+    connection.connect()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 0.0.0.0:6379. Connection refused.
+2023-11-27 10:45:59,538 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 10:45:59,599 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 10:46:23,622 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 10:46:23,676 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 10:47:42,880 - ERROR - multi_pop: Connection failed in 1 times
+2023-11-27 10:47:47,887 - ERROR - multi_pop: Connection failed in 2 times
+2023-11-27 10:47:57,897 - ERROR - multi_pop: Connection failed in 3 times
+2023-11-27 10:48:12,913 - ERROR - multi_pop: Connection failed in 4 times
+2023-11-27 10:48:12,913 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 627, in _connect
+    raise err
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 332, in <module>
+    run()
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 254, in run
+    requests = helpers.multi_pop(
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 83, in multi_pop
+    arr = p.execute()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/client.py", line 1472, in execute
+    conn = self.connection_pool.get_connection("MULTI", self.shard_hint)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 1086, in get_connection
+    connection.connect()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 0.0.0.0:6379. Connection refused.
+2023-11-27 10:49:50,890 - ERROR - _log: 127.0.0.1 - - [27/Nov/2023 10:49:50] code 400, message Bad request syntax ('*4')
+2023-11-27 10:49:50,890 - ERROR - multi_pop: Connection failed in 1 times
+2023-11-27 10:49:55,895 - ERROR - _log: 127.0.0.1 - - [27/Nov/2023 10:49:55] code 400, message Bad request syntax ('*4')
+2023-11-27 10:49:55,897 - ERROR - multi_pop: Connection failed in 2 times
+2023-11-27 10:50:05,907 - ERROR - _log: 127.0.0.1 - - [27/Nov/2023 10:50:05] code 400, message Bad request syntax ('*4')
+2023-11-27 10:50:05,908 - ERROR - multi_pop: Connection failed in 3 times
+2023-11-27 10:50:20,916 - ERROR - _log: 127.0.0.1 - - [27/Nov/2023 10:50:20] code 400, message Bad request syntax ('*4')
+2023-11-27 10:50:20,917 - ERROR - multi_pop: Connection failed in 4 times
+2023-11-27 10:50:20,918 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 332, in <module>
+    run()
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 254, in run
+    requests = helpers.multi_pop(
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 83, in multi_pop
+    arr = p.execute()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/client.py", line 1472, in execute
+    conn = self.connection_pool.get_connection("MULTI", self.shard_hint)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 1086, in get_connection
+    connection.connect()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 276, in connect
+    self.on_connect()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 379, in on_connect
+    self.read_response()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/connection.py", line 500, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 15, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 25, in _read_response
+    raw = self._buffer.readline()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/_parsers/socket.py", line 115, in readline
+    self._read_from_socket()
+  File "/home/anlab/anaconda3/envs/searchenv/lib/python3.9/site-packages/redis/_parsers/socket.py", line 68, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+2023-11-27 10:55:21,408 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/run_match_server.py", line 26, in <module>
+    from matching import PlanarMatching
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/matching.py", line 12, in <module>
+    from shapely.geometry import Polygon
+ModuleNotFoundError: No module named 'shapely'
+2023-11-27 10:58:29,524 - ERROR - predict: Cannot save the query image to file 'query_images/cbdc8e4e-9b4f-436c-8f67-55e0f9198c98.jpg'
+2023-11-27 10:58:29,546 - ERROR - handle_exception: EXCEPTION: {"code":500,"message":"module 'PIL.Image' has no attribute 'ANTIALIAS'","success":false}
+
+2023-11-27 10:58:29,551 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 332, in <module>
+    run()
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 68, in crop_sod_images
+    img_decoded = helpers.base64_decode_image(payload.image, np.uint8, img_shape)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 52, in base64_decode_image
+    a = np.frombuffer(base64.decodestring(a), dtype=dtype)
+AttributeError: module 'base64' has no attribute 'decodestring'
+2023-11-27 10:58:32,107 - ERROR - predict: Cannot save the query image to file 'query_images/c5b59708-4f9f-479e-88ea-a695033fd5f5.jpg'
+2023-11-27 10:58:32,116 - ERROR - handle_exception: EXCEPTION: {"code":500,"message":"module 'PIL.Image' has no attribute 'ANTIALIAS'","success":false}
+
+2023-11-27 11:00:00,683 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 332, in <module>
+    run()
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cnn_cluster.py", line 68, in crop_sod_images
+    img_decoded = helpers.base64_decode_image(payload.image, np.uint8, img_shape)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 52, in base64_decode_image
+    a = np.frombuffer(base64.decodestring(a), dtype=dtype)
+AttributeError: module 'base64' has no attribute 'decodestring'
+2023-11-27 11:10:25,612 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cbir_app.py", line 19, in <module>
+    from flask import Flask, request, jsonify, abort, render_template
+ModuleNotFoundError: No module named 'flask'
+2023-11-27 11:10:36,863 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cbir_app.py", line 20, in <module>
+    from flask_cors import CORS, cross_origin
+ModuleNotFoundError: No module named 'flask_cors'
+2023-11-27 11:10:51,520 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cbir_app.py", line 26, in <module>
+    from pytz import timezone, utc
+ModuleNotFoundError: No module named 'pytz'
+2023-11-27 11:11:31,776 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 7, in <module>
+    from extract_cnn import CNN
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 10, in <module>
+    from cirtorch.networks.imageretrievalnet import init_network, extract_vectors, extract_vectors_by_arrays , extract_vectors_by_arrays2 , extract_db_array
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cirtorch/__init__.py", line 5, in <module>
+    from .networks import imageretrievalnet
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/cirtorch/networks/imageretrievalnet.py", line 15, in <module>
+    from tqdm import tqdm
+ModuleNotFoundError: No module named 'tqdm'
+2023-11-27 11:11:40,506 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 16, in <module>
+    import faiss
+ModuleNotFoundError: No module named 'faiss'
+2023-11-27 11:11:52,062 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/faiss/swigfaiss.py", line 14, in swig_import_helper
+    return importlib.import_module(mname)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 670, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 583, in module_from_spec
+  File "<frozen importlib._bootstrap_external>", line 1043, in create_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+ImportError: libopenblas.so.0: cannot open shared object file: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 16, in <module>
+    import faiss
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/faiss/__init__.py", line 19, in <module>
+    from .swigfaiss import *
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/faiss/swigfaiss.py", line 17, in <module>
+    _swigfaiss = swig_import_helper()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/faiss/swigfaiss.py", line 16, in swig_import_helper
+    return importlib.import_module('_swigfaiss')
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ModuleNotFoundError: No module named '_swigfaiss'
+2023-11-27 11:12:36,125 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "run_match_server.py", line 26, in <module>
+    from matching import PlanarMatching
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/matching.py", line 12, in <module>
+    from shapely.geometry import Polygon
+ModuleNotFoundError: No module named 'shapely'
+2023-11-27 11:15:37,534 - ERROR - predict: Cannot save the query image to file 'query_images/a3912a99-d640-4552-a68e-d496e9e4c47e.jpg'
+2023-11-27 11:15:42,528 - ERROR - predict: ALERT: Request a3912a99-d640-4552-a68e-d496e9e4c47e time out
+2023-11-27 11:15:42,528 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 11:17:47,052 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f78ae796350>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='test-la.anlab.info', port=443): Max retries exceeded with url: /api/get-raw-images (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f78ae796350>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_match_server.py", line 329, in <module>
+    match_process()
+  File "run_match_server.py", line 129, in match_process
+    images = download_images(search_path, app_code, _mtc_image_db_folder)
+  File "run_match_server.py", line 65, in download_images
+    images = download_api.download_images(paths, url_name=settings.URL_IMAGE , app_code=app_code)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/download_api.py", line 65, in download_images
+    response = requests.post(url_name, data=tuple(_dict), timeout=10000)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='test-la.anlab.info', port=443): Max retries exceeded with url: /api/get-raw-images (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f78ae796350>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+2023-11-27 11:19:59,142 - ERROR - predict: Cannot save the query image to file 'query_images/c31f24ac-644c-4f45-b117-db5a74b93392.jpg'
+2023-11-27 11:20:04,140 - ERROR - predict: ALERT: Request c31f24ac-644c-4f45-b117-db5a74b93392 time out
+2023-11-27 11:20:04,140 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 11:23:30,804 - ERROR - predict: Cannot save the query image to file 'query_images/2af4da99-bb96-41f5-b57d-b27a24ed4493.jpg'
+2023-11-27 11:23:30,846 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 317, in <module>
+    run(multi_db_obj_arr)
+  File "faiss_cluster.py", line 271, in run
+    print('Result',result)
+UnboundLocalError: local variable 'result' referenced before assignment
+2023-11-27 11:23:35,799 - ERROR - predict: ALERT: Request 2af4da99-bb96-41f5-b57d-b27a24ed4493 time out
+2023-11-27 11:23:35,799 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 11:23:52,458 - ERROR - predict: Cannot save the query image to file 'query_images/1bfa74e7-ab71-49a2-a112-48dce8247b10.jpg'
+2023-11-27 11:23:57,465 - ERROR - predict: ALERT: Request 1bfa74e7-ab71-49a2-a112-48dce8247b10 time out
+2023-11-27 11:23:57,466 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 11:34:13,470 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:34:26,246 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:34:40,362 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:34:48,047 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:35:56,481 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:35:59,221 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:36:12,445 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:36:40,687 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:36:55,898 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:37:03,645 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:37:12,678 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:37:15,288 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:38:46,343 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:38:58,115 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:39:02,956 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f18283cd550>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='test-la.anlab.info', port=443): Max retries exceeded with url: /api/get-raw-images (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f18283cd550>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_match_server.py", line 329, in <module>
+    match_process()
+  File "run_match_server.py", line 129, in match_process
+    images = download_images(search_path, app_code, _mtc_image_db_folder)
+  File "run_match_server.py", line 65, in download_images
+    images = download_api.download_images(paths, url_name=settings.URL_IMAGE , app_code=app_code)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/download_api.py", line 65, in download_images
+    response = requests.post(url_name, data=tuple(_dict), timeout=10000)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='test-la.anlab.info', port=443): Max retries exceeded with url: /api/get-raw-images (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f18283cd550>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+2023-11-27 11:40:09,508 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:40:18,637 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:23,140 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:34,292 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:38,795 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:39,915 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:41,131 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:42,801 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:54,087 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:41:59,802 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:42:08,722 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:42:11,704 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:42:25,004 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:42:45,857 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:42:59,578 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:43:46,726 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:43:48,496 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:43:49,231 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:45:36,760 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:45:40,992 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:46:02,263 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:46:23,837 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:46:27,308 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:46:31,171 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:46:34,385 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:46:53,953 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:48:07,425 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:48:55,568 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:51:14,197 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:52:56,302 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:52:56,376 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:53:17,409 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:54:32,904 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:54:51,106 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:55:08,325 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-27 11:56:19,483 - ERROR - predict: Cannot save the query image to file 'query_images/b4ba80dd-0774-49a3-bddf-6a51033985c8.jpg'
+2023-11-27 11:56:24,483 - ERROR - predict: ALERT: Request b4ba80dd-0774-49a3-bddf-6a51033985c8 time out
+2023-11-27 11:56:24,483 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 11:58:30,316 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f4cf02320d0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='test-la.anlab.info', port=443): Max retries exceeded with url: /api/get-raw-images (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4cf02320d0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_match_server.py", line 329, in <module>
+    match_process()
+  File "run_match_server.py", line 129, in match_process
+    images = download_images(search_path, app_code, _mtc_image_db_folder)
+  File "run_match_server.py", line 65, in download_images
+    images = download_api.download_images(paths, url_name=settings.URL_IMAGE , app_code=app_code)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/download_api.py", line 65, in download_images
+    response = requests.post(url_name, data=tuple(_dict), timeout=10000)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='test-la.anlab.info', port=443): Max retries exceeded with url: /api/get-raw-images (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4cf02320d0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+2023-11-27 12:02:10,881 - ERROR - predict: Cannot save the query image to file 'query_images/7a5d2776-0d83-4674-9216-722cf49c68c0.jpg'
+2023-11-27 12:02:15,878 - ERROR - predict: ALERT: Request 7a5d2776-0d83-4674-9216-722cf49c68c0 time out
+2023-11-27 12:02:15,879 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 12:02:19,703 - ERROR - predict: Cannot save the query image to file 'query_images/b6ab7905-a56b-4665-ac82-b2e4fd552150.jpg'
+2023-11-27 12:02:24,701 - ERROR - predict: ALERT: Request b6ab7905-a56b-4665-ac82-b2e4fd552150 time out
+2023-11-27 12:02:24,702 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:46:32,817 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 311, in <module>
+    clipSeg_model = helpers.init_ClipSegModel()
+AttributeError: module 'helpers' has no attribute 'init_ClipSegModel'
+2023-11-27 13:46:48,553 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 311, in <module>
+    clipSeg_model = helpers.init_ClipSegModel()
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 495, in init_ClipSegModel
+    model = CLIPSegForImageSegmentation.from_pretrained("CIDAS/clipseg-rd64-refined").to('cuda:0')
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/modeling_utils.py", line 1902, in to
+    return super().to(*args, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  [Previous line repeated 1 more time]
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/cuda/__init__.py", line 221, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+2023-11-27 13:51:20,490 - ERROR - predict: Cannot save the query image to file 'query_images/38215f6c-93fd-4726-82b3-61711a0f9ccd.jpg'
+2023-11-27 13:51:25,510 - ERROR - predict: ALERT: Request 38215f6c-93fd-4726-82b3-61711a0f9ccd time out
+2023-11-27 13:51:25,510 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:52:49,688 - ERROR - predict: Cannot save the query image to file 'query_images/692445fa-8c55-40cd-a796-12af37893f39.jpg'
+2023-11-27 13:52:54,685 - ERROR - predict: ALERT: Request 692445fa-8c55-40cd-a796-12af37893f39 time out
+2023-11-27 13:52:54,686 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:52:59,461 - ERROR - predict: Cannot save the query image to file 'query_images/79bb7e8b-6a39-4f60-8960-a0d5f554101f.jpg'
+2023-11-27 13:53:04,463 - ERROR - predict: ALERT: Request 79bb7e8b-6a39-4f60-8960-a0d5f554101f time out
+2023-11-27 13:53:04,463 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:53:34,776 - ERROR - predict: Cannot save the query image to file 'query_images/2ce44838-2f4f-4bbe-9b96-9e2bd885c978.jpg'
+2023-11-27 13:53:39,772 - ERROR - predict: ALERT: Request 2ce44838-2f4f-4bbe-9b96-9e2bd885c978 time out
+2023-11-27 13:53:39,772 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:54:14,565 - ERROR - predict: Cannot save the query image to file 'query_images/d9976a12-6766-4500-b798-27662a193e1c.jpg'
+2023-11-27 13:54:17,672 - ERROR - predict: Cannot save the query image to file 'query_images/517f67d5-517f-4363-8dee-aa65826e6ab8.jpg'
+2023-11-27 13:54:19,568 - ERROR - predict: ALERT: Request d9976a12-6766-4500-b798-27662a193e1c time out
+2023-11-27 13:54:19,569 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:54:22,683 - ERROR - predict: ALERT: Request 517f67d5-517f-4363-8dee-aa65826e6ab8 time out
+2023-11-27 13:54:22,684 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:55:07,835 - ERROR - predict: Cannot save the query image to file 'query_images/7134dc60-59a1-45fb-ae14-a76368dbced4.jpg'
+2023-11-27 13:55:12,832 - ERROR - predict: ALERT: Request 7134dc60-59a1-45fb-ae14-a76368dbced4 time out
+2023-11-27 13:55:12,832 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:55:36,253 - ERROR - predict: Cannot save the query image to file 'query_images/8da34e95-bc66-4e35-a278-a0e3d888ecf7.jpg'
+2023-11-27 13:55:41,249 - ERROR - predict: ALERT: Request 8da34e95-bc66-4e35-a278-a0e3d888ecf7 time out
+2023-11-27 13:55:41,250 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:55:57,171 - ERROR - predict: Cannot save the query image to file 'query_images/36c2ba08-5ad2-4388-89bd-b16a45f87f17.jpg'
+2023-11-27 13:56:02,170 - ERROR - predict: ALERT: Request 36c2ba08-5ad2-4388-89bd-b16a45f87f17 time out
+2023-11-27 13:56:02,171 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:57:19,836 - ERROR - predict: Cannot save the query image to file 'query_images/ee0d64f4-70ee-4397-9303-fa9832e3fb36.jpg'
+2023-11-27 13:57:24,835 - ERROR - predict: ALERT: Request ee0d64f4-70ee-4397-9303-fa9832e3fb36 time out
+2023-11-27 13:57:24,835 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:58:23,082 - ERROR - predict: Cannot save the query image to file 'query_images/11bb164b-4099-4a18-a7a1-1ef53858a684.jpg'
+2023-11-27 13:58:23,116 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 271, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 94, in crop_sod_images
+    sod_model, image_array['raw'])
+KeyError: 'raw'
+2023-11-27 13:58:28,078 - ERROR - predict: ALERT: Request 11bb164b-4099-4a18-a7a1-1ef53858a684 time out
+2023-11-27 13:58:28,078 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:59:08,036 - ERROR - predict: Cannot save the query image to file 'query_images/54802071-4acc-4c93-a713-b12fca81c60f.jpg'
+2023-11-27 13:59:08,435 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 271, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    cv2.imshow('test',sod_images)
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imshow'
+> Overload resolution failed:
+>  - mat is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::cuda::GpuMat> for argument 'mat'
+>  - Expected Ptr<cv::UMat> for argument 'mat'
+
+2023-11-27 13:59:13,079 - ERROR - predict: ALERT: Request 54802071-4acc-4c93-a713-b12fca81c60f time out
+2023-11-27 13:59:13,080 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:59:28,362 - ERROR - predict: Cannot save the query image to file 'query_images/2a593d21-4114-485c-ae6c-95204af10b54.jpg'
+2023-11-27 13:59:28,694 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 334, in <module>
+    run()
+  File "cnn_cluster.py", line 270, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    cv2.imwrite('test.jpg',sod_images)
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imwrite'
+> Overload resolution failed:
+>  - img is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'img'
+
+2023-11-27 13:59:33,359 - ERROR - predict: ALERT: Request 2a593d21-4114-485c-ae6c-95204af10b54 time out
+2023-11-27 13:59:33,359 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 13:59:58,396 - ERROR - predict: Cannot save the query image to file 'query_images/8dd2f83b-e900-4115-8904-d84ff6c61e43.jpg'
+2023-11-27 13:59:58,716 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 271, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    print(sod_images.shape)
+AttributeError: 'list' object has no attribute 'shape'
+2023-11-27 14:00:03,440 - ERROR - predict: ALERT: Request 8dd2f83b-e900-4115-8904-d84ff6c61e43 time out
+2023-11-27 14:00:03,440 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:00:21,225 - ERROR - predict: Cannot save the query image to file 'query_images/34bf495d-11bd-4b36-be94-7957aae09b41.jpg'
+2023-11-27 14:00:21,566 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 334, in <module>
+    run()
+  File "cnn_cluster.py", line 270, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    cv2.imwrite('test.jpg',sod_images[0])
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imwrite'
+> Overload resolution failed:
+>  - img is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'img'
+
+2023-11-27 14:00:26,225 - ERROR - predict: ALERT: Request 34bf495d-11bd-4b36-be94-7957aae09b41 time out
+2023-11-27 14:00:26,225 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:00:59,501 - ERROR - predict: Cannot save the query image to file 'query_images/232a7c9f-872d-46f7-86d8-89ad83f6ba7b.jpg'
+2023-11-27 14:01:04,505 - ERROR - predict: ALERT: Request 232a7c9f-872d-46f7-86d8-89ad83f6ba7b time out
+2023-11-27 14:01:04,505 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:01:31,940 - ERROR - predict: Cannot save the query image to file 'query_images/db8fec6a-ed2b-4d35-8d08-e1060aad277f.jpg'
+2023-11-27 14:01:36,948 - ERROR - predict: ALERT: Request db8fec6a-ed2b-4d35-8d08-e1060aad277f time out
+2023-11-27 14:01:36,948 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:04:14,442 - ERROR - predict: Cannot save the query image to file 'query_images/90ba4243-bf66-45ef-95bb-2e6bdd6f8e0a.jpg'
+2023-11-27 14:04:19,445 - ERROR - predict: ALERT: Request 90ba4243-bf66-45ef-95bb-2e6bdd6f8e0a time out
+2023-11-27 14:04:19,446 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:07:24,492 - ERROR - predict: Cannot save the query image to file 'query_images/6397041b-d9eb-4fda-9539-bebc68a26d3e.jpg'
+2023-11-27 14:07:29,405 - ERROR - predict: ALERT: Request 6397041b-d9eb-4fda-9539-bebc68a26d3e time out
+2023-11-27 14:07:29,406 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:10:09,446 - ERROR - predict: Cannot save the query image to file 'query_images/efca8bc6-03fa-498d-a936-0ab5de019700.jpg'
+2023-11-27 14:10:14,379 - ERROR - predict: ALERT: Request efca8bc6-03fa-498d-a936-0ab5de019700 time out
+2023-11-27 14:10:14,379 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:13:35,049 - ERROR - predict: Cannot save the query image to file 'query_images/58f5b0c3-a937-43e7-88ff-d71c8663d898.jpg'
+2023-11-27 14:13:39,978 - ERROR - predict: ALERT: Request 58f5b0c3-a937-43e7-88ff-d71c8663d898 time out
+2023-11-27 14:13:39,978 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:25:34,712 - ERROR - predict: Cannot save the query image to file 'query_images/8ba37d79-6c0d-4830-90e1-7d42510e5f9b.jpg'
+2023-11-27 14:25:39,404 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 508, in extract_mask_ClipSeg_model
+    outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1464, in forward
+    conditional_pixel_values=conditional_pixel_values,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1374, in get_conditional_embeddings
+    raise ValueError("Make sure to pass as many prompt images as there are query images")
+ValueError: Make sure to pass as many prompt images as there are query images
+2023-11-27 14:25:39,647 - ERROR - predict: ALERT: Request 8ba37d79-6c0d-4830-90e1-7d42510e5f9b time out
+2023-11-27 14:25:39,647 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:27:12,859 - ERROR - predict: Cannot save the query image to file 'query_images/77eb62cf-0e60-460d-ac84-2d308f3c8f94.jpg'
+2023-11-27 14:27:16,940 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 509, in extract_mask_ClipSeg_model
+    print(outputs.shape)
+AttributeError: 'CLIPSegImageSegmentationOutput' object has no attribute 'shape'
+2023-11-27 14:27:17,796 - ERROR - predict: ALERT: Request 77eb62cf-0e60-460d-ac84-2d308f3c8f94 time out
+2023-11-27 14:27:17,796 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:28:08,203 - ERROR - predict: Cannot save the query image to file 'query_images/92ca17a1-ac08-4b1b-8108-bc3398bc0fd7.jpg'
+2023-11-27 14:28:13,128 - ERROR - predict: ALERT: Request 92ca17a1-ac08-4b1b-8108-bc3398bc0fd7 time out
+2023-11-27 14:28:13,129 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:28:55,699 - ERROR - predict: Cannot save the query image to file 'query_images/d9cc2f11-5876-4fca-bb80-0fad22731bbc.jpg'
+2023-11-27 14:29:00,633 - ERROR - predict: ALERT: Request d9cc2f11-5876-4fca-bb80-0fad22731bbc time out
+2023-11-27 14:29:00,634 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:30:01,301 - ERROR - predict: Cannot save the query image to file 'query_images/ec41b6f6-c568-4b9e-acee-06f1ec97dda4.jpg'
+2023-11-27 14:30:05,427 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 508, in extract_mask_ClipSeg_model
+    outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1464, in forward
+    conditional_pixel_values=conditional_pixel_values,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1374, in get_conditional_embeddings
+    raise ValueError("Make sure to pass as many prompt images as there are query images")
+ValueError: Make sure to pass as many prompt images as there are query images
+2023-11-27 14:30:06,233 - ERROR - predict: ALERT: Request ec41b6f6-c568-4b9e-acee-06f1ec97dda4 time out
+2023-11-27 14:30:06,233 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:36:11,537 - ERROR - predict: Cannot save the query image to file 'query_images/55a9f449-44ee-4650-9798-9773080ed127.jpg'
+2023-11-27 14:36:15,707 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 508, in extract_mask_ClipSeg_model
+    outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1465, in forward
+    conditional_pixel_values=conditional_pixel_values,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1375, in get_conditional_embeddings
+    raise ValueError("Make sure to pass as many prompt images as there are query images")
+ValueError: Make sure to pass as many prompt images as there are query images
+2023-11-27 14:36:16,474 - ERROR - predict: ALERT: Request 55a9f449-44ee-4650-9798-9773080ed127 time out
+2023-11-27 14:36:16,474 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:36:55,111 - ERROR - predict: Cannot save the query image to file 'query_images/e1d1e705-1ed1-4b2b-810f-574b56ade574.jpg'
+2023-11-27 14:36:59,209 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 508, in extract_mask_ClipSeg_model
+    outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1466, in forward
+    conditional_pixel_values=conditional_pixel_values,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1376, in get_conditional_embeddings
+    raise ValueError("Make sure to pass as many prompt images as there are query images")
+ValueError: Make sure to pass as many prompt images as there are query images
+2023-11-27 14:37:00,081 - ERROR - predict: ALERT: Request e1d1e705-1ed1-4b2b-810f-574b56ade574 time out
+2023-11-27 14:37:00,081 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:38:41,434 - ERROR - predict: Cannot save the query image to file 'query_images/cf6317b3-d94e-4622-908a-1c863f6715b2.jpg'
+2023-11-27 14:38:46,400 - ERROR - predict: ALERT: Request cf6317b3-d94e-4622-908a-1c863f6715b2 time out
+2023-11-27 14:38:46,401 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:46:01,144 - ERROR - predict: Cannot save the query image to file 'query_images/16a97dd4-631a-4b55-9ffc-091d30ba6a83.jpg'
+2023-11-27 14:46:05,335 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 506, in extract_mask_ClipSeg_model
+    encoded_prompt = processor(images=[prompt*len(images)], return_tensors="pt").to('cuda:0')
+TypeError: unsupported operand type(s) for *: 'JpegImageFile' and 'int'
+2023-11-27 14:46:06,077 - ERROR - predict: ALERT: Request 16a97dd4-631a-4b55-9ffc-091d30ba6a83 time out
+2023-11-27 14:46:06,078 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:46:59,886 - ERROR - predict: Cannot save the query image to file 'query_images/62d8d825-b472-4cc6-8d7d-0de9d9847021.jpg'
+2023-11-27 14:47:04,210 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 508, in extract_mask_ClipSeg_model
+    outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1466, in forward
+    conditional_pixel_values=conditional_pixel_values,
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/modeling_clipseg.py", line 1376, in get_conditional_embeddings
+    raise ValueError("Make sure to pass as many prompt images as there are query images")
+ValueError: Make sure to pass as many prompt images as there are query images
+2023-11-27 14:47:04,825 - ERROR - predict: ALERT: Request 62d8d825-b472-4cc6-8d7d-0de9d9847021 time out
+2023-11-27 14:47:04,825 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:47:59,512 - ERROR - predict: Cannot save the query image to file 'query_images/41b50c56-75e3-46a7-b26c-756fb65ac95e.jpg'
+2023-11-27 14:48:04,466 - ERROR - predict: ALERT: Request 41b50c56-75e3-46a7-b26c-756fb65ac95e time out
+2023-11-27 14:48:04,467 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:49:15,197 - ERROR - predict: Cannot save the query image to file 'query_images/b31ac567-ad2e-44aa-abec-5e56e86ed79e.jpg'
+2023-11-27 14:49:20,175 - ERROR - predict: ALERT: Request b31ac567-ad2e-44aa-abec-5e56e86ed79e time out
+2023-11-27 14:49:20,175 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:54:41,206 - ERROR - predict: Cannot save the query image to file 'query_images/b79bad7d-2f1a-4ef6-bd70-e4649bc30a78.jpg'
+2023-11-27 14:54:45,025 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 506, in extract_mask_ClipSeg_model
+    encoded_image = processor(images=[images], return_tensors="pt").to('cuda:0')
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/processing_clipseg.py", line 111, in __call__
+    image_features = self.image_processor(images, return_tensors=return_tensors, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/image_processing_utils.py", line 464, in __call__
+    return self.preprocess(images, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/vit/image_processing_vit.py", line 244, in preprocess
+    images = make_list_of_images(images)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/image_utils.py", line 133, in make_list_of_images
+    "Invalid image type. Expected either PIL.Image.Image, numpy.ndarray, torch.Tensor, tf.Tensor or "
+ValueError: Invalid image type. Expected either PIL.Image.Image, numpy.ndarray, torch.Tensor, tf.Tensor or jax.ndarray, but got <class 'list'>.
+2023-11-27 14:54:46,158 - ERROR - predict: ALERT: Request b79bad7d-2f1a-4ef6-bd70-e4649bc30a78 time out
+2023-11-27 14:54:46,158 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:55:34,649 - ERROR - predict: Cannot save the query image to file 'query_images/0be94925-d6ce-4117-91a5-7b03c6529530.jpg'
+2023-11-27 14:55:39,424 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/JpegImagePlugin.py", line 640, in _save
+    rawmode = RAWMODE[im.mode]
+KeyError: 'RGBA'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 520, in extract_mask_ClipSeg_model
+    foreground.save('test'+str(i)+'.jpg')
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 2432, in save
+    save_handler(self, fp, filename)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/JpegImagePlugin.py", line 643, in _save
+    raise OSError(msg) from e
+OSError: cannot write mode RGBA as JPEG
+2023-11-27 14:55:39,608 - ERROR - predict: ALERT: Request 0be94925-d6ce-4117-91a5-7b03c6529530 time out
+2023-11-27 14:55:39,608 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 14:57:06,256 - ERROR - predict: Cannot save the query image to file 'query_images/ba5d696e-ecb3-4117-8269-b43966b98ed6.jpg'
+2023-11-27 14:57:11,189 - ERROR - predict: ALERT: Request ba5d696e-ecb3-4117-8269-b43966b98ed6 time out
+2023-11-27 14:57:11,189 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:02:52,996 - ERROR - predict: Cannot save the query image to file 'query_images/7d07e293-0c0b-425b-b740-7f6101e2bcc7.jpg'
+2023-11-27 15:02:57,950 - ERROR - predict: ALERT: Request 7d07e293-0c0b-425b-b740-7f6101e2bcc7 time out
+2023-11-27 15:02:57,950 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:04:09,441 - ERROR - predict: Cannot save the query image to file 'query_images/2690f61e-0cbe-45a9-8e14-a5a7077cf802.jpg'
+2023-11-27 15:04:14,376 - ERROR - predict: ALERT: Request 2690f61e-0cbe-45a9-8e14-a5a7077cf802 time out
+2023-11-27 15:04:14,376 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:06:07,410 - ERROR - predict: Cannot save the query image to file 'query_images/4b2e3fb4-8eeb-46f1-b249-96d425af7932.jpg'
+2023-11-27 15:06:11,820 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 512, in extract_mask_ClipSeg_model
+    preds = torch.transpose(preds, 0, 1).squeeze(0).cpu().numpy()
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+2023-11-27 15:06:12,373 - ERROR - predict: ALERT: Request 4b2e3fb4-8eeb-46f1-b249-96d425af7932 time out
+2023-11-27 15:06:12,373 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:06:50,487 - ERROR - predict: Cannot save the query image to file 'query_images/22044e6c-b235-44c8-be23-8be4a21d4fcd.jpg'
+2023-11-27 15:06:54,590 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 513, in extract_mask_ClipSeg_model
+    preds = torch.transpose(preds, 0, 1).squeeze(0).cpu().numpy()
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+2023-11-27 15:06:55,463 - ERROR - predict: ALERT: Request 22044e6c-b235-44c8-be23-8be4a21d4fcd time out
+2023-11-27 15:06:55,464 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:07:26,075 - ERROR - predict: Cannot save the query image to file 'query_images/687858be-d664-46df-a0f1-16042861d202.jpg'
+2023-11-27 15:07:29,890 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 506, in extract_mask_ClipSeg_model
+    encoded_image = processor(images=[images], return_tensors="pt").to('cuda:0')
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/clipseg/processing_clipseg.py", line 111, in __call__
+    image_features = self.image_processor(images, return_tensors=return_tensors, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/image_processing_utils.py", line 464, in __call__
+    return self.preprocess(images, **kwargs)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/models/vit/image_processing_vit.py", line 244, in preprocess
+    images = make_list_of_images(images)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/transformers/image_utils.py", line 133, in make_list_of_images
+    "Invalid image type. Expected either PIL.Image.Image, numpy.ndarray, torch.Tensor, tf.Tensor or "
+ValueError: Invalid image type. Expected either PIL.Image.Image, numpy.ndarray, torch.Tensor, tf.Tensor or jax.ndarray, but got <class 'list'>.
+2023-11-27 15:07:31,018 - ERROR - predict: ALERT: Request 687858be-d664-46df-a0f1-16042861d202 time out
+2023-11-27 15:07:31,019 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:09:57,665 - ERROR - predict: Cannot save the query image to file 'query_images/f4d0f017-9dbb-4f6a-a9bc-17eb38ce8f25.jpg'
+2023-11-27 15:10:01,752 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 511, in extract_mask_ClipSeg_model
+    preds = torch.transpose(preds, 0, 1).squeeze(0).cpu().numpy()
+UnboundLocalError: local variable 'preds' referenced before assignment
+2023-11-27 15:10:02,612 - ERROR - predict: ALERT: Request f4d0f017-9dbb-4f6a-a9bc-17eb38ce8f25 time out
+2023-11-27 15:10:02,612 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:10:57,672 - ERROR - predict: Cannot save the query image to file 'query_images/5d78ead1-eb9a-4279-b25f-2e530fbe5a0d.jpg'
+2023-11-27 15:11:01,954 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 516, in extract_mask_ClipSeg_model
+    mask = mask.resize(images[0].size)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 2155, in resize
+    size = tuple(size)
+TypeError: 'int' object is not iterable
+2023-11-27 15:11:02,622 - ERROR - predict: ALERT: Request 5d78ead1-eb9a-4279-b25f-2e530fbe5a0d time out
+2023-11-27 15:11:02,622 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:11:30,995 - ERROR - predict: Cannot save the query image to file 'query_images/935860ef-d7a6-4c4e-9801-71a6e28cdf2c.jpg'
+2023-11-27 15:11:35,119 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 516, in extract_mask_ClipSeg_model
+    mask = mask.resize(images.size)
+AttributeError: 'list' object has no attribute 'size'
+2023-11-27 15:11:35,965 - ERROR - predict: ALERT: Request 935860ef-d7a6-4c4e-9801-71a6e28cdf2c time out
+2023-11-27 15:11:35,966 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:12:21,049 - ERROR - predict: Cannot save the query image to file 'query_images/3c968c03-3cb3-448d-b0cc-afc83818da21.jpg'
+2023-11-27 15:12:25,426 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 517, in extract_mask_ClipSeg_model
+    mask = mask.resize(images[0].size)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 2155, in resize
+    size = tuple(size)
+TypeError: 'int' object is not iterable
+2023-11-27 15:12:25,998 - ERROR - predict: ALERT: Request 3c968c03-3cb3-448d-b0cc-afc83818da21 time out
+2023-11-27 15:12:25,998 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:13:21,215 - ERROR - predict: Cannot save the query image to file 'query_images/c0656258-553b-4fc3-92ec-7c688db2033e.jpg'
+2023-11-27 15:13:25,717 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 269, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 96, in crop_sod_images
+    helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/helpers.py", line 516, in extract_mask_ClipSeg_model
+    mask = mask.resize(images[0].shape)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 2193, in resize
+    return self._new(self.im.resize(size, resample, box))
+TypeError: argument 1 must be sequence of length 2, not 3
+2023-11-27 15:13:26,179 - ERROR - predict: ALERT: Request c0656258-553b-4fc3-92ec-7c688db2033e time out
+2023-11-27 15:13:26,179 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:14:27,934 - ERROR - predict: Cannot save the query image to file 'query_images/11bcef83-c764-40f1-9e1c-0f6c0de29309.jpg'
+2023-11-27 15:14:32,879 - ERROR - predict: ALERT: Request 11bcef83-c764-40f1-9e1c-0f6c0de29309 time out
+2023-11-27 15:14:32,879 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:14:47,422 - ERROR - predict: Cannot save the query image to file 'query_images/88fcdebd-4572-46f8-9af4-2d852b0a2b16.jpg'
+2023-11-27 15:14:52,371 - ERROR - predict: ALERT: Request 88fcdebd-4572-46f8-9af4-2d852b0a2b16 time out
+2023-11-27 15:14:52,371 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:16:04,633 - ERROR - predict: Cannot save the query image to file 'query_images/c4dde36c-6028-488d-85a1-6561f1678e10.jpg'
+2023-11-27 15:16:09,573 - ERROR - predict: ALERT: Request c4dde36c-6028-488d-85a1-6561f1678e10 time out
+2023-11-27 15:16:09,573 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:16:16,727 - ERROR - predict: Cannot save the query image to file 'query_images/ef2ec50b-f07f-4b21-94d1-110a9ce97dae.jpg'
+2023-11-27 15:16:21,683 - ERROR - predict: ALERT: Request ef2ec50b-f07f-4b21-94d1-110a9ce97dae time out
+2023-11-27 15:16:21,683 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:17:37,219 - ERROR - predict: Cannot save the query image to file 'query_images/6078d235-5ada-43cd-bb87-c8ded22b9539.jpg'
+2023-11-27 15:17:42,139 - ERROR - predict: ALERT: Request 6078d235-5ada-43cd-bb87-c8ded22b9539 time out
+2023-11-27 15:17:42,139 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:17:49,898 - ERROR - predict: Cannot save the query image to file 'query_images/59a28e03-31bd-4c29-aa69-65d04c4ac5de.jpg'
+2023-11-27 15:17:54,846 - ERROR - predict: ALERT: Request 59a28e03-31bd-4c29-aa69-65d04c4ac5de time out
+2023-11-27 15:17:54,846 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:24:51,336 - ERROR - predict: Cannot save the query image to file 'query_images/02ba899c-ead9-4704-893e-6a758621ddff.jpg'
+2023-11-27 15:24:56,288 - ERROR - predict: ALERT: Request 02ba899c-ead9-4704-893e-6a758621ddff time out
+2023-11-27 15:24:56,288 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:26:04,993 - ERROR - predict: Cannot save the query image to file 'query_images/78175424-c3dc-4ef6-96eb-3e72110e04f4.jpg'
+2023-11-27 15:26:09,965 - ERROR - predict: ALERT: Request 78175424-c3dc-4ef6-96eb-3e72110e04f4 time out
+2023-11-27 15:26:09,965 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:27:04,468 - ERROR - predict: Cannot save the query image to file 'query_images/1fed2c29-5bb4-4b69-b01a-92cc6d14f4ce.jpg'
+2023-11-27 15:27:09,426 - ERROR - predict: ALERT: Request 1fed2c29-5bb4-4b69-b01a-92cc6d14f4ce time out
+2023-11-27 15:27:09,427 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:28:55,027 - ERROR - predict: Cannot save the query image to file 'query_images/ed1aaaa5-e400-4d0a-8a98-c074a5fb94ad.jpg'
+2023-11-27 15:28:56,473 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 268, in run
+    print(cv2.imwrite('test.png',sod_dict['sod']))
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imwrite'
+> Overload resolution failed:
+>  - img is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'img'
+
+2023-11-27 15:28:59,959 - ERROR - predict: ALERT: Request ed1aaaa5-e400-4d0a-8a98-c074a5fb94ad time out
+2023-11-27 15:28:59,959 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:30:13,136 - ERROR - predict: Cannot save the query image to file 'query_images/5e16686d-192d-4284-b5f3-32a75d896d9b.jpg'
+2023-11-27 15:30:14,594 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 268, in run
+    print(sod_dict['sod'].save('test.png'))
+AttributeError: 'list' object has no attribute 'save'
+2023-11-27 15:30:18,103 - ERROR - predict: ALERT: Request 5e16686d-192d-4284-b5f3-32a75d896d9b time out
+2023-11-27 15:30:18,103 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:30:36,210 - ERROR - predict: Cannot save the query image to file 'query_images/fd009296-d403-49a3-ab44-e109ccbfc316.jpg'
+2023-11-27 15:30:37,608 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 268, in run
+    print(sod_dict['sod'][0].save('test.png'))
+AttributeError: 'numpy.ndarray' object has no attribute 'save'
+2023-11-27 15:30:41,180 - ERROR - predict: ALERT: Request fd009296-d403-49a3-ab44-e109ccbfc316 time out
+2023-11-27 15:30:41,180 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:31:16,270 - ERROR - predict: Cannot save the query image to file 'query_images/6dab5627-e128-463f-8073-a9270b55f9ac.jpg'
+2023-11-27 15:31:21,238 - ERROR - predict: ALERT: Request 6dab5627-e128-463f-8073-a9270b55f9ac time out
+2023-11-27 15:31:21,238 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:32:05,184 - ERROR - predict: Cannot save the query image to file 'query_images/eff2322e-5054-4471-935a-0f873134f65c.jpg'
+2023-11-27 15:32:10,155 - ERROR - predict: ALERT: Request eff2322e-5054-4471-935a-0f873134f65c time out
+2023-11-27 15:32:10,156 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:35:10,184 - ERROR - predict: Cannot save the query image to file 'query_images/845243c5-f578-47db-8360-5947a3313b24.jpg'
+2023-11-27 15:35:15,137 - ERROR - predict: ALERT: Request 845243c5-f578-47db-8360-5947a3313b24 time out
+2023-11-27 15:35:15,138 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:37:59,743 - ERROR - predict: Cannot save the query image to file 'query_images/66f44fc6-99ae-4294-bde0-27a2126649bd.jpg'
+2023-11-27 15:38:04,694 - ERROR - predict: ALERT: Request 66f44fc6-99ae-4294-bde0-27a2126649bd time out
+2023-11-27 15:38:04,694 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:42:25,503 - ERROR - predict: Cannot save the query image to file 'query_images/4ed69f7d-a423-4b26-bd02-6c09d339a8d5.jpg'
+2023-11-27 15:42:26,687 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 332, in <module>
+    run()
+  File "cnn_cluster.py", line 273, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 186, in extract_features
+    input_dict = group_dict_by_app_code(sod_dict)
+  File "cnn_cluster.py", line 175, in group_dict_by_app_code
+    'box': [dict[settings.IMAGE_BOXES][i]],
+IndexError: list index out of range
+2023-11-27 15:42:30,460 - ERROR - predict: ALERT: Request 4ed69f7d-a423-4b26-bd02-6c09d339a8d5 time out
+2023-11-27 15:42:30,460 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:43:25,788 - ERROR - predict: Cannot save the query image to file 'query_images/74d27f80-dd12-49aa-b84f-97aa0d642ceb.jpg'
+2023-11-27 15:43:27,220 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 274, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 206, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 170, in extract_feat_batch_by_arrays
+    cv2.imwrite('test.png',images[0])
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imwrite'
+> Overload resolution failed:
+>  - img is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'img'
+
+2023-11-27 15:43:30,752 - ERROR - predict: ALERT: Request 74d27f80-dd12-49aa-b84f-97aa0d642ceb time out
+2023-11-27 15:43:30,752 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:45:52,951 - ERROR - predict: Cannot save the query image to file 'query_images/2d354dc4-4728-4f41-ac42-bd55ec187a7b.jpg'
+2023-11-27 15:45:54,544 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 268, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 149, in crop_sod_images
+    image_array.update({'sod': np.array(sod_images)})
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Image'
+2023-11-27 15:45:57,908 - ERROR - predict: ALERT: Request 2d354dc4-4728-4f41-ac42-bd55ec187a7b time out
+2023-11-27 15:45:57,908 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:46:49,361 - ERROR - predict: Cannot save the query image to file 'query_images/ce61a17c-d27e-4866-85b4-79bf7fcbbbc3.jpg'
+2023-11-27 15:46:50,797 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 274, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 206, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 170, in extract_feat_batch_by_arrays
+    cv2.imwrite('test.png',images[0])
+cv2.error: OpenCV(4.8.1) :-1: error: (-5:Bad argument) in function 'imwrite'
+> Overload resolution failed:
+>  - img is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'img'
+
+2023-11-27 15:46:54,325 - ERROR - predict: ALERT: Request ce61a17c-d27e-4866-85b4-79bf7fcbbbc3 time out
+2023-11-27 15:46:54,325 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:48:12,812 - ERROR - predict: Cannot save the query image to file 'query_images/2981bec3-bbdf-473d-b1e4-ddd625ab651f.jpg'
+2023-11-27 15:48:14,031 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 333, in <module>
+    run()
+  File "cnn_cluster.py", line 268, in run
+    sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+  File "cnn_cluster.py", line 104, in crop_sod_images
+    (sod_image_shape[1], sod_image_shape[0]), resample=Image.BILINEAR)
+TypeError: 'resample' is an invalid keyword argument for this function
+2023-11-27 15:48:17,773 - ERROR - predict: ALERT: Request 2981bec3-bbdf-473d-b1e4-ddd625ab651f time out
+2023-11-27 15:48:17,773 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:50:11,480 - ERROR - predict: Cannot save the query image to file 'query_images/f49af890-2073-4aa1-a120-73cd9cbd2183.jpg'
+2023-11-27 15:50:16,456 - ERROR - predict: ALERT: Request f49af890-2073-4aa1-a120-73cd9cbd2183 time out
+2023-11-27 15:50:16,456 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:51:52,017 - ERROR - predict: Cannot save the query image to file 'query_images/fb1a7d54-1fbd-43e2-9abf-17088ea7fb79.jpg'
+2023-11-27 15:51:56,971 - ERROR - predict: ALERT: Request fb1a7d54-1fbd-43e2-9abf-17088ea7fb79 time out
+2023-11-27 15:51:56,972 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:52:46,283 - ERROR - predict: Cannot save the query image to file 'query_images/0d0af0e3-9694-400f-a6ba-0504ebca35da.jpg'
+2023-11-27 15:52:51,215 - ERROR - predict: ALERT: Request 0d0af0e3-9694-400f-a6ba-0504ebca35da time out
+2023-11-27 15:52:51,215 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:53:58,839 - ERROR - predict: Cannot save the query image to file 'query_images/d3f3cd1a-21e7-48d2-b515-ca36e7865d42.jpg'
+2023-11-27 15:54:03,775 - ERROR - predict: ALERT: Request d3f3cd1a-21e7-48d2-b515-ca36e7865d42 time out
+2023-11-27 15:54:03,775 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:55:05,077 - ERROR - predict: Cannot save the query image to file 'query_images/ef5b08a1-8252-4e0e-adc6-bd7c9c62d23a.jpg'
+2023-11-27 15:55:10,045 - ERROR - predict: ALERT: Request ef5b08a1-8252-4e0e-adc6-bd7c9c62d23a time out
+2023-11-27 15:55:10,046 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:55:50,953 - ERROR - predict: Cannot save the query image to file 'query_images/181ba263-ca37-46f8-a345-5b5b44d1d136.jpg'
+2023-11-27 15:55:52,657 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 276, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 208, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 172, in extract_feat_batch_by_arrays
+    imgs = square_multyimages(images, image_size)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 82, in square_multyimages
+    tensors[i,:, pad_top:pad_top + h, pad_left: pad_left + w] = img
+RuntimeError: The expanded size of the tensor (3) must match the existing size (4) at non-singleton dimension 0.  Target sizes: [3, 405, 540].  Tensor sizes: [4, 405, 540]
+2023-11-27 15:55:55,932 - ERROR - predict: ALERT: Request 181ba263-ca37-46f8-a345-5b5b44d1d136 time out
+2023-11-27 15:55:55,933 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:57:09,289 - ERROR - predict: Cannot save the query image to file 'query_images/093494e9-34f9-4642-910f-ff5b1b5c2103.jpg'
+2023-11-27 15:57:10,690 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 276, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 208, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 170, in extract_feat_batch_by_arrays
+    imgs = square_multyimages(images, image_size)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 82, in square_multyimages
+    tensors[i,:, pad_top:pad_top + h, pad_left: pad_left + w] = img
+RuntimeError: The expanded size of the tensor (3) must match the existing size (4) at non-singleton dimension 0.  Target sizes: [3, 405, 540].  Tensor sizes: [4, 405, 540]
+2023-11-27 15:57:14,209 - ERROR - predict: ALERT: Request 093494e9-34f9-4642-910f-ff5b1b5c2103 time out
+2023-11-27 15:57:14,209 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 15:57:29,638 - ERROR - predict: Cannot save the query image to file 'query_images/567a2b21-f748-4bc6-9a75-26082e6952f3.jpg'
+2023-11-27 15:57:31,368 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "cnn_cluster.py", line 335, in <module>
+    run()
+  File "cnn_cluster.py", line 276, in run
+    feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+  File "cnn_cluster.py", line 208, in extract_features
+    img_data, image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 170, in extract_feat_batch_by_arrays
+    imgs = square_multyimages(images, image_size)
+  File "/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/extract_cnn.py", line 82, in square_multyimages
+    tensors[i,:, pad_top:pad_top + h, pad_left: pad_left + w] = img
+RuntimeError: The expanded size of the tensor (3) must match the existing size (4) at non-singleton dimension 0.  Target sizes: [3, 405, 540].  Tensor sizes: [4, 405, 540]
+2023-11-27 15:57:34,566 - ERROR - predict: ALERT: Request 567a2b21-f748-4bc6-9a75-26082e6952f3 time out
+2023-11-27 15:57:34,566 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:00:18,675 - ERROR - predict: Cannot save the query image to file 'query_images/0a40ff97-4d67-49c6-95cb-5f603048e410.jpg'
+2023-11-27 16:00:23,628 - ERROR - predict: ALERT: Request 0a40ff97-4d67-49c6-95cb-5f603048e410 time out
+2023-11-27 16:00:23,628 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:16:03,105 - ERROR - predict: Cannot save the query image to file 'query_images/7ae5ce8b-a8f7-4b90-b9a9-0aaa7bd1f51c.jpg'
+2023-11-27 16:16:08,040 - ERROR - predict: ALERT: Request 7ae5ce8b-a8f7-4b90-b9a9-0aaa7bd1f51c time out
+2023-11-27 16:16:08,040 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:24:08,489 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 295, in <module>
+    db_paths = json.load(json_db)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/json/__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+2023-11-27 16:24:48,712 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "faiss_cluster.py", line 313, in <module>
+    run(multi_db_obj_arr)
+  File "faiss_cluster.py", line 263, in run
+    search_result_dict = faiss_search(dbs, logger, feature_dict)
+  File "faiss_cluster.py", line 127, in faiss_search
+    db_in_use = dbs[app_code]
+KeyError: 'softbank'
+2023-11-27 16:26:15,295 - ERROR - predict: Cannot save the query image to file 'query_images/8228baa4-70cd-41f1-8c70-29a9393113a7.jpg'
+2023-11-27 16:26:20,233 - ERROR - predict: ALERT: Request 8228baa4-70cd-41f1-8c70-29a9393113a7 time out
+2023-11-27 16:26:20,234 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:31:25,885 - ERROR - predict: Cannot save the query image to file 'query_images/8edf5f9a-6939-4eea-81aa-9c886bf88a71.jpg'
+2023-11-27 16:31:30,824 - ERROR - predict: ALERT: Request 8edf5f9a-6939-4eea-81aa-9c886bf88a71 time out
+2023-11-27 16:31:30,824 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:32:21,078 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "run_match_server.py", line 329, in <module>
+    match_process()
+  File "run_match_server.py", line 153, in match_process
+    img_pil = images[candidate_id]
+NameError: name 'images' is not defined
+2023-11-27 16:33:14,953 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 3240, in open
+    fp.seek(0)
+AttributeError: 'list' object has no attribute 'seek'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_match_server.py", line 330, in <module>
+    match_process()
+  File "run_match_server.py", line 131, in match_process
+    images = Image.open(search_path)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 3242, in open
+    fp = io.BytesIO(fp.read())
+AttributeError: 'list' object has no attribute 'read'
+2023-11-27 16:35:05,804 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 3240, in open
+    fp.seek(0)
+AttributeError: 'list' object has no attribute 'seek'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_match_server.py", line 331, in <module>
+    match_process()
+  File "run_match_server.py", line 132, in match_process
+    images = Image.open(search_path)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 3242, in open
+    fp = io.BytesIO(fp.read())
+AttributeError: 'list' object has no attribute 'read'
+2023-11-27 16:36:23,086 - ERROR - predict: Cannot save the query image to file 'query_images/97ccb24c-06af-4bdd-a63d-e9d0930b2f38.jpg'
+2023-11-27 16:36:28,042 - ERROR - predict: ALERT: Request 97ccb24c-06af-4bdd-a63d-e9d0930b2f38 time out
+2023-11-27 16:36:28,042 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:37:51,401 - ERROR - predict: Cannot save the query image to file 'query_images/f602fb5e-e823-4309-b65c-9dc5e7722f34.jpg'
+2023-11-27 16:37:56,357 - ERROR - predict: ALERT: Request f602fb5e-e823-4309-b65c-9dc5e7722f34 time out
+2023-11-27 16:37:56,357 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:45:41,533 - ERROR - predict: Cannot save the query image to file 'query_images/3658665f-2cdb-4008-8fe5-27b97cf74506.jpg'
+2023-11-27 16:45:46,462 - ERROR - predict: ALERT: Request 3658665f-2cdb-4008-8fe5-27b97cf74506 time out
+2023-11-27 16:45:46,463 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:49:52,082 - ERROR - predict: Cannot save the query image to file 'query_images/00a1ff1e-3dde-4895-8469-41708313b244.jpg'
+2023-11-27 16:49:56,980 - ERROR - predict: ALERT: Request 00a1ff1e-3dde-4895-8469-41708313b244 time out
+2023-11-27 16:49:56,980 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:50:01,947 - ERROR - predict: Cannot save the query image to file 'query_images/c32f9341-1baa-449a-9f07-e8e4f9680d18.jpg'
+2023-11-27 16:50:06,890 - ERROR - predict: ALERT: Request c32f9341-1baa-449a-9f07-e8e4f9680d18 time out
+2023-11-27 16:50:06,890 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:50:46,348 - ERROR - predict: Cannot save the query image to file 'query_images/2511acb0-ff66-43f6-9ec8-e1cf6abee1b0.jpg'
+2023-11-27 16:50:51,276 - ERROR - predict: ALERT: Request 2511acb0-ff66-43f6-9ec8-e1cf6abee1b0 time out
+2023-11-27 16:50:51,277 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:53:34,334 - ERROR - predict: Cannot save the query image to file 'query_images/f621ae79-0e1a-4e42-90d7-238d05ac6098.jpg'
+2023-11-27 16:53:39,269 - ERROR - predict: ALERT: Request f621ae79-0e1a-4e42-90d7-238d05ac6098 time out
+2023-11-27 16:53:39,269 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 16:55:06,729 - ERROR - predict: Cannot save the query image to file 'query_images/1a6503f5-e276-43d2-946b-247f1ba94a1a.jpg'
+2023-11-27 16:55:11,646 - ERROR - predict: ALERT: Request 1a6503f5-e276-43d2-946b-247f1ba94a1a time out
+2023-11-27 16:55:11,716 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:00:23,319 - ERROR - predict: Cannot save the query image to file 'query_images/1e0eafe2-fd12-400c-b8a8-e511b0168599.jpg'
+2023-11-27 17:00:28,239 - ERROR - predict: ALERT: Request 1e0eafe2-fd12-400c-b8a8-e511b0168599 time out
+2023-11-27 17:00:28,239 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:01:16,144 - ERROR - predict: Cannot save the query image to file 'query_images/4010bc65-02e9-40e4-a776-4595d31f3fa8.jpg'
+2023-11-27 17:01:19,311 - ERROR - handle_exception: Uncaught exception: 
+Traceback (most recent call last):
+  File "run_match_server.py", line 331, in <module>
+    match_process()
+  File "run_match_server.py", line 131, in match_process
+    images = download_images(search_path, app_code, _mtc_image_db_folder)
+  File "run_match_server.py", line 58, in download_images
+    img = Image.open(p1)
+  File "/home/anlab/anaconda3/envs/lashinbangserver/lib/python3.7/site-packages/PIL/Image.py", line 3236, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/CAC4-A-50-50/CAC4-A-50-50_IMG_0284.jpg'
+2023-11-27 17:01:21,084 - ERROR - predict: ALERT: Request 4010bc65-02e9-40e4-a776-4595d31f3fa8 time out
+2023-11-27 17:01:21,084 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:03:44,022 - ERROR - predict: Cannot save the query image to file 'query_images/c6a1f3b0-71f5-410d-a84f-f5be9b445209.jpg'
+2023-11-27 17:03:48,951 - ERROR - predict: ALERT: Request c6a1f3b0-71f5-410d-a84f-f5be9b445209 time out
+2023-11-27 17:03:48,951 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:04:35,605 - ERROR - predict: Cannot save the query image to file 'query_images/699f7ef7-bfad-440d-8022-d07642fc88ea.jpg'
+2023-11-27 17:04:40,539 - ERROR - predict: ALERT: Request 699f7ef7-bfad-440d-8022-d07642fc88ea time out
+2023-11-27 17:04:40,539 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:05:11,021 - ERROR - predict: Cannot save the query image to file 'query_images/cf1b9caa-0446-4fc4-975e-0f595d0ea1dd.jpg'
+2023-11-27 17:05:15,985 - ERROR - predict: ALERT: Request cf1b9caa-0446-4fc4-975e-0f595d0ea1dd time out
+2023-11-27 17:05:15,985 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:05:39,503 - ERROR - predict: Cannot save the query image to file 'query_images/fd02d4cf-3121-42c6-9483-f13e47607a47.jpg'
+2023-11-27 17:05:44,434 - ERROR - predict: ALERT: Request fd02d4cf-3121-42c6-9483-f13e47607a47 time out
+2023-11-27 17:05:44,434 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:06:38,777 - ERROR - predict: Cannot save the query image to file 'query_images/cb9ae883-c0dd-4eda-9b35-d7cb87020d2e.jpg'
+2023-11-27 17:06:43,718 - ERROR - predict: ALERT: Request cb9ae883-c0dd-4eda-9b35-d7cb87020d2e time out
+2023-11-27 17:06:43,718 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:07:29,797 - ERROR - predict: Cannot save the query image to file 'query_images/32dcc8fe-a88e-4a10-b223-0833d1dc56a9.jpg'
+2023-11-27 17:07:34,757 - ERROR - predict: ALERT: Request 32dcc8fe-a88e-4a10-b223-0833d1dc56a9 time out
+2023-11-27 17:07:34,757 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-27 17:07:45,328 - ERROR - predict: Cannot save the query image to file 'query_images/d71732f0-62a1-4f1b-8ab0-2eb02e3505bb.jpg'
+2023-11-27 17:12:23,955 - ERROR - predict: Cannot save the query image to file 'query_images/c5253c5d-bb89-4c36-937e-6e14e87c3755.jpg'
+2023-11-27 17:12:43,632 - ERROR - predict: Cannot save the query image to file 'query_images/263aac9c-d90f-48ad-bfbd-d8a92b575dec.jpg'
+2023-11-28 08:13:13,934 - ERROR - predict: Cannot save the query image to file 'query_images/ccd87d07-a4dc-4aea-a63a-6a7a010ca083.jpg'
+2023-11-28 08:13:18,751 - ERROR - predict: ALERT: Request ccd87d07-a4dc-4aea-a63a-6a7a010ca083 time out
+2023-11-28 08:13:18,753 - ERROR - handle_exception: EXCEPTION: {"code":408,"message":"408 Request Timeout: The server closed the network connection because the browser didn't finish the request within the specified time.","success":false}
+
+2023-11-28 08:28:28,469 - ERROR - predict: Cannot save the query image to file 'query_images/9f174768-cbc7-4788-9bb4-8cc0f757c91a.jpg'
+2023-11-28 09:18:53,561 - ERROR - predict: Cannot save the query image to file 'query_images/df424c21-ba58-45ea-ad96-0c9981fa1cb1.jpg'
+2023-11-28 09:25:22,352 - ERROR - predict: Cannot save the query image to file 'query_images/83d80213-1d1c-4e22-99d4-adafd4271c51.jpg'
+2023-11-28 09:28:20,818 - ERROR - predict: Cannot save the query image to file 'query_images/506b38b9-02f8-4fd7-b3a7-a464af1c507d.jpg'
+2023-11-28 09:32:06,943 - ERROR - predict: Cannot save the query image to file 'query_images/acda4f1b-7eb2-4940-9428-9be3640c5d52.jpg'
+2023-11-28 09:32:10,877 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-28 09:45:08,921 - ERROR - predict: Cannot save the query image to file 'query_images/f6c16941-0b97-495f-8397-c77dc221f98d.jpg'
+2023-11-28 09:45:12,483 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-28 09:48:22,931 - ERROR - predict: Cannot save the query image to file 'query_images/d6c7977a-7322-469f-99a6-304a2d96e506.jpg'
+2023-11-28 09:48:25,244 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-28 09:48:42,819 - ERROR - handle_exception: EXCEPTION: {"code":404,"message":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","success":false}
+
+2023-11-28 09:52:51,586 - ERROR - predict: Cannot save the query image to file 'query_images/540a00a6-9d08-42bf-b43a-4f64ab3d7b26.jpg'
+2023-11-28 09:54:49,087 - ERROR - predict: Cannot save the query image to file 'query_images/39aaeffe-c97b-468b-83d9-da806fbd2839.jpg'
+2023-11-28 09:55:03,997 - ERROR - predict: Cannot save the query image to file 'query_images/6c36075f-2a15-4045-9b5b-0cffb0f4f2ba.jpg'
+2023-11-28 09:57:20,343 - ERROR - predict: Cannot save the query image to file 'query_images/44454b85-bca8-46c3-b87a-4cb65f9fe403.jpg'
+2023-11-28 09:58:28,919 - ERROR - predict: Cannot save the query image to file 'query_images/21c1e2c9-90c3-465b-86c6-713d5d1cab7c.jpg'
+2023-11-28 10:01:18,279 - ERROR - predict: Cannot save the query image to file 'query_images/62a7e3a8-282f-48f6-b7f6-5b087bab1437.jpg'
+2023-11-28 10:06:43,192 - ERROR - predict: Cannot save the query image to file 'query_images/2a46fb1d-7ee2-4ad2-b96e-882e13e36d09.jpg'
+2023-11-28 10:06:54,052 - ERROR - predict: Cannot save the query image to file 'query_images/7104fdeb-fb63-4105-a645-3f23a6fd7e34.jpg'
+2023-11-28 10:07:00,554 - ERROR - predict: Cannot save the query image to file 'query_images/58660fb6-32f6-4bc1-9d14-3c1e42531640.jpg'
+2023-11-28 10:07:06,586 - ERROR - predict: Cannot save the query image to file 'query_images/25ecd320-0ebd-4baa-b9d8-69508eaeb7a6.jpg'
+2023-11-28 10:19:10,070 - ERROR - predict: Cannot save the query image to file 'query_images/10ba66d0-0a2e-40a5-b2fa-8d703b3505e8.jpg'
+2023-11-28 10:19:21,528 - ERROR - predict: Cannot save the query image to file 'query_images/87a08167-e5b3-4023-a9fb-0aefc50badb0.jpg'
+2023-11-28 10:19:32,070 - ERROR - predict: Cannot save the query image to file 'query_images/52b57c31-7d93-4765-ad6f-899f392614fb.jpg'
+2023-11-28 10:31:07,825 - ERROR - predict: Cannot save the query image to file 'query_images/d1793600-9ace-43a1-b881-5347eb2a453d.jpg'
+2023-11-28 10:36:31,375 - ERROR - predict: Cannot save the query image to file 'query_images/078945c4-8ad8-4773-a6a8-e7842158996d.jpg'
+2023-11-28 10:37:01,716 - ERROR - predict: Cannot save the query image to file 'query_images/8b716b15-3639-457a-9353-740a7c785e3f.jpg'
+2023-11-28 10:37:08,435 - ERROR - predict: Cannot save the query image to file 'query_images/c0210ac3-af5e-4b94-b061-fca54a3f3ecb.jpg'
+2023-11-28 10:37:24,294 - ERROR - predict: Cannot save the query image to file 'query_images/651663e6-c239-4aae-b372-5a66d8124fa1.jpg'
+2023-11-28 10:37:35,899 - ERROR - predict: Cannot save the query image to file 'query_images/c1cb8592-3a15-4787-b7a1-ab2589ad3455.jpg'
+2023-11-28 10:38:22,866 - ERROR - predict: Cannot save the query image to file 'query_images/54e47a1a-ef97-40d7-a546-4789261ae185.jpg'
+2023-11-28 10:38:32,785 - ERROR - predict: Cannot save the query image to file 'query_images/4d6b8610-1186-4104-8821-d3ca509a1238.jpg'
+2023-11-28 10:38:37,003 - ERROR - predict: Cannot save the query image to file 'query_images/87c550ad-2f60-4cbf-b710-bec432114dee.jpg'
+2023-11-28 10:39:04,738 - ERROR - predict: Cannot save the query image to file 'query_images/2a0fcf7c-2e81-4434-b8c9-747e8c55475d.jpg'
+2023-11-28 10:39:31,809 - ERROR - predict: Cannot save the query image to file 'query_images/8467c531-52ca-4ed2-b81c-0b9cee629b5a.jpg'
+2023-11-28 10:39:37,983 - ERROR - predict: Cannot save the query image to file 'query_images/218b8fe3-5a48-4cb8-9350-6987df629bdf.jpg'
+2023-11-28 10:39:43,182 - ERROR - predict: Cannot save the query image to file 'query_images/da879c6b-ce7c-4a92-9ca5-2180383498d2.jpg'
+2023-11-28 10:43:01,003 - ERROR - predict: Cannot save the query image to file 'query_images/7046732a-7191-44f4-aee0-32f149092637.jpg'
+2023-11-28 10:43:28,444 - ERROR - predict: Cannot save the query image to file 'query_images/5fc163d6-b348-4af4-82ce-89ca97935074.jpg'
+2023-11-28 10:43:33,395 - ERROR - predict: Cannot save the query image to file 'query_images/d21a3707-2794-4e14-a9c7-3ccada1ce5b4.jpg'
+2023-11-28 10:43:41,555 - ERROR - predict: Cannot save the query image to file 'query_images/b55e1f0d-b44c-49c0-9c90-5fc976a8c853.jpg'
+2023-11-28 10:43:49,740 - ERROR - predict: Cannot save the query image to file 'query_images/c03a4095-249a-49f1-a1ed-fdabb074f78a.jpg'
+2023-11-28 10:43:53,180 - ERROR - predict: Cannot save the query image to file 'query_images/f9fb3382-07bc-4359-9801-a1532526d561.jpg'
+2023-11-28 10:44:38,467 - ERROR - predict: Cannot save the query image to file 'query_images/d4456448-9fd6-4562-ad40-17411d8c451b.jpg'
+2023-11-28 10:44:48,807 - ERROR - predict: Cannot save the query image to file 'query_images/83b096f1-7400-42d4-9c54-8be377ae453b.jpg'
+2023-11-28 10:44:54,988 - ERROR - predict: Cannot save the query image to file 'query_images/34b58984-0478-4da5-aebd-731c83b1e3df.jpg'
+2023-11-28 10:45:00,611 - ERROR - predict: Cannot save the query image to file 'query_images/9b3ff358-dfa2-4057-a058-b86f74f349e0.jpg'
+2023-11-28 10:45:03,207 - ERROR - predict: Cannot save the query image to file 'query_images/fbc054ca-510c-42fd-bc81-aef6212b52ca.jpg'
+2023-11-28 10:45:18,661 - ERROR - predict: Cannot save the query image to file 'query_images/63dbb09f-9039-476b-81fd-e438f3578829.jpg'
+2023-11-28 10:45:26,579 - ERROR - predict: Cannot save the query image to file 'query_images/db8d1852-ed41-4509-8455-479c225a4d23.jpg'
+2023-11-28 10:45:39,264 - ERROR - predict: Cannot save the query image to file 'query_images/6bde75c7-7aa6-4e06-8ddf-7f1e3b59eb49.jpg'
+2023-11-28 10:45:41,067 - ERROR - predict: Cannot save the query image to file 'query_images/5a36d09d-1c67-4481-b8bc-71f0d9dd5854.jpg'
+2023-11-28 10:45:42,828 - ERROR - predict: Cannot save the query image to file 'query_images/1296c016-7b8c-481c-bbc9-22b6309fa819.jpg'
+2023-11-28 10:45:47,074 - ERROR - predict: Cannot save the query image to file 'query_images/880de072-5cb1-4fc7-b964-92a5ff63f04a.jpg'
+2023-11-28 10:45:52,530 - ERROR - predict: Cannot save the query image to file 'query_images/7e9891bf-2be0-47c5-a6c2-0e406a48a408.jpg'
+2023-11-28 10:45:52,885 - ERROR - predict: Cannot save the query image to file 'query_images/56c553a9-3ec1-4218-83dd-72f1b13f7250.jpg'
+2023-11-28 10:45:59,523 - ERROR - predict: Cannot save the query image to file 'query_images/c414665d-8cc3-4f80-93ac-e1b5d0658b7f.jpg'
+2023-11-28 10:46:00,072 - ERROR - predict: Cannot save the query image to file 'query_images/b85020dc-ea6c-4bd3-8117-9facfcf2a6a7.jpg'
+2023-11-28 10:46:02,869 - ERROR - predict: Cannot save the query image to file 'query_images/4af7c596-3c55-4b06-ab9e-d47853e552d0.jpg'
+2023-11-28 10:46:06,843 - ERROR - predict: Cannot save the query image to file 'query_images/9b583cd6-c06c-4a3b-8a8d-70a4718d08be.jpg'
+2023-11-28 10:46:06,998 - ERROR - predict: Cannot save the query image to file 'query_images/c17ac50d-ab71-4e95-9fbc-b4496be4d3bb.jpg'
+2023-11-28 10:46:10,047 - ERROR - predict: Cannot save the query image to file 'query_images/35e94f59-8d4e-442a-b50c-8893cd85e7b1.jpg'
+2023-11-28 10:46:13,517 - ERROR - predict: Cannot save the query image to file 'query_images/533b35e4-fcb4-4137-b01e-779daaad64a1.jpg'
+2023-11-28 10:46:17,781 - ERROR - predict: Cannot save the query image to file 'query_images/56c31a2a-36b6-42a9-974a-a32309a3e386.jpg'
+2023-11-28 10:46:18,200 - ERROR - predict: Cannot save the query image to file 'query_images/2653e8b8-fc0e-4e6f-8e4a-20c3b056c4b3.jpg'
+2023-11-28 10:46:23,584 - ERROR - predict: Cannot save the query image to file 'query_images/684d5180-52f5-478f-a15e-18bcd81d25f6.jpg'
+2023-11-28 10:46:24,213 - ERROR - predict: Cannot save the query image to file 'query_images/db0c9266-dfc9-42b3-9878-c6a041a44274.jpg'
+2023-11-28 10:46:27,168 - ERROR - predict: Cannot save the query image to file 'query_images/0bc93a8d-3aa7-4b6d-bfe1-91e634abf358.jpg'
+2023-11-28 10:46:30,670 - ERROR - predict: Cannot save the query image to file 'query_images/121910ed-4dd5-45c9-a7f1-2d99c26a2078.jpg'
+2023-11-28 10:46:32,374 - ERROR - predict: Cannot save the query image to file 'query_images/d3ada9c0-a18e-4a26-b5c3-f6096cbc0cb1.jpg'
+2023-11-28 10:46:37,036 - ERROR - predict: Cannot save the query image to file 'query_images/4351e5be-dccb-4f6f-8ed1-bb5db52f8c52.jpg'
+2023-11-28 10:46:38,463 - ERROR - predict: Cannot save the query image to file 'query_images/bed423f3-4263-4956-8909-4e55e9b40d2c.jpg'
+2023-11-28 10:46:41,190 - ERROR - predict: Cannot save the query image to file 'query_images/660ae42b-6e65-4967-89a5-8c108bac45da.jpg'
+2023-11-28 10:46:44,728 - ERROR - predict: Cannot save the query image to file 'query_images/50d30cda-a1d8-4257-bd1e-68252376337a.jpg'
+2023-11-28 10:46:47,454 - ERROR - predict: Cannot save the query image to file 'query_images/568bcfaa-1564-4449-a7d3-d23d2c6d45ee.jpg'
+2023-11-28 10:46:51,501 - ERROR - predict: Cannot save the query image to file 'query_images/22a6a390-2ac3-43da-8b22-8e736b4f5d01.jpg'
+2023-11-28 10:46:53,547 - ERROR - predict: Cannot save the query image to file 'query_images/bba76bb3-7f34-484f-8112-573f74999015.jpg'
+2023-11-28 10:46:59,903 - ERROR - predict: Cannot save the query image to file 'query_images/24038d98-a032-4628-a5ea-30e33275cc8c.jpg'
+2023-11-28 10:47:02,872 - ERROR - predict: Cannot save the query image to file 'query_images/2d28dc53-f6ad-4b69-88d3-907a4ca63414.jpg'
+2023-11-28 10:47:05,996 - ERROR - predict: Cannot save the query image to file 'query_images/c1e11e08-45b4-4f56-944b-3c566cc61720.jpg'
+2023-11-28 10:47:07,734 - ERROR - predict: Cannot save the query image to file 'query_images/145465b6-572a-40f9-aaab-562fb1ce995d.jpg'
+2023-11-28 10:47:13,820 - ERROR - predict: Cannot save the query image to file 'query_images/90925681-ff94-46dc-95c3-48a4144ca762.jpg'
+2023-11-28 10:47:13,850 - ERROR - predict: Cannot save the query image to file 'query_images/33a8ee9e-f896-4ed0-8ad4-936ad5626b86.jpg'
+2023-11-28 10:47:22,888 - ERROR - predict: Cannot save the query image to file 'query_images/6265b82a-d720-46dd-b947-046b9716d270.jpg'
+2023-11-28 10:47:24,319 - ERROR - predict: Cannot save the query image to file 'query_images/988d7898-b951-4959-87a3-4e1783613b2e.jpg'
+2023-11-28 10:47:29,579 - ERROR - predict: Cannot save the query image to file 'query_images/329f1e3d-a833-4bf5-a293-07ff3f701868.jpg'
+2023-11-28 10:47:29,863 - ERROR - predict: Cannot save the query image to file 'query_images/91cda4e1-d53a-44a6-93ab-4dee6ca04a8b.jpg'
+2023-11-28 10:47:38,069 - ERROR - predict: Cannot save the query image to file 'query_images/60fb58ec-fcdf-44ae-be25-560ab366e2f1.jpg'
+2023-11-28 10:47:44,029 - ERROR - predict: Cannot save the query image to file 'query_images/5c2812a7-ddbc-4394-a038-1f213d75578e.jpg'
+2023-11-28 10:47:50,030 - ERROR - predict: Cannot save the query image to file 'query_images/1fe11009-014c-4c5d-999d-95bcdb5588bf.jpg'
+2023-11-28 10:47:59,551 - ERROR - predict: Cannot save the query image to file 'query_images/4df30a19-aded-47c0-be2d-31ea763eb598.jpg'
+2023-11-28 10:48:14,620 - ERROR - predict: Cannot save the query image to file 'query_images/3ea33312-4af4-443b-a67c-6cf29645bb78.jpg'
+2023-11-28 10:48:18,761 - ERROR - predict: Cannot save the query image to file 'query_images/454ede59-d860-420f-82c0-0139c16232f1.jpg'
+2023-11-28 10:48:31,344 - ERROR - predict: Cannot save the query image to file 'query_images/82bb26f0-c868-43dc-a9dc-18debd5ac5d3.jpg'
+2023-11-28 10:50:45,091 - ERROR - predict: Cannot save the query image to file 'query_images/b0787862-4f2b-4fd4-92e5-fa564eefdd87.jpg'
+2023-11-28 10:52:24,615 - ERROR - predict: Cannot save the query image to file 'query_images/f8781f7a-1452-462e-8352-52ec8ac8726a.jpg'
+2023-11-28 10:52:52,800 - ERROR - predict: Cannot save the query image to file 'query_images/7df2413a-3445-416f-a54f-4c8da6b57b9e.jpg'
+2023-11-28 10:52:58,232 - ERROR - predict: Cannot save the query image to file 'query_images/12fb14be-ee3c-4145-b82a-9c010a68a529.jpg'
+2023-11-28 10:53:00,790 - ERROR - predict: Cannot save the query image to file 'query_images/420a2c2d-a160-471a-b838-c2d1dd92d953.jpg'
+2023-11-28 10:53:03,536 - ERROR - predict: Cannot save the query image to file 'query_images/d86cc17c-39f6-45d0-849b-c7a31c2cc7bf.jpg'
+2023-11-28 10:53:07,943 - ERROR - predict: Cannot save the query image to file 'query_images/af0973a2-e6fc-41c1-a24a-7935f9d3f302.jpg'
+2023-11-28 10:53:09,043 - ERROR - predict: Cannot save the query image to file 'query_images/59e84de2-1a67-463f-8e5a-e419fcb95aad.jpg'
+2023-11-28 10:53:16,595 - ERROR - predict: Cannot save the query image to file 'query_images/c13696f2-b02a-430d-805d-4ad1eae76159.jpg'
+2023-11-28 10:53:19,194 - ERROR - predict: Cannot save the query image to file 'query_images/208db229-a0ab-4f2e-a42b-3e97a9615db9.jpg'
+2023-11-28 10:53:21,720 - ERROR - predict: Cannot save the query image to file 'query_images/4e069016-0ca4-404e-9d22-c765068f477d.jpg'
+2023-11-28 10:53:27,144 - ERROR - predict: Cannot save the query image to file 'query_images/3e6bf1cc-fcb0-4028-874f-601aaa7ba2d3.jpg'
+2023-11-28 10:53:31,991 - ERROR - predict: Cannot save the query image to file 'query_images/9ef418fa-2019-46b4-beca-99e8c2caac18.jpg'
+2023-11-28 10:53:32,185 - ERROR - predict: Cannot save the query image to file 'query_images/823250e7-eb40-4f50-8ebc-82ed15c065c6.jpg'
+2023-11-28 10:53:36,577 - ERROR - predict: Cannot save the query image to file 'query_images/b5d4b125-670e-4e79-b70c-0687a1cb341b.jpg'
+2023-11-28 10:53:42,172 - ERROR - predict: Cannot save the query image to file 'query_images/cc3c1ddd-7832-46fb-b5ea-0f5d89775682.jpg'
+2023-11-28 10:53:46,972 - ERROR - predict: Cannot save the query image to file 'query_images/14e7d723-6df9-4ccb-afde-818e89468039.jpg'
+2023-11-28 10:53:52,142 - ERROR - predict: Cannot save the query image to file 'query_images/75cb8b12-896d-48d5-b1ff-a0fda5af0d55.jpg'
+2023-11-28 10:53:52,377 - ERROR - predict: Cannot save the query image to file 'query_images/ac0725a8-cec5-40c9-a019-43ee9ec4fc7e.jpg'
+2023-11-28 10:53:57,763 - ERROR - predict: Cannot save the query image to file 'query_images/44c75295-70ef-476e-8bfc-1261e20cdadd.jpg'
+2023-11-28 10:54:02,827 - ERROR - predict: Cannot save the query image to file 'query_images/70639824-06b3-423e-9262-f1ba0f910c22.jpg'
+2023-11-28 10:54:08,985 - ERROR - predict: Cannot save the query image to file 'query_images/6134bcb3-6023-4763-8e45-f13082089341.jpg'
+2023-11-28 10:54:13,809 - ERROR - predict: Cannot save the query image to file 'query_images/51d5ff83-6e3a-461e-950e-90f5fd7dc606.jpg'
+2023-11-28 10:54:20,136 - ERROR - predict: Cannot save the query image to file 'query_images/02fb5299-f095-4e49-badb-82ca1c81e740.jpg'
+2023-11-28 10:54:25,164 - ERROR - predict: Cannot save the query image to file 'query_images/130126e0-c4fe-40c0-b199-54bdf19f44cf.jpg'
+2023-11-28 10:54:30,248 - ERROR - predict: Cannot save the query image to file 'query_images/2b67447f-0af1-4761-9f84-7e72b3deea3e.jpg'
+2023-11-28 10:54:36,529 - ERROR - predict: Cannot save the query image to file 'query_images/6b1489e2-be5f-4023-b8ad-2f4f2d5c6c0e.jpg'
+2023-11-28 10:54:46,832 - ERROR - predict: Cannot save the query image to file 'query_images/5224a55d-8d89-4be6-981b-0ab6e6f80c1d.jpg'
+2023-11-28 10:54:54,960 - ERROR - predict: Cannot save the query image to file 'query_images/6fb07394-9206-455c-950b-16b7fe72350e.jpg'
+2023-11-28 10:54:59,106 - ERROR - predict: Cannot save the query image to file 'query_images/f7e2f558-75df-4d7d-ba4c-51b3f8acec6e.jpg'
+2023-11-28 10:56:45,351 - ERROR - predict: Cannot save the query image to file 'query_images/9ce5f61e-ad96-43a5-b2b2-38b31fb9bd8a.jpg'
+2023-11-28 10:58:34,291 - ERROR - predict: Cannot save the query image to file 'query_images/979f4be2-7048-4e6b-b743-f42c0c0aeb84.jpg'
+2023-11-28 11:01:56,711 - ERROR - predict: Cannot save the query image to file 'query_images/991c6539-c1b9-4e81-80d1-cfb920052c2a.jpg'
+2023-11-28 11:02:01,941 - ERROR - predict: Cannot save the query image to file 'query_images/4afe5fec-16c8-476f-b449-66c540bd7bc5.jpg'
+2023-11-28 11:03:49,631 - ERROR - predict: Cannot save the query image to file 'query_images/f1ba450f-1244-40ef-9438-204e78d3c32a.jpg'
