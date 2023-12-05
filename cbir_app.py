@@ -16,7 +16,7 @@ import helpers
 import settings
 
 from urllib.parse import urljoin
-from flask import Flask, request, jsonify, abort, render_template
+from flask import Flask, request, jsonify, abort, render_template, send_from_directory
 from flask_cors import CORS, cross_origin
 from PIL import Image
 from logger import AppLogger
@@ -25,7 +25,7 @@ from pre_process_kbook import ImagePreProcess
 from datetime import date, datetime
 from pytz import timezone, utc
 from pathlib import Path
-
+from extract_cnn import CNN
 warnings.filterwarnings("ignore")
 
 time_zone = timezone('Asia/Tokyo')
@@ -59,7 +59,8 @@ for k, v in db_support.items():
     api_key = '' if settings.API_KEY not in db_config else db_config[settings.API_KEY]
 
     multi_db_obj_arr[k] = { 'image_dir': image_dir, 'begin_time': begin_time, 'end_time': end_time, 'matching_config': matching_config, 'api_key': api_key }
-
+model1 = CNN(useRmac=True, use_solar=False)
+model2 = CNN(useRmac=True, use_solar=True)
 def isServerOnline(app_code):
     """ Check server online by app code """
     db_selected = multi_db_obj_arr[app_code]
@@ -440,6 +441,57 @@ def predict():
     result = json.dumps(json_response, ensure_ascii=False).encode("utf8")
     logger.info('response: %s, %s, %s, %s' % (img_id, shopid, app_code, result))
     return result, return_code
+@app.route('/set_state/<value>')
+def set_state(value):
+    db.set('stateSystem', value)
+    return f"State set to {value}"
+
+@app.route('/get_state')
+def get_state():
+    value = db.get('stateSystem')
+    return value.decode('utf-8') if value else "State not set"
+@app.route('/all_product',methods = ['POST', 'GET'])
+def get_all_product():
+    with open(db_config['LIST_PRODUCT'], 'r') as file:
+        data = json.load(file)
+    return jsonify(data)
+@app.route('/<folder>/<filename>')
+def get_image(folder, filename):
+    filepath = os.path.join(folder, filename)
+    # Serve the file from within the 'SearchData' directory
+    return send_from_directory('SearchData', filepath)
+@app.route('/add_product', methods=['POST'])
+def add_product():
+    # Assuming product_name, product_detail, and product_image are the form field names
+    product_name = request.form.get('product_name')
+    product_detail = request.form.get('product_detail')
+    # Validate inputs
+    if not product_name or not product_detail:
+        return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
+
+    # Process and save the image
+    listImage = []
+    listFilenames = []
+    try:
+        if request.files.get(settings.FILE_KEY):
+            for imageobject in request.files.getlist(settings.FILE_KEY):
+                img_raw_data = imageobject.read()
+                image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
+                listImage.append(image)
+                listFilenames.append(imageobject.filename)
+        elif request.form.get(settings.FILE_KEY):
+            for imageobject in request.form.getlist(settings.FILE_KEY):
+                img_base64_str = imageobject
+                img_raw_data = base64.b64decode(img_base64_str)
+                image = Image.open(io.BytesIO(img_raw_data))
+                listImage.append(image)
+                listFilenames.append(imageobject.filename)
+        else:
+            abort(400)
+        helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,db)
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+    return jsonify({'status': 'success', 'message': 'Product added successfully'}), 200
 
 @app.errorhandler(Exception)
 def handle_exception(e):

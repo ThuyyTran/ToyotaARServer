@@ -22,7 +22,7 @@ def load_config(config, db_path):
     db_config = config[settings.DATABASE_KEY]
     _index_path = os.path.join(db_path, db_config[settings.INDEX_FILE_KEY])
     _pca_path = os.path.join(db_path, db_config[settings.PCA_MATRIX_FILE_KEY])
-    _img_list_path = os.path.join(db_path, db_config[settings.IMG_LIST_FILE_KEY])
+    _img_list_path_json = os.path.join(db_path, db_config[settings.IMG_LIST_FILE_JSON_KEY])
     _cnn_image_feature_using_pca_key = db_config.getboolean(settings.CNN_IMAGE_FEATURE_USING_PCA_KEY)
     desc_mode = db_config[settings.DESC_MODE_CONFIG]
     use_category = db_config.getboolean(settings.USE_CATEGORY) if settings.USE_CATEGORY in db_config else False
@@ -36,10 +36,8 @@ def load_config(config, db_path):
     else:
         idx = sub_index
 
-    with open(_img_list_path, 'r') as f:
-        master_data_paths = f.readlines()
-    master_data_paths = list(map(lambda x: x[:-1], master_data_paths))
-
+    with open(_img_list_path_json, 'r') as file:
+        master_data_paths_json = json.load(file)
     # load dict label to category
     db_category_name = None
     dict_label_path = os.path.join(db_path, db_config[settings.DICT_LABEL_CATEGORY]) if settings.DICT_LABEL_CATEGORY in db_config else None
@@ -54,7 +52,7 @@ def load_config(config, db_path):
         with open(path_dict_item_category,'r') as read:
             db_product_category = json.load(read)
 
-    return idx, master_data_paths, desc_mode, use_category, db_category_name, db_product_category
+    return idx, master_data_paths_json, desc_mode, use_category, db_category_name, db_product_category
 
 def group_request():
     requests = helpers.multi_pop(db, settings.FAISS_QUEUE, settings.BATCH_SIZE)
@@ -198,7 +196,7 @@ def prepare_match_input(dbs, logger, search_result_dict):
 
                     # get master path
                     db_in_use = dbs[app_code]
-                    img_path = db_in_use['master_path'][i]
+                    img_path = db_in_use['master_path_json'][str(i)]
                     prod_path = img_path.split(',')[0]
                     is_use_category = db_in_use['use_category']
 
@@ -266,6 +264,25 @@ def run(dbs):
     print("The faiss cluster is ready ...")
 
     while True:
+        if db.get('stateSystem').decode("utf-8") != "None":
+            db.set('stateSystem','None')
+            dbs = {}
+            for k, v in db_paths.items():
+                idx, master_data_paths_json ,desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
+                if idx is not None and master_data_paths_json is not None:
+                    dbs[k] = {
+                        'db_path': v,
+                        'index': idx,
+                        'master_path_json': master_data_paths_json,
+                        'desc_mode': desc_mode,
+                        'use_category': use_category,
+                        'db_category_name': db_category_name,
+                        'db_product_category': db_product_category,
+                    }
+                else:
+                    logger.error('Database is None')
+                    raise ValueError('Database is None')
+            print("Restart faiss cluster is ready ...")
         # step 1: group requests to dict
         feature_dict = group_request()
 
@@ -307,12 +324,12 @@ if __name__ == '__main__':
     # set config object
     multi_db_obj_arr = {}
     for k, v in db_paths.items():
-        idx, master_data_paths, desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
-        if idx is not None and master_data_paths is not None:
+        idx, master_data_paths_json, desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
+        if idx is not None and master_data_paths_json is not None:
             multi_db_obj_arr[k] = {
                 'db_path': v,
                 'index': idx,
-                'master_path': master_data_paths,
+                'master_path_json': master_data_paths_json,
                 'desc_mode': desc_mode,
                 'use_category': use_category,
                 'db_category_name': db_category_name,

@@ -19,6 +19,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms  # , utils
+import faiss
+from faiss import write_index, read_index
+import json
 #
 from pathlib import Path
 from u2net.data_loader import RescaleT
@@ -784,3 +787,43 @@ def convertBRG2RGB(base_folder, files, save_folder="convert_crop_foreground"):
 		base = os.path.basename(f)
 		file_out = os.path.join(sub_path_save, base)
 		cv2.imwrite(file_out, image)
+def addIndex(product_name,product_detail,listImages,listFilenames,db_config,model1,model2,db):
+    _index_path =db_config[settings.INDEX_FILE_KEY]
+    _img_list_path_json =db_config[settings.IMG_LIST_FILE_JSON_KEY]
+    with open(db_config['LIST_PRODUCT'], 'r') as file:
+        detail_product = json.load(file)
+    with open(_img_list_path_json, 'r') as file:
+        master_data_paths_json = json.load(file)
+    sub_index = faiss.read_index(_index_path)
+    oldId = sub_index.ntotal
+    desc_mode = db_config[settings.DESC_MODE_CONFIG]
+    multiscale = '[1, 1/2**(1/2), 1/2]'
+    ms = list(eval(multiscale))
+    if product_name not in detail_product.keys() or not os.path.exists('SearchData/'+product_name):
+        os.mkdir('SearchData/'+product_name)
+    listImgPath = []
+    for i in range(len(listImages)):
+        if desc_mode == 'solar':
+            ms_query_feats, query_feats = model2.extract_feat_batch_by_arrays(
+                [np.array(listImages[i])], image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+        else:
+            ms_query_feats, query_feats = model1.extract_feat_batch_by_arrays(
+                [np.array(listImages[i])], image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+        savePath = os.path.join(product_name,listFilenames[i])
+        listImages[i].save('SearchData/'+savePath)
+        listImgPath.append(savePath)
+        sub_index.add(np.array(ms_query_feats))
+        if oldId not in master_data_paths_json.keys():
+            master_data_paths_json[oldId] = listFilenames[i]
+        oldId+=1
+    sub_index
+    detail_product[product_name] = {"id": len(detail_product.keys()),
+        "Product_Name": product_name,
+        "Product_Detail": product_detail,
+        "List_Image": listImgPath}
+    # write_index(sub_index, _index_path)
+    # with open(db_config['LIST_PRODUCT'], "w") as outfile:
+    #     json.dump(detail_product, outfile)
+    # with open(_img_list_path_json, "w") as outfile:
+    #     json.dump(master_data_paths_json, outfile)
+    db.set('stateSystem', 'Updated')
