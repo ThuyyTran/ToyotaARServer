@@ -506,14 +506,14 @@ def init_cascade_model(path_model):
 
     return cascade
 def extract_mask_ClipSeg_model(processor,model,images):
-    prompt = Image.open('/media/anlab/data-2tb/ANLAB_THUY/ToyotaAR/Dataset/support1_black.jpg')
+    prompt = Image.open(settings.PROMPT_IMAGE_URL)
     encoded_image = processor(images=images, return_tensors="pt").to('cuda:0')
     encoded_prompt = processor(images=[prompt], return_tensors="pt").to('cuda:0')
     with torch.no_grad():
         outputs = model(**encoded_image, conditional_pixel_values=encoded_prompt.pixel_values).logits
     # for i in range(len(outputs)):
     current_time = datetime.now()
-    cv2.imwrite('/media/anlab/data-2tb/ANLAB_THUY/lashinbang-server-dzungdk/SaveQuery/'+current_time.strftime("%Y%m%d_%H%M%S")+'.png',cv2.cvtColor(images[0], cv2.COLOR_RGB2BGR))
+    cv2.imwrite(os.path.join(settings.SAVE_IMAGE_URL,current_time.strftime("%Y%m%d_%H%M%S")+'.png'),cv2.cvtColor(images[0], cv2.COLOR_RGB2BGR))
     preds = outputs.unsqueeze(1)
     preds = torch.transpose(preds, 0, 1).squeeze(0).cpu().numpy()
     THRESHOLD = -1.5

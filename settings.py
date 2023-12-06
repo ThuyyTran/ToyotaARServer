@@ -101,3 +101,7 @@ STATIC_FOLDER = ''
 
 # url images server.
 URL_IMAGE = 'https://test-la.anlab.info/api/get-raw-images'
+
+#ConfigPrompt
+SAVE_IMAGE_URL = 'SaveQuery/'
+PROMPT_IMAGE_URL = '/media/anlab/data-2tb/ANLAB_THUY/ToyotaAR/Dataset/support1_black.jpg'
