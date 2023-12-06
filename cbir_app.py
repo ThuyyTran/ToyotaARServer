@@ -90,7 +90,10 @@ def make_tree(path):
         })
 
   return tree
-
+def preProcessText(input_string):
+    formatted_string = input_string.replace(" ", "_")
+    formatted_string = ''.join(char for char in formatted_string if char.isalnum() or char == '_')
+    return formatted_string
 @app.route("/online", methods=['GET'])
 def homepage():
     accepted = False
@@ -454,6 +457,8 @@ def get_state():
 def get_all_product():
     with open(db_config['LIST_PRODUCT'], 'r') as file:
         data = json.load(file)
+    data['status']=1
+    data['message']='success'
     return jsonify(data)
 @app.route('/<folder>/<filename>')
 def get_image(folder, filename):
@@ -468,7 +473,7 @@ def add_product():
     # Validate inputs
     if not product_name or not product_detail:
         return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
-
+    product_name = preProcessText(product_name)
     # Process and save the image
     listImage = []
     listFilenames = []
@@ -478,21 +483,83 @@ def add_product():
                 img_raw_data = imageobject.read()
                 image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
                 listImage.append(image)
-                listFilenames.append(imageobject.filename)
+                file_name, file_extension = os.path.splitext(imageobject.filename)
+                imgName = preProcessText(file_name)+file_extension
+                listFilenames.append(imgName)
         elif request.form.get(settings.FILE_KEY):
             for imageobject in request.form.getlist(settings.FILE_KEY):
                 img_base64_str = imageobject
                 img_raw_data = base64.b64decode(img_base64_str)
                 image = Image.open(io.BytesIO(img_raw_data))
                 listImage.append(image)
-                listFilenames.append(imageobject.filename)
+                file_name, file_extension = os.path.splitext(imageobject.filename)
+                imgName = preProcessText(file_name)+file_extension
+                listFilenames.append(imgName)
         else:
             abort(400)
-        helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,db)
+        resultList = helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,db)
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
-    return jsonify({'status': 'success', 'message': 'Product added successfully'}), 200
-
+    return jsonify(resultList), 200
+@app.route('/add_images', methods=['POST'])
+def add_images():
+    # Assuming product_name, product_detail, and product_image are the form field names
+    ItemID = request.form.get('id')
+    product_name = request.form.get('product_name')
+    product_name = preProcessText(product_name)
+    product_detail = request.form.get('product_detail')
+    # Validate inputs
+    if not ItemID or not product_name or not product_detail:
+        return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
+    # Process and save the image
+    listImage = []
+    listFilenames = []
+    if request.files.get(settings.FILE_KEY):
+        for imageobject in request.files.getlist(settings.FILE_KEY):
+            img_raw_data = imageobject.read()
+            image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
+            listImage.append(image)
+            file_name, file_extension = os.path.splitext(imageobject.filename)
+            imgName = preProcessText(file_name)+file_extension
+            listFilenames.append(imgName)
+    elif request.form.get(settings.FILE_KEY):
+        for imageobject in request.form.getlist(settings.FILE_KEY):
+            img_base64_str = imageobject
+            img_raw_data = base64.b64decode(img_base64_str)
+            image = Image.open(io.BytesIO(img_raw_data))
+            listImage.append(image)
+            file_name, file_extension = os.path.splitext(imageobject.filename)
+            imgName = preProcessText(file_name)+file_extension
+            listFilenames.append(imgName)
+    resultList = helpers.addImages(ItemID,product_name,product_detail,listImage,listFilenames,db_config,model1,model2,db)
+    return jsonify(resultList), 200
+@app.route('/remove_product', methods=['POST'])
+def remove_product():
+    productID = request.form.get('id')
+    # Validate inputs
+    if not productID:
+        return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
+    resultList = helpers.removeIndex(productID,db_config,db)
+    return jsonify(resultList), 200
+@app.route('/get_detail', methods=['POST'])
+def get_detail():
+    productID = request.form.get('id')
+    # Validate inputs
+    if not productID:
+        return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
+    result = helpers.getDetail(productID,db_config)
+    result['status']=1
+    result['message']='success'
+    return jsonify(result), 200
+@app.route('/remove_image', methods=['POST'])
+def remove_image():
+    productID = request.form.get('id')
+    pathImage = request.form.get('imagePath')
+    # Validate inputs
+    if not productID or not pathImage:
+        return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
+    resultList = helpers.removeImage(productID,pathImage,db_config,db)
+    return jsonify(resultList), 200
 @app.errorhandler(Exception)
 def handle_exception(e):
     code = 500
@@ -501,7 +568,6 @@ def handle_exception(e):
     error_str = jsonify(message=str(e), code=code, success=False)
     logger.error("EXCEPTION: %s" % error_str.data.decode("utf-8"))
     return error_str
-
 # register error handler
 for ex in default_exceptions:
     app.register_error_handler(ex, handle_exception)
