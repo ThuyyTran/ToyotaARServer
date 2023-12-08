@@ -93,7 +93,7 @@ def make_tree(path):
   return tree
 def preProcessText(input_string):
     formatted_string = input_string.replace(" ", "_")
-    formatted_string = ''.join(char for char in formatted_string if char.isalnum() or char == '_')
+    formatted_string = ''.join(char for char in formatted_string if char.isalnum() or char == '_' or char == '-')
     return formatted_string
 @app.route("/online", methods=['GET'])
 def homepage():
@@ -714,6 +714,7 @@ def add_images():
             file_name, file_extension = os.path.splitext(imageobject.filename)
             imgName = preProcessText(file_name)+file_extension
             listFilenames.append(imgName)
+    print('=======',product_name)
     resultList = helpers.addImages(ItemID,product_name,product_detail,listImage,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db)
     return jsonify(resultList), 200
 @app.route('/remove_product', methods=['POST'])

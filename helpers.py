@@ -928,7 +928,7 @@ def addImages(idProduct,productname,productdetail,listImages,listFilenames,db_co
         sod_images = extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,np.array(listImages[i]),'None',mode='add')[0]
         now = datetime.now()
         current_time = now.strftime("%H_%M_%S")
-        sod_images.save(os.path.join(productname,file_name+'_'+current_time+'_'+'Segment'+file_extension))
+        sod_images.save(os.path.join(settings.DATABASE_PATH,productname,file_name+'_'+current_time+'_'+'Segment'+file_extension))
         listIdAdd.append(oldId)
         listImgAdd.append(sod_images)
         if oldId not in master_data_paths_json.keys():
@@ -1021,7 +1021,11 @@ def getDetail(productID,db_config):
         detail_product = json.load(file)
     for i in range(len(detail_product)):
         if str(detail_product[i]['id']) == str(productID):
-            return detail_product[i]            
+            tmpPath = []
+            for path in  detail_product[i]['List_Image']:
+                if '_segment_' not in str(path) and '_Augment_' not in str(path):
+                    tmpPath.append(path)
+            return  {'id':detail_product[i]['id'],'Product_Name':detail_product[i]['Product_Name'],'Product_Detail':detail_product[i]['Product_Detail'],'List_Image':tmpPath}
 def getTotalIndex(db_config):
     _index_path =db_config[settings.INDEX_FILE_KEY]      
     sub_index = faiss.read_index(_index_path)
