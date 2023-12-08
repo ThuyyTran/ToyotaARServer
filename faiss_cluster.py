@@ -24,9 +24,10 @@ def load_config(config, db_path):
     _pca_path = os.path.join(db_path, db_config[settings.PCA_MATRIX_FILE_KEY])
     _img_list_path_json = os.path.join(db_path, db_config[settings.IMG_LIST_FILE_JSON_KEY])
     _cnn_image_feature_using_pca_key = db_config.getboolean(settings.CNN_IMAGE_FEATURE_USING_PCA_KEY)
+    _detail_product_path = db_config[settings.ALL_PRODUCT_PATH_KEY]
     desc_mode = db_config[settings.DESC_MODE_CONFIG]
     use_category = db_config.getboolean(settings.USE_CATEGORY) if settings.USE_CATEGORY in db_config else False
-
+    
     # load index
     sub_index = faiss.read_index(_index_path)
     sub_index.nprobe = int(db_config[settings.INDEX_NPROBE_KEY])
@@ -38,6 +39,8 @@ def load_config(config, db_path):
 
     with open(_img_list_path_json, 'r') as file:
         master_data_paths_json = json.load(file)
+    with open(_detail_product_path, 'r') as file:
+        list_product = json.load(file)
     # load dict label to category
     db_category_name = None
     dict_label_path = os.path.join(db_path, db_config[settings.DICT_LABEL_CATEGORY]) if settings.DICT_LABEL_CATEGORY in db_config else None
@@ -52,7 +55,7 @@ def load_config(config, db_path):
         with open(path_dict_item_category,'r') as read:
             db_product_category = json.load(read)
 
-    return idx, master_data_paths_json, desc_mode, use_category, db_category_name, db_product_category
+    return idx, master_data_paths_json,list_product ,desc_mode, use_category, db_category_name, db_product_category
 
 def group_request():
     requests = helpers.multi_pop(db, settings.FAISS_QUEUE, settings.BATCH_SIZE)
@@ -135,10 +138,9 @@ def faiss_search(dbs, logger, feature_dict):
                 query_feats = np.ascontiguousarray(query_feats.astype('float32'))
                 full_query_feats = np.concatenate((ms_query_feats,query_feats), axis=0)
                 # search
-                retr_num = 10
+                retr_num = 30
                 # retr_num = nr_retr if len(category) == 0 else 2000
                 distances, indices = db_in_use['index'].search(full_query_feats, retr_num)
-                
                 distances = np.vsplit(distances, 2)
                 indices = np.vsplit(indices, 2)
                 agg_distances = np.concatenate(distances, axis=1)
@@ -148,7 +150,7 @@ def faiss_search(dbs, logger, feature_dict):
                 agg_distances = []
                 agg_indices = []
                 for i in range(len(sorted_filenames)):
-                    if sorted_filenames[i] not in agg_indices:
+                    if sorted_filenames[i] not in agg_indices :
                         agg_indices.append(sorted_filenames[i]) 
                         agg_distances.append(sorted_distances[i])
                 agg_distances = np.array([agg_distances])
@@ -156,7 +158,6 @@ def faiss_search(dbs, logger, feature_dict):
                 # logger.info(f'distances : {distances}')
                 # logger.info(f'agg_distances : {agg_distances}')
                 # exit()
-
                 # prepare result
                 if app_code not in search_result_dict:
                     search_result_dict[app_code] = [{ 'id': data_dict['id'], 'distances': agg_distances, 'indices': agg_indices, 'box': box, 'nr_retr': nr_retr, 'category': category }]
@@ -196,7 +197,7 @@ def prepare_match_input(dbs, logger, search_result_dict):
 
                     # get master path
                     db_in_use = dbs[app_code]
-                    img_path = db_in_use['master_path_json'][str(i)]
+                    img_path = db_in_use['master_path_json'][str(i)]['path']
                     prod_path = img_path.split(',')[0]
                     is_use_category = db_in_use['use_category']
 
@@ -258,7 +259,53 @@ def prepare_match_input(dbs, logger, search_result_dict):
                 logger.info("Request %s done !" % img_id)
 
     return results
-
+def mapsId2Filename(img_id,listId,listDistance,master_path_json,mapsPath2Pdetail,typesearch='numberref'):
+    if typesearch == 'numberref':
+        mapsResult = {}
+        listProdName = []
+        freqDict = {}
+        for i in range(len(listId)):
+            filepath = master_path_json[str(listId[i])]['path']
+            if mapsPath2Pdetail[filepath]['Product_Name'] not in listProdName:
+                freqDict[mapsPath2Pdetail[filepath]['Product_Name']] = 1
+                listProdName.append(mapsPath2Pdetail[filepath]['Product_Name'])
+                mapsResult[mapsPath2Pdetail[filepath]['Product_Name']] = {
+                    'Search_Id':str(img_id),
+                    'Score':str(listDistance[i]),
+                    'Image':filepath,
+                    'Product_ID':str(mapsPath2Pdetail[filepath]['id']),
+                    'Product_Name':mapsPath2Pdetail[filepath]['Product_Name'],
+                    'Product_Detail':mapsPath2Pdetail[filepath]['Product_Detail']
+                }
+            else:
+                freqDict[mapsPath2Pdetail[filepath]['Product_Name']]+=1
+        sorted_dict = dict(sorted(freqDict.items(), key=lambda item: item[1],reverse=True))
+        finalList = []
+        for key in list(sorted_dict.keys()):
+            finalList.append(mapsResult[key])
+        if len(finalList)<5:
+            return {'ResultMatch':finalList}
+        else:
+            return {'ResultMatch':finalList[:5]}
+    else:
+        mapsResult = []
+        listProdName = []
+        for i in range(len(listId)):
+            filepath = master_path_json[str(listId[i])]['path']
+            if mapsPath2Pdetail[filepath]['Product_Name'] not in listProdName:
+                listProdName.append(mapsPath2Pdetail[filepath]['Product_Name'])
+                mapsResult.append({
+                    'Search_Id':str(img_id),
+                    'Score':str(listDistance[i]),
+                    'Image':filepath,
+                    'Product_ID':str(mapsPath2Pdetail[filepath]['id']),
+                    'Product_Name':mapsPath2Pdetail[filepath]['Product_Name'],
+                    'Product_Detail':mapsPath2Pdetail[filepath]['Product_Detail']
+                })
+        if len(mapsResult)<5:
+            return {'ResultMatch':mapsResult}
+        else:
+            return {'ResultMatch':mapsResult[:5]}
 def run(dbs):
     """ Run cluster """
     print("The faiss cluster is ready ...")
@@ -268,11 +315,17 @@ def run(dbs):
             db.set('stateSystem','None')
             dbs = {}
             for k, v in db_paths.items():
-                idx, master_data_paths_json ,desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
+                idx, master_data_paths_json,list_product ,desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
+                mapsPath2Pdetail = {}
+                for i in range(len(list_product)):
+                    for path in list_product[i]['List_Image']:
+                        mapsPath2Pdetail[path] = {'id':list_product[i]['id'],'Product_Name':list_product[i]['Product_Name'],'Product_Detail':list_product[i]['Product_Detail']}
                 if idx is not None and master_data_paths_json is not None:
                     dbs[k] = {
                         'db_path': v,
                         'index': idx,
+                        'list_product':list_product,
+                        'mapsPath2Pdetail':mapsPath2Pdetail,
                         'master_path_json': master_data_paths_json,
                         'desc_mode': desc_mode,
                         'use_category': use_category,
@@ -291,17 +344,25 @@ def run(dbs):
             search_result_dict = faiss_search(dbs, logger, feature_dict)
         else:
             continue
-
+        # step 3: prepare matching input
+        # if len(search_result_dict) > 0:
+        #     results = prepare_match_input(dbs, logger, search_result_dict)
+        #     for img_id, result in results:
+        #         # save result to cache db
+        #         db.set(img_id, result)
+        # else:
+        #     continue
         # step 3: prepare matching input
         if len(search_result_dict) > 0:
-            results = prepare_match_input(dbs, logger, search_result_dict)
-            for img_id, result in results:
-                # save result to cache db
-                print('====',img_id,' ',result)
-                db.set(img_id, result)
+            for app_code in search_result_dict.keys():
+                search_results = search_result_dict[app_code]
+                db_in_use = dbs[app_code]
+                for search_result in search_results:
+                    for img_id, indice, distance in zip(search_result['id'], search_result['indices'],search_result['distances']):
+                        dictResult = mapsId2Filename(img_id,indice,distance,db_in_use['master_path_json'],db_in_use['mapsPath2Pdetail'],'top')
+                        db.set(img_id, json.dumps(dictResult, ensure_ascii=False).encode("utf8"))
         else:
             continue
-
         time.sleep(settings.SERVER_SLEEP)
 
 if __name__ == '__main__':
@@ -324,11 +385,17 @@ if __name__ == '__main__':
     # set config object
     multi_db_obj_arr = {}
     for k, v in db_paths.items():
-        idx, master_data_paths_json, desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
+        idx, master_data_paths_json,list_product, desc_mode, use_category, db_category_name, db_product_category = load_config(config, v)
         if idx is not None and master_data_paths_json is not None:
+            mapsPath2Pdetail = {}
+            for i in range(len(list_product)):
+                for path in list_product[i]['List_Image']:
+                    mapsPath2Pdetail[path] = {'id':list_product[i]['id'],'Product_Name':list_product[i]['Product_Name'],'Product_Detail':list_product[i]['Product_Detail']}
             multi_db_obj_arr[k] = {
                 'db_path': v,
                 'index': idx,
+                'list_product':list_product,
+                'mapsPath2Pdetail':mapsPath2Pdetail,
                 'master_path_json': master_data_paths_json,
                 'desc_mode': desc_mode,
                 'use_category': use_category,

@@ -61,6 +61,7 @@ for k, v in db_support.items():
     multi_db_obj_arr[k] = { 'image_dir': image_dir, 'begin_time': begin_time, 'end_time': end_time, 'matching_config': matching_config, 'api_key': api_key }
 model1 = CNN(useRmac=True, use_solar=False)
 model2 = CNN(useRmac=True, use_solar=True)
+clipSeg_processor,clipSeg_model = helpers.init_ClipSegModel()
 def isServerOnline(app_code):
     """ Check server online by app code """
     db_selected = multi_db_obj_arr[app_code]
@@ -178,9 +179,8 @@ def update_price():
         result = json.dumps(json_response, ensure_ascii=False).encode("utf8")
         return result
 
-
 @app.route('/predict', methods=['GET', 'POST'])
-def predict():
+def search():
     json_response = {}
     max_request = round(settings.BATCH_SIZE * 1.5)
     return_code = 0
@@ -334,116 +334,292 @@ def predict():
                     db.delete(img_id)
                     output = output.decode("utf-8")
                     search_results = []
-                    boxes_sod = []
-                    boxes_sod.extend(json.loads(output)[settings.IMAGE_BOXES])
-
-                    rt_categories = []
-                    rt_categories.extend(json.loads(output)['category'])
-                    # sorted search results list
-                    search_results.extend(json.loads(output)['topn'])
-                    logger.debug('searching: %s, %s, %s, %s' % (img_id, shopid, app_code, search_results))
-                    search_results = sorted(
-                        search_results, key=lambda x: x[settings.SCORE_KEY], reverse=False)
-
-                    isMatching = matching_config = multi_db_obj_arr[app_code]['matching_config']
-                    if not isMatching:
-                        if len(search_results) > 0:
-                            json_response["type"] = "searching"
-                            json_response['matched_files'] = search_results
-                            if len(rt_categories) > 0:
-                                json_response['category'] = rt_categories
-                            json_response["status"] = 0
-                            json_response["message"] = "successful"
-                            return_code = 200
-                        else:
-                            json_response["status"] = 1
-                            json_response["message"] = "No matches found"
-                            return_code = 404
-                        break
-
-                    # initialize matching request
-                    state = 1
-                    match_image = np.array(match_image)
-                    match_img_str = helpers.base64_encode_image(
-                        match_image)
-                    match_req_obj = {settings.ID_KEY: img_id,
-                                     settings.IMAGE_KEY: match_img_str,
-                                     settings.IMAGE_WIDTH_KEY: w,
-                                     settings.IMAGE_HEIGHT_KEY: h,
-                                     settings.IMAGE_BOXES:boxes_sod,
-                                     settings.SIMILAR_IMAGES_KEY: search_results,
-                                     settings.APP_CODE_KEY: app_code,
-                                     'categories': rt_categories
-                                     }
-                    db.rpush(settings.MTC_IMAGE_QUEUE,
-                             json.dumps(match_req_obj))
-
-                    logger.info('Save %s image to %s success' %
-                                (img_id, str(settings.MTC_IMAGE_QUEUE)))
-                    if not matching_config:
-                        break
-
-            # handle matching response
-            elif state == 1:
-                matching_output = db.get(img_id)
-                if matching_output is not None:
-                    matching_output = matching_output.decode("utf-8")
-                    data = json.loads(matching_output)["result"]
-                    box = json.loads(matching_output)["box"]
-                    category_arr = json.loads(matching_output)['categories']
-                    matched_files = []
-                    if app_code == 'lashinbang':
-                        for i in range(len(data)):
-                            if 'crop_foreground' in data[i]['image']:
-                                data[i]['image'] = data[i]['image'].replace('crop_foreground/', '')
-                            if 'c.' in data[i]['image']:
-                                data[i]['image'] = data[i]['image'].replace('c', '')
-                            if 'rotate/' in data[i]['image']:
-                                data[i]['image'] = data[i]['image'].replace('rotate/', '')
-                            if 'r' in data[i]['image']:
-                                data[i]['image'] = data[i]['image'].replace('r', '')
-                            if any(data[i]['id'] == s['id'] for s in matched_files):
-                                continue
-                            matched_files.append(data[i])
-                    else:
-                        matched_files.extend(data)
-
-                    if len(matched_files) > 0:
-                        json_response["type"] = "matching"
-                        json_response["matched_files"] = matched_files
+                    search_results.extend(json.loads(output)['ResultMatch'])
+                    if len(search_results) > 0:
+                        json_response["type"] = "searching"
+                        json_response['matched_files'] = search_results
                         json_response["status"] = 0
-                        if len(category_arr) > 0:
-                            json_response["categories"] = category_arr
                         json_response["message"] = "successful"
-                        json_response["box"] = box
                         return_code = 200
                     else:
                         json_response["status"] = 1
                         json_response["message"] = "No matches found"
                         return_code = 404
-                    db.delete(img_id)
-                    logger.info('matching success')
                     break
-
-            # sleep 0.25s
-            time.sleep(settings.SERVER_SLEEP)
-
-    # save statistic log
-    msg = str(json_response["message"])
-    if (msg == "successful"):
-        arr = json_response["matched_files"]
-        data = []
-        for item in arr:
-            data.append(item["image"])
-        logger.info(
-            f"statistic: {img_id}, {shopid}, {app_code}, {msg}, {'|'.join([str(elem) for elem in data])}")
-    else:
-        logger.info(f'statistic: {img_id}, {shopid}, {app_code}, {msg}, 0')
-
-    # send response
+        if not os.path.exists(os.path.join(settings.SAVE_LOG_RESULT_URL,img_id+'.json')):
+            with open(os.path.join(settings.SAVE_LOG_RESULT_URL,img_id+'.json'), 'w') as fp:
+                json.dump(json_response, fp,indent=4)
+        else:
+            with open(os.path.join(settings.SAVE_LOG_RESULT_URL,img_id+'_new.json'), 'w') as fp:
+                json.dump(json_response, fp,indent=4)
     result = json.dumps(json_response, ensure_ascii=False).encode("utf8")
     logger.info('response: %s, %s, %s, %s' % (img_id, shopid, app_code, result))
     return result, return_code
+# @app.route('/predict', methods=['GET', 'POST'])
+# def predict():
+#     json_response = {}
+#     max_request = round(settings.BATCH_SIZE * 1.5)
+#     return_code = 0
+
+#     if request.method == 'POST':
+#         # request time out
+#         time_out = 0
+
+#         # app_code
+#         app_code = request.form.get(settings.APP_CODE_KEY)
+#         if app_code is None:
+#             app_code = 'lashinbang'
+#         if app_code not in db_support:
+#             error_msg = {'message': 'This app is not support', 'status': 2}
+#             return json.dumps(error_msg, ensure_ascii=False).encode("utf8"), 400
+
+#         # check server online
+#         if not isServerOnline(app_code):
+#             error_msg = {'message': 'Server not online at this time', 'status': 'off'}
+#             return json.dumps(error_msg, ensure_ascii=False).encode("utf8"), 400
+
+#         # validate request
+#         api_key = multi_db_obj_arr[app_code]['api_key']
+#         if api_key != '':
+#             header = request.headers
+#             if not header or header.get('x-api-key') != multi_db_obj_arr[app_code]['api_key']:
+#                 abort(401)
+
+#         # Get file data
+#         if request.files.get(settings.FILE_KEY):
+#             time_out = time.time()
+#             img_raw_data = request.files.get(settings.FILE_KEY).read()
+#             image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
+#         elif request.form.get(settings.FILE_KEY):
+#             time_out = time.time()
+#             img_base64_str = request.form.get(settings.FILE_KEY)
+#             img_raw_data = base64.b64decode(img_base64_str)
+#             image = Image.open(io.BytesIO(img_raw_data))
+#         else:
+#             abort(400)
+
+#         pre_computed_features = None
+#         # Get pre-computed features
+#         if request.files.get(settings.CNN_PRE_COMPUTED_KEY) is not None:
+#             s = request.files.get(settings.CNN_PRE_COMPUTED_KEY).read()
+#             logger.info("features' length : %s", len(s))
+#             feature_length = 2048
+#             if len(s) == feature_length * 8:
+#                  _dtype = np.float64
+#             elif len(s) == feature_length * 4:
+#                  _dtype = np.float32
+#             elif len(s) == feature_length:
+#                  _dtype = np.uint8
+#             else:
+#                  logger.error("Incorrect features. Size = %s", len(s))
+#                  abort(400)
+#             pre_computed_features = np.frombuffer(s, dtype=_dtype)
+#             if not (_dtype == np.float32):
+#                 pre_computed_features = np.float32(pre_computed_features)
+#             logger.info("Pre-computed CNN features are available")
+
+#         # Get category
+#         categories = request.form.get('category') or ''
+
+#         # Begin search image
+#         platform = request.user_agent.platform
+#         browser = request.user_agent.browser
+#         logger.info('Request from %s platform - %s browser' %
+#                     (platform, browser))
+
+#         # get shopid, if none return 400
+#         shopid = request.form.get(settings.SHOP_ID_KEY)
+#         if shopid is None:
+#             shopid = "shop_id_default"
+
+#         # handle too many requests
+#         if db.llen(settings.IMAGE_QUEUE) > max_request:
+#             logger.info('many')
+#             logger.error("Too Many Requests: %s from %s with shop_id %s" % (db.llen(
+#                 settings.IMAGE_QUEUE), request.remote_addr, shopid))
+#             abort(429)
+
+#         # get nt_retr
+#         nr_retr = settings.NR_RETR
+#         if request.form.get(settings.NR_RETR_KEY) is not None:
+#             nr_retr = helpers.try_int(request.form.get(settings.NR_RETR_KEY))
+#             if nr_retr > settings.MAX_NR_RETR:
+#                 nr_retr = settings.MAX_NR_RETR
+
+#         # save request to cache db
+#         img_id = str(uuid.uuid4())
+#         logger.info('Request image with id: %s - from: %s - shopid: %s - app_code: %s - categories: %s' %
+#                     (img_id, request.remote_addr, shopid, app_code, categories.encode('utf-8')))
+
+#         # Crop image in webapp
+#         if browser is not None:
+#             left, top, right, bottom = helpers.find_center(image.size)
+#             image = image.crop((left, top, right, bottom))
+
+#         # Save input
+#         if settings.CBIR_SAVE_QUERY_IMAGES:
+#             path_to_query_image = img_id + '.jpg'
+#             path_to_query_image = os.path.join(
+#                 settings.QUERY_IMAGE_FOLDER, path_to_query_image)
+#             try:
+#                 image.save(path_to_query_image)
+#             except IOError:
+#                 logger.error(
+#                     "Cannot save the query image to file '%s'" % path_to_query_image)
+
+#         # Create search request
+#         search_image = np.array(image)
+#         img_str = helpers.base64_encode_image(search_image)
+
+#         if pre_computed_features is not None:
+#             pre_computed_features_str = helpers.base64_encode_image(pre_computed_features)
+#         else:
+#             pre_computed_features_str = ''
+
+#         req_obj = {settings.ID_KEY: img_id,
+#                    settings.IMAGE_WIDTH_KEY: image.width,
+#                    settings.IMAGE_HEIGHT_KEY: image.height,
+#                    settings.CNN_PRE_COMPUTED_KEY: pre_computed_features_str,
+#                    settings.NR_RETR_KEY: nr_retr,
+#                    settings.IMAGE_KEY: img_str,
+#                    settings.APP_CODE_KEY: app_code,
+#                    settings.CATEGORIES_KEY: categories
+#                    }
+#         db.rpush(settings.IMAGE_QUEUE, json.dumps(req_obj))
+
+#         logger.info("Save %s image to %s success" %
+#                     (img_id, settings.IMAGE_QUEUE))
+
+#         # prepare matching image
+#         image = image.convert('L')
+#         match_image, w, h = helpers.resize(
+#             image, settings.MTC_IMAGE_WIDTH, settings.MTC_IMAGE_HEIGHT, True)
+
+#         # received searching & matching reponses
+#         state = 0  # 0 - searching | 1 - matching
+#         while True:
+#             run_time = int(round((time.time() - time_out) * 1000))
+#             if run_time >= settings.REQ_TIME_OUT:
+#                 logger.error("ALERT: Request %s time out" % img_id)
+#                 abort(408)
+
+#             # handler searching responses
+#             if state == 0:
+#                 output = db.get(img_id)
+#                 if output is not None:
+#                     db.delete(img_id)
+#                     output = output.decode("utf-8")
+#                     search_results = []
+#                     boxes_sod = []
+#                     boxes_sod.extend(json.loads(output)[settings.IMAGE_BOXES])
+
+#                     rt_categories = []
+#                     rt_categories.extend(json.loads(output)['category'])
+#                     # sorted search results list
+#                     search_results.extend(json.loads(output)['topn'])
+#                     logger.debug('searching: %s, %s, %s, %s' % (img_id, shopid, app_code, search_results))
+#                     search_results = sorted(
+#                         search_results, key=lambda x: x[settings.SCORE_KEY], reverse=False)
+
+#                     isMatching = matching_config = multi_db_obj_arr[app_code]['matching_config']
+#                     if not isMatching:
+#                         if len(search_results) > 0:
+#                             json_response["type"] = "searching"
+#                             json_response['matched_files'] = search_results
+#                             if len(rt_categories) > 0:
+#                                 json_response['category'] = rt_categories
+#                             json_response["status"] = 0
+#                             json_response["message"] = "successful"
+#                             return_code = 200
+#                         else:
+#                             json_response["status"] = 1
+#                             json_response["message"] = "No matches found"
+#                             return_code = 404
+#                         break
+
+#                     # initialize matching request
+#                     state = 1
+#                     match_image = np.array(match_image)
+#                     match_img_str = helpers.base64_encode_image(
+#                         match_image)
+#                     match_req_obj = {settings.ID_KEY: img_id,
+#                                      settings.IMAGE_KEY: match_img_str,
+#                                      settings.IMAGE_WIDTH_KEY: w,
+#                                      settings.IMAGE_HEIGHT_KEY: h,
+#                                      settings.IMAGE_BOXES:boxes_sod,
+#                                      settings.SIMILAR_IMAGES_KEY: search_results,
+#                                      settings.APP_CODE_KEY: app_code,
+#                                      'categories': rt_categories
+#                                      }
+#                     db.rpush(settings.MTC_IMAGE_QUEUE,
+#                              json.dumps(match_req_obj))
+
+#                     logger.info('Save %s image to %s success' %
+#                                 (img_id, str(settings.MTC_IMAGE_QUEUE)))
+#                     if not matching_config:
+#                         break
+
+#             # handle matching response
+#             elif state == 1:
+#                 matching_output = db.get(img_id)
+#                 if matching_output is not None:
+#                     matching_output = matching_output.decode("utf-8")
+#                     data = json.loads(matching_output)["result"]
+#                     box = json.loads(matching_output)["box"]
+#                     category_arr = json.loads(matching_output)['categories']
+#                     matched_files = []
+#                     if app_code == 'lashinbang':
+#                         for i in range(len(data)):
+#                             if 'crop_foreground' in data[i]['image']:
+#                                 data[i]['image'] = data[i]['image'].replace('crop_foreground/', '')
+#                             if 'c.' in data[i]['image']:
+#                                 data[i]['image'] = data[i]['image'].replace('c', '')
+#                             if 'rotate/' in data[i]['image']:
+#                                 data[i]['image'] = data[i]['image'].replace('rotate/', '')
+#                             if 'r' in data[i]['image']:
+#                                 data[i]['image'] = data[i]['image'].replace('r', '')
+#                             if any(data[i]['id'] == s['id'] for s in matched_files):
+#                                 continue
+#                             matched_files.append(data[i])
+#                     else:
+#                         matched_files.extend(data)
+
+#                     if len(matched_files) > 0:
+#                         json_response["type"] = "matching"
+#                         json_response["matched_files"] = matched_files
+#                         json_response["status"] = 0
+#                         if len(category_arr) > 0:
+#                             json_response["categories"] = category_arr
+#                         json_response["message"] = "successful"
+#                         json_response["box"] = box
+#                         return_code = 200
+#                     else:
+#                         json_response["status"] = 1
+#                         json_response["message"] = "No matches found"
+#                         return_code = 404
+#                     db.delete(img_id)
+#                     logger.info('matching success')
+#                     break
+
+#             # sleep 0.25s
+#             time.sleep(settings.SERVER_SLEEP)
+
+#     # save statistic log
+#     msg = str(json_response["message"])
+#     if (msg == "successful"):
+#         arr = json_response["matched_files"]
+#         data = []
+#         for item in arr:
+#             data.append(item["image"])
+#         logger.info(
+#             f"statistic: {img_id}, {shopid}, {app_code}, {msg}, {'|'.join([str(elem) for elem in data])}")
+#     else:
+#         logger.info(f'statistic: {img_id}, {shopid}, {app_code}, {msg}, 0')
+
+#     # send response
+#     result = json.dumps(json_response, ensure_ascii=False).encode("utf8")
+#     logger.info('response: %s, %s, %s, %s' % (img_id, shopid, app_code, result))
+#     return result, return_code
 @app.route('/set_state/<value>')
 def set_state(value):
     db.set('stateSystem', value)
@@ -457,14 +633,21 @@ def get_state():
 def get_all_product():
     with open(db_config['LIST_PRODUCT'], 'r') as file:
         data = json.load(file)
-    data['status']=1
-    data['message']='success'
-    return jsonify(data)
+    FilterResult = []
+    for i in range(len(data)):
+        tmppath = []
+        for path in data[i]['List_Image']:
+            if '_segment_' not in str(path) and '_Augment_' not in str(path):
+                tmppath.append(path)
+        FilterResult.append({'id':data[i]['id'],'Product_Name':data[i]['Product_Name'],'Product_Detail':data[i]['Product_Detail'],'List_Image':tmppath})
+        
+    return jsonify(FilterResult)
+
 @app.route('/<folder>/<filename>')
 def get_image(folder, filename):
     filepath = os.path.join(folder, filename)
     # Serve the file from within the 'SearchData' directory
-    return send_from_directory('SearchData', filepath)
+    return send_from_directory('Database_CROP', filepath)
 @app.route('/add_product', methods=['POST'])
 def add_product():
     # Assuming product_name, product_detail, and product_image are the form field names
@@ -497,7 +680,7 @@ def add_product():
                 listFilenames.append(imgName)
         else:
             abort(400)
-        resultList = helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,db)
+        resultList = helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db)
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
     return jsonify(resultList), 200
@@ -531,7 +714,7 @@ def add_images():
             file_name, file_extension = os.path.splitext(imageobject.filename)
             imgName = preProcessText(file_name)+file_extension
             listFilenames.append(imgName)
-    resultList = helpers.addImages(ItemID,product_name,product_detail,listImage,listFilenames,db_config,model1,model2,db)
+    resultList = helpers.addImages(ItemID,product_name,product_detail,listImage,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db)
     return jsonify(resultList), 200
 @app.route('/remove_product', methods=['POST'])
 def remove_product():
@@ -548,6 +731,12 @@ def get_detail():
     if not productID:
         return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
     result = helpers.getDetail(productID,db_config)
+    result['status']=1
+    result['message']='success'
+    return jsonify(result), 200
+@app.route('/get_total_index', methods=['POST'])
+def get_total_index():
+    result = helpers.getTotalIndex(db_config)
     result['status']=1
     result['message']='success'
     return jsonify(result), 200

@@ -191,7 +191,7 @@ class CNN:
         imglist = []
         for i in range(len(images)):
             # newsize = calculate_resized_dimensions(images[i],500)
-            img = cv2.cvtColor(images[i],cv2.COLOR_BGR2RGB)
+            img = cv2.cvtColor(np.array(images[i]),cv2.COLOR_BGR2RGB)
             # x = cv2.resize(img, (newsize[0], newsize[1]))
             # tensor_img = torch.from_numpy(x).float()
             img = square_images(img,500)

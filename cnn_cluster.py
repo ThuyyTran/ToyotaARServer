@@ -92,7 +92,7 @@ def crop_sod_images(payloads):
     # sod_images = helpers.extract_sod_batch_by_array(
     #     sod_model, image_array['raw'])
     time_1 = time.time() - time_start_crop
-    sod_images = helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'])
+    sod_images = helpers.extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,image_array['raw'],image_array['id'])
     # start crop
     logger.info("Start crop")
     crop_img_s_tmp = []
@@ -273,7 +273,6 @@ def run():
         # step 3: Extract features
         if len(sod_dict) > 0 or len(pre_computed_sod_dict) > 0:
             feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
-            print(feature_dict)
         else:
             continue
 

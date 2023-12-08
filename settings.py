@@ -67,6 +67,7 @@ INDEX_FILE_KEY = "INDEX_FILE"
 PCA_MATRIX_FILE_KEY = "PCA_MATRIX_FILE"
 IMG_LIST_FILE_KEY = "IMG_LIST_FILE"
 IMG_LIST_FILE_JSON_KEY = "IMG_LIST_FILE_JSON"
+ALL_PRODUCT_PATH_KEY = "LIST_PRODUCT"
 CNN_IMAGE_FEATURE_USING_PCA_KEY = "CNN_IMAGE_FEATURE_USING_PCA"
 INDEX_NPROBE_KEY = 'INDEX_NPROBE'
 MTC_IMAGE_DB_FOLDER_KEY = 'MTC_IMAGE_DB_FOLDER'
@@ -86,8 +87,8 @@ LOGGER_ERROR_PATH = "logs/error"
 LOGGER_CONF_NAME = "logger.conf"
 
 # save query images
-CBIR_SAVE_QUERY_IMAGES = True
-QUERY_IMAGE_FOLDER = "query_images/"
+CBIR_SAVE_QUERY_IMAGES = False
+QUERY_IMAGE_FOLDER = "Log/query_images/"
 
 # requests timeout
 REQ_TIME_OUT = 5000
@@ -103,5 +104,8 @@ STATIC_FOLDER = ''
 URL_IMAGE = 'https://test-la.anlab.info/api/get-raw-images'
 
 #ConfigPrompt
-SAVE_IMAGE_URL = 'SaveQuery/'
+DATABASE_PATH = 'Database_CROP/'
+SAVE_IMAGE_URL = 'Log/SaveQuery/'
+SAVE_IMAGE_SEGMENT_URL = 'Log/SaveSegment/'
+SAVE_LOG_RESULT_URL = 'Log/Result/'
 PROMPT_IMAGE_URL = '/media/anlab/data-2tb/ANLAB_THUY/ToyotaAR/Dataset/support1_black.jpg'
