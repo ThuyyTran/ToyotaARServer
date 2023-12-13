@@ -251,46 +251,55 @@ def run():
     print("The CNN cluster is ready ...")
 
     while True:
-        requests = helpers.multi_pop(
+        if db.get('ProcessMode').decode("utf-8") == 'Search':
+            requests = helpers.multi_pop(
             db, settings.IMAGE_QUEUE, settings.BATCH_SIZE)
-        sod_arr = []
-
-        # step 1: parsing requests
-        for req in requests:
-            if req is None:
+            sod_arr = []
+            # step 1: parsing requests
+            for req in requests:
+                if req is None:
+                    continue
+                req_payload = json.loads(
+                    req, object_hook=lambda d: SimpleNamespace(**d))
+                sod_arr.append(req_payload)
+            # step 2: crop sod images
+            if len(sod_arr) > 0:
+                sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+            else:
                 continue
-
-            req_payload = json.loads(
-                req, object_hook=lambda d: SimpleNamespace(**d))
-            sod_arr.append(req_payload)
-
-        # step 2: crop sod images
-        if len(sod_arr) > 0:
-            sod_dict, pre_computed_sod_dict = crop_sod_images(sod_arr)
+            # step 3: Extract features
+            if len(sod_dict) > 0 or len(pre_computed_sod_dict) > 0:
+                feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
+            else:
+                continue
+            # step 4: prepare inputs for faiss search
+            if len(feature_dict) > 0:
+                searchPayload = json.dumps(feature_dict, cls=NumpyEncoder)
+                db.rpush(settings.FAISS_QUEUE, searchPayload)
+                logger.info('Push faiss payload to redis')
+            else:
+                continue
+            # clear if done
+            sod_arr.clear()
+            # sleeppppp...
+            # time.sleep(settings.SERVER_SLEEP)
         else:
-            continue
-
-        # step 3: Extract features
-        if len(sod_dict) > 0 or len(pre_computed_sod_dict) > 0:
-            feature_dict = extract_features(sod_dict, pre_computed_sod_dict)
-        else:
-            continue
-
-
-        # step 4: prepare inputs for faiss search
-        if len(feature_dict) > 0:
-            searchPayload = json.dumps(feature_dict, cls=NumpyEncoder)
-            db.rpush(settings.FAISS_QUEUE, searchPayload)
-            logger.info('Push faiss payload to redis')
-        else:
-            continue
-
-        # clear if done
-        sod_arr.clear()
-
-        # sleeppppp...
-        time.sleep(settings.SERVER_SLEEP)
-
+            requests = helpers.single_pop(db,settings.IMAGE_QUEUE)
+            if requests == None:
+                continue
+            else:
+                my_json = requests.decode('utf8').replace("'", '"')
+                data = json.loads(my_json)
+                if data['process_status'] == 'AddIndex':
+                    status = helpers.addIndex(data,model1,model2,clipSeg_processor,clipSeg_model,db)
+                elif data['process_status'] == 'AddImages':
+                    status = helpers.addImages(data,model1,model2,clipSeg_processor,clipSeg_model,db)
+                elif data['process_status'] == 'RemoveIndex':
+                    status = helpers.removeIndex(data,db)
+                elif data['process_status'] == 'RemoveImages':
+                    status = helpers.removeImage(data,db)
+                db.set(data['uuid'], json.dumps(status))
+                db.set('ProcessMode','Search')
 
 def load_config(db_path):
     # read database config

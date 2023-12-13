@@ -36,6 +36,7 @@ CLIENT_SLEEP = 0.05
 # initialize content keys
 FILE_KEY = "file"
 ID_KEY = "id"
+PROCESS_STATUS_KEY = 'process_status'
 IMAGE_KEY = "image"
 IMAGE_WIDTH_KEY = "width"
 IMAGE_HEIGHT_KEY = "height"
@@ -92,6 +93,7 @@ QUERY_IMAGE_FOLDER = "Log/query_images/"
 
 # requests timeout
 REQ_TIME_OUT = 5000
+REQ_ADD_TIME_OUT = 4000
 
 #
 APP_DB_NAME = 'lashinbang_database'

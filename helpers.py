@@ -99,8 +99,26 @@ def multi_pop(r, q, n):
             time.sleep(backoff)
             r = redis.StrictRedis(host=settings.REDIS_HOST,
                                   port=settings.REDIS_PORT, db=settings.REDIS_DB)
-
-
+def single_pop(r, q):
+    arr = []
+    count = 0
+    while True:
+        try:
+            p = r.pipeline()
+            p.multi()
+            p.lpop(q)
+            arr = p.execute()
+            return arr[0]
+        except redis.ConnectionError:
+            count += 1
+            logger.error("Connection failed in %s times" % count)
+            if count > 3:
+                raise
+            backoff = count * 5
+            logger.info('Retrying in {} seconds'.format(backoff))
+            time.sleep(backoff)
+            r = redis.StrictRedis(host=settings.REDIS_HOST,
+                                  port=settings.REDIS_PORT, db=settings.REDIS_DB)
 def try_int(value):
     try:
         return int(value)
@@ -796,226 +814,250 @@ def convertBRG2RGB(base_folder, files, save_folder="convert_crop_foreground"):
 		base = os.path.basename(f)
 		file_out = os.path.join(sub_path_save, base)
 		cv2.imwrite(file_out, image)
-def addIndex(product_name,product_detail,listImages,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db):
-    if len(product_name)<=3:
-        return {'status':0,'message':'Product name too short.'}
-    _index_path =db_config[settings.INDEX_FILE_KEY]
-    _img_list_path_json =db_config[settings.IMG_LIST_FILE_JSON_KEY]
-    with open(db_config['LIST_PRODUCT'], 'r') as file:
-        detail_product = json.load(file)
-    with open(_img_list_path_json, 'r') as file:
-        master_data_paths_json = json.load(file)
-    sub_index = faiss.read_index(_index_path)
-    oldId = max(map(int, master_data_paths_json.keys()))+1
-    desc_mode = db_config[settings.DESC_MODE_CONFIG]
-    multiscale = '[1, 1/2**(1/2), 1/2]'
-    ms = list(eval(multiscale))
-    allProductName = []
-    listId = []
-    for i in range(len(detail_product)):
-        allProductName.append(detail_product[i]['Product_Name'])
-        listId.append(detail_product[i]['id'])
-    newID = max(listId)+1
-    if product_name in allProductName:
-        return {'status':0,'message':'Product name already exists in the database.'}
-    if product_name not in allProductName or not os.path.exists(settings.DATABASE_PATH+product_name):
-        os.mkdir(settings.DATABASE_PATH+product_name)
-    listImgPath = []
-    listIdAdd = []
-    listImgAdd = []
-    for i in range(len(listImages)):
-        listImgAdd.append(listImages[i])
-        listIdAdd.append(oldId)
-        savePath = os.path.join(product_name,listFilenames[i])
-        if os.path.exists(settings.DATABASE_PATH+savePath):
-            file_name, file_extension  = os.path.splitext(listFilenames[i])
+def addIndex(data,model1,model2,clipSeg_processor,clipSeg_model,db):
+    try:
+        if len(data['product_name'])<=3:
+            return {'status':0,'message':'Product name too short.'}
+        _index_path =data['db_config'][settings.INDEX_FILE_KEY]
+        _img_list_path_json =data['db_config'][settings.IMG_LIST_FILE_JSON_KEY]
+        decode_image_list = []
+        for i in range(len(data['listImage'])):
+            img_shape = (data['listShape'][i][0],data['listShape'][i][1], settings.CNN_IMAGE_CHANS)
+            img_decoded = base64_decode_image(data['listImage'][i], np.uint8, img_shape)
+            image = Image.fromarray(img_decoded)
+            decode_image_list.append(image)
+        with open(data['db_config']['LIST_PRODUCT'], 'r') as file:
+            detail_product = json.load(file)
+        with open(_img_list_path_json, 'r') as file:
+            master_data_paths_json = json.load(file)
+        sub_index = faiss.read_index(_index_path)
+        oldId = max(map(int, master_data_paths_json.keys()))+1
+        desc_mode = data['db_config'][settings.DESC_MODE_CONFIG]
+        multiscale = '[1, 1/2**(1/2), 1/2]'
+        ms = list(eval(multiscale))
+        allProductName = []
+        listId = []
+        for i in range(len(detail_product)):
+            allProductName.append(detail_product[i]['Product_Name'])
+            listId.append(detail_product[i]['id'])
+        newID = max(listId)+1
+        if data['product_name'] in allProductName:
+            return {'status':0,'message':'Product name already exists in the database.'}
+        if data['product_name'] not in allProductName or not os.path.exists(settings.DATABASE_PATH+data['product_name']):
+            os.mkdir(settings.DATABASE_PATH+data['product_name'])
+        listImgPath = []
+        listIdAdd = []
+        listImgAdd = []
+        for i in range(len(decode_image_list)):
+            listImgAdd.append(decode_image_list[i])
+            listIdAdd.append(oldId)
+            savePath = os.path.join(data['product_name'],data['listFilenames'][i])
+            if os.path.exists(settings.DATABASE_PATH+savePath):
+                file_name, file_extension  = os.path.splitext(data['listFilenames'][i])
+                now = datetime.now()
+                current_time = now.strftime("%H_%M_%S")
+                newName = file_name+'-'+current_time
+                savePath = os.path.join(data['product_name'],newName+file_extension)
+            decode_image_list[i].save(settings.DATABASE_PATH+savePath)
+            listImgPath.append(savePath)
+            # sub_index.add_with_ids(np.array(ms_query_feats),oldId)
+            if oldId not in master_data_paths_json.keys():
+                master_data_paths_json[oldId] = {'path':savePath,'id':newID}
+            oldId+=1
+            #SegmentImage
+            file_name, file_extension  = os.path.splitext(data['listFilenames'][i])
+            sod_images = extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,np.array([np.array(decode_image_list[i])]),'None',mode='add')[0]
             now = datetime.now()
             current_time = now.strftime("%H_%M_%S")
-            newName = file_name+'-'+current_time
-            savePath = os.path.join(product_name,newName+file_extension)
-        listImages[i].save(settings.DATABASE_PATH+savePath)
-        listImgPath.append(savePath)
-        # sub_index.add_with_ids(np.array(ms_query_feats),oldId)
-        if oldId not in master_data_paths_json.keys():
-            master_data_paths_json[oldId] = {'path':savePath,'id':newID}
-        oldId+=1
-        #SegmentImage
-        file_name, file_extension  = os.path.splitext(listFilenames[i])
-        sod_images = extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,np.array([np.array(listImages[i])]),'None',mode='add')[0]
-        now = datetime.now()
-        current_time = now.strftime("%H_%M_%S")
-        sod_images.save(os.path.join(settings.DATABASE_PATH,product_name,file_name+'_'+current_time+'_'+'Segment'+file_extension))
-        listImgPath.append(os.path.join(product_name,file_name+'_'+current_time+'_'+'Segment'+file_extension))
-        listImgAdd.append(sod_images)
-        listIdAdd.append(oldId)
-        # sub_index.add_with_ids(np.array(ms_query_feats_segment),oldId)
-        if oldId not in master_data_paths_json.keys():
-            master_data_paths_json[oldId] = {'path':os.path.join(product_name,file_name+'_'+current_time+'_'+'Segment'+file_extension),'id':newID}
-        oldId+=1
-    if desc_mode == 'solar':
-        ms_query_feats_segment, query_feats_segment = model2.extract_feat_batch_by_arrays(
-            np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
-    else:
-        ms_query_feats_segment, query_feats_segment = model1.extract_feat_batch_by_arrays(
-            np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
-    sub_index.add_with_ids(np.array(ms_query_feats_segment),np.array(listIdAdd))
-    result = {"id": newID,
-        "Product_Name": product_name,
-        "Product_Detail": product_detail,
-        "List_Image": listImgPath,}
-    detail_product.append(result)
-    write_index(sub_index, _index_path)
-    with open(db_config['LIST_PRODUCT'], "w") as outfile:
-        json.dump(detail_product, outfile)
-    with open(_img_list_path_json, "w") as outfile:
-        json.dump(master_data_paths_json, outfile)
-    db.set('stateSystem', 'Updated')
-    result['status'] = 1
-    result['message'] = 'Product successfully added to the database'
-    return result
-def addImages(idProduct,productname,productdetail,listImages,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db):
-    if len(productname)<=3:
-        return {'status':0,'message':'Product name too short.'}
-    _index_path =db_config[settings.INDEX_FILE_KEY]
-    _img_list_path_json =db_config[settings.IMG_LIST_FILE_JSON_KEY]
-    with open(db_config['LIST_PRODUCT'], 'r') as file:
-        detail_product = json.load(file)
-    with open(_img_list_path_json, 'r') as file:
-        master_data_paths_json = json.load(file)
-    sub_index = faiss.read_index(_index_path)
-    oldId = max(map(int, master_data_paths_json.keys()))+1
-    desc_mode = db_config[settings.DESC_MODE_CONFIG]
-    multiscale = '[1, 1/2**(1/2), 1/2]'
-    ms = list(eval(multiscale))
-    product_name = ''
-    indexQuery = ''
-    allProductName = []
-    for i in range(len(detail_product)):
-        if str(detail_product[i]['id']) != str(idProduct):
-            allProductName.append(str(detail_product[i]['Product_Name']))
-        if str(detail_product[i]['id']) == str(idProduct):
-            product_name = detail_product[i]['Product_Name']
-            indexQuery = i
-    if productname in allProductName:
-        return {'status':0,'message':'Product name already exists in the database.'}
-    detail_product[indexQuery]["Product_Name"] = productname
-    detail_product[indexQuery]["Product_Detail"] = productdetail
-    os.rename(settings.DATABASE_PATH+product_name,settings.DATABASE_PATH+productname)
-    for key in master_data_paths_json.keys():
-        pathFolder, pathImage = os.path.split(master_data_paths_json[key]['path'])
-        if pathFolder == product_name:
-            master_data_paths_json[key] = {'path':os.path.join(productname,pathImage),'id':idProduct}
-    listImgPath = []
-    listIdAdd = []
-    listImgAdd = []
-    for i in range(len(listImages)):
-        listIdAdd.append(oldId)
-        listImgAdd.append(listImages[i])
-        savePath = os.path.join(productname,listFilenames[i])
-        if os.path.exists(settings.DATABASE_PATH+savePath):
-            file_name, file_extension  = os.path.splitext(listFilenames[i])
+            sod_images.save(os.path.join(settings.DATABASE_PATH,data['product_name'],file_name+'_'+current_time+'_'+'Segment'+file_extension))
+            listImgPath.append(os.path.join(data['product_name'],file_name+'_'+current_time+'_'+'Segment'+file_extension))
+            listImgAdd.append(sod_images)
+            listIdAdd.append(oldId)
+            # sub_index.add_with_ids(np.array(ms_query_feats_segment),oldId)
+            if oldId not in master_data_paths_json.keys():
+                master_data_paths_json[oldId] = {'path':os.path.join(data['product_name'],file_name+'_'+current_time+'_'+'Segment'+file_extension),'id':newID}
+            oldId+=1
+        if desc_mode == 'solar':
+            ms_query_feats_segment, query_feats_segment = model2.extract_feat_batch_by_arrays(
+                np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+        else:
+            ms_query_feats_segment, query_feats_segment = model1.extract_feat_batch_by_arrays(
+                np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+        sub_index.add_with_ids(np.array(ms_query_feats_segment),np.array(listIdAdd))
+        result = {"id": newID,
+            "Product_Name": data['product_name'],
+            "Product_Detail": data['product_detail'],
+            "List_Image": listImgPath,}
+        detail_product.append(result)
+        write_index(sub_index, _index_path)
+        with open(data['db_config']['LIST_PRODUCT'], "w") as outfile:
+            json.dump(detail_product, outfile)
+        with open(_img_list_path_json, "w") as outfile:
+            json.dump(master_data_paths_json, outfile)
+        db.set('stateSystem', 'Updated')
+        result['status'] = 1
+        result['message'] = 'Product successfully added to the database'
+    except Exception as error:
+        return {'status':0,'message':str(error)}
+def addImages(data,model1,model2,clipSeg_processor,clipSeg_model,db):
+    try:
+        if len(data['product_name'])<=3:
+            return {'status':0,'message':'Product name too short.'}
+        _index_path =data['db_config'][settings.INDEX_FILE_KEY]
+        _img_list_path_json =data['db_config'][settings.IMG_LIST_FILE_JSON_KEY]
+        with open(data['db_config']['LIST_PRODUCT'], 'r') as file:
+            detail_product = json.load(file)
+        with open(_img_list_path_json, 'r') as file:
+            master_data_paths_json = json.load(file)
+        sub_index = faiss.read_index(_index_path)
+        oldId = max(map(int, master_data_paths_json.keys()))+1
+        desc_mode = data['db_config'][settings.DESC_MODE_CONFIG]
+        multiscale = '[1, 1/2**(1/2), 1/2]'
+        ms = list(eval(multiscale))
+        decode_image_list = []
+        for i in range(len(data['listImage'])):
+            img_shape = (data['listShape'][i][0],data['listShape'][i][1], settings.CNN_IMAGE_CHANS)
+            img_decoded = base64_decode_image(data['listImage'][i], np.uint8, img_shape)
+            image = Image.fromarray(img_decoded)
+            decode_image_list.append(image)
+        product_name = ''
+        indexQuery = ''
+        allProductName = []
+        for i in range(len(detail_product)):
+            if str(detail_product[i]['id']) != str(data['product_id']):
+                allProductName.append(str(detail_product[i]['Product_Name']))
+            if str(detail_product[i]['id']) == str(data['product_id']):
+                product_name = detail_product[i]['Product_Name']
+                indexQuery = i
+        if data['product_name'] in allProductName:
+            return {'status':0,'message':'Product name already exists in the database.'}
+        detail_product[indexQuery]["Product_Name"] = data['product_name']
+        detail_product[indexQuery]["Product_Detail"] = data['product_detail']
+        os.rename(settings.DATABASE_PATH+product_name,settings.DATABASE_PATH+data['product_name'])
+        for key in master_data_paths_json.keys():
+            pathFolder, pathImage = os.path.split(master_data_paths_json[key]['path'])
+            if pathFolder == product_name:
+                master_data_paths_json[key] = {'path':os.path.join(data['product_name'],pathImage),'id':data['product_id']}
+        listImgPath = []
+        listIdAdd = []
+        listImgAdd = []
+        for i in range(len(decode_image_list)):
+            listIdAdd.append(oldId)
+            listImgAdd.append(decode_image_list[i])
+            savePath = os.path.join(data['product_name'],data['listFilenames'][i])
+            if os.path.exists(settings.DATABASE_PATH+savePath):
+                file_name, file_extension  = os.path.splitext(data['listFilenames'][i])
+                now = datetime.now()
+                current_time = now.strftime("%H_%M_%S")
+                newName = file_name+'-'+current_time
+                savePath = os.path.join(data['product_name'],newName+file_extension)
+            decode_image_list[i].save(settings.DATABASE_PATH+savePath)
+            listImgPath.append(savePath)
+            if oldId not in master_data_paths_json.keys():
+                master_data_paths_json[oldId] = {'path':savePath,'id':data['product_id']}
+            oldId+=1
+            #SegmentImage
+            file_name, file_extension  = os.path.splitext(data['listFilenames'][i])
+            sod_images = extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,np.array([np.array(decode_image_list[i])]),'None',mode='add')[0]
             now = datetime.now()
             current_time = now.strftime("%H_%M_%S")
-            newName = file_name+'-'+current_time
-            savePath = os.path.join(productname,newName+file_extension)
-        listImages[i].save(settings.DATABASE_PATH+savePath)
-        listImgPath.append(savePath)
-        if oldId not in master_data_paths_json.keys():
-            master_data_paths_json[oldId] = {'path':savePath,'id':idProduct}
-        oldId+=1
-        #SegmentImage
-        file_name, file_extension  = os.path.splitext(listFilenames[i])
-        sod_images = extract_mask_ClipSeg_model(clipSeg_processor,clipSeg_model,np.array(listImages[i]),'None',mode='add')[0]
-        now = datetime.now()
-        current_time = now.strftime("%H_%M_%S")
-        sod_images.save(os.path.join(settings.DATABASE_PATH,productname,file_name+'_'+current_time+'_'+'Segment'+file_extension))
-        listIdAdd.append(oldId)
-        listImgAdd.append(sod_images)
-        if oldId not in master_data_paths_json.keys():
-            master_data_paths_json[oldId] = {'path':os.path.join(productname,file_name+'_'+current_time+'_'+'Segment'+file_extension),'id':idProduct}
-        oldId+=1
-    if desc_mode == 'solar':
-        ms_query_feats_segment, query_feats_segment = model2.extract_feat_batch_by_arrays(
-            np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
-    else:
-        ms_query_feats_segment, query_feats_segment = model1.extract_feat_batch_by_arrays(
-            np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
-    sub_index.add_with_ids(np.array(ms_query_feats_segment),np.array(listIdAdd))
-    for path in detail_product[indexQuery]['List_Image']:
-        pathFolder, pathImage = os.path.split(path)
-        listImgPath.append(os.path.join(productname,pathImage))
-    detail_product[indexQuery]["List_Image"] = listImgPath
-    write_index(sub_index, _index_path)
-    with open(db_config['LIST_PRODUCT'], "w") as outfile:
-        json.dump(detail_product, outfile)
-    with open(_img_list_path_json, "w") as outfile:
-        json.dump(master_data_paths_json, outfile)
-    db.set('stateSystem', 'Updated')
-    detail_product[indexQuery]['status'] = 1
-    detail_product[indexQuery]['message'] = 'Image successfully added to the database'
-    return detail_product[indexQuery]
-def removeIndex(productID,db_config,db):
-    _index_path =db_config[settings.INDEX_FILE_KEY]
-    _img_list_path_json =db_config[settings.IMG_LIST_FILE_JSON_KEY]
-    with open(db_config['LIST_PRODUCT'], 'r') as file:
-        detail_product = json.load(file)
-    with open(_img_list_path_json, 'r') as file:
-        master_data_paths_json = json.load(file)
-    sub_index = faiss.read_index(_index_path)
-    path_to_remove = []
-    product_name = ''
-    indexQuery = ''
-    for i in range(len(detail_product)):
-        if str(detail_product[i]['id']) == str(productID):
-            product_name = detail_product[i]['Product_Name']
-            path_to_remove = detail_product[i]['List_Image']
-            indexQuery = i
-            break
-    id_to_remove = []
-    for key in master_data_paths_json.keys():
-        if master_data_paths_json[key]['path'] in path_to_remove:
-            id_to_remove.append(int(key))
-    sub_index.remove_ids(np.array(id_to_remove, dtype='int64'))
-    del detail_product[indexQuery]
-    for key in id_to_remove:
-        del master_data_paths_json[str(key)]
-    shutil.rmtree(settings.DATABASE_PATH+product_name)
-    write_index(sub_index, _index_path)
-    with open(db_config['LIST_PRODUCT'], "w") as outfile:
-        json.dump(detail_product, outfile)
-    with open(_img_list_path_json, "w") as outfile:
-        json.dump(master_data_paths_json, outfile)
-    db.set('stateSystem', 'Updated')
-    return {'status':1, 'message':'Product successfully removed to the database'}
-def removeImage(productID,pathImage,db_config,db):
-    _index_path =db_config[settings.INDEX_FILE_KEY]
-    _img_list_path_json =db_config[settings.IMG_LIST_FILE_JSON_KEY]
-    with open(db_config['LIST_PRODUCT'], 'r') as file:
-        detail_product = json.load(file)
-    with open(_img_list_path_json, 'r') as file:
-        master_data_paths_json = json.load(file)
-    sub_index = faiss.read_index(_index_path)
-    indexQuery = ''
-    for i in range(len(detail_product)):
-        if str(detail_product[i]['id']) == str(productID):
-            indexQuery = i
-            break
-    id_to_remove = []
-    for key in master_data_paths_json.keys():
-        if master_data_paths_json[key]['path'] == pathImage:
-            id_to_remove.append(int(key))
-    sub_index.remove_ids(np.array(id_to_remove, dtype='int64'))
-    detail_product[indexQuery]['List_Image'].remove(pathImage)
-    for key in id_to_remove:
-        del master_data_paths_json[str(key)]
-    os.remove(settings.DATABASE_PATH+pathImage)
-    write_index(sub_index, _index_path)
-    with open(db_config['LIST_PRODUCT'], "w") as outfile:
-        json.dump(detail_product, outfile)
-    with open(_img_list_path_json, "w") as outfile:
-        json.dump(master_data_paths_json, outfile)
-    db.set('stateSystem', 'Updated')
-    return {'status':1, 'message':'Image successfully removed to the database'}
+            sod_images.save(os.path.join(settings.DATABASE_PATH,data['product_name'],file_name+'_'+current_time+'_'+'Segment'+file_extension))
+            listImgPath.append(os.path.join(data['product_name'],file_name+'_'+current_time+'_'+'Segment'+file_extension))
+            listIdAdd.append(oldId)
+            listImgAdd.append(sod_images)
+            if oldId not in master_data_paths_json.keys():
+                master_data_paths_json[oldId] = {'path':os.path.join(data['product_name'],file_name+'_'+current_time+'_'+'Segment'+file_extension),'id':data['product_id']}
+            oldId+=1
+        if desc_mode == 'solar':
+            ms_query_feats_segment, query_feats_segment = model2.extract_feat_batch_by_arrays(
+                np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+        else:
+            ms_query_feats_segment, query_feats_segment = model1.extract_feat_batch_by_arrays(
+                np.array(listImgAdd), image_size=settings.CNN_IMAGE_WIDTH, ms=ms, pad=0)
+        sub_index.add_with_ids(np.array(ms_query_feats_segment),np.array(listIdAdd))
+        for path in detail_product[indexQuery]['List_Image']:
+            pathFolder, pathImage = os.path.split(path)
+            listImgPath.append(os.path.join(data['product_name'],pathImage))
+        detail_product[indexQuery]["List_Image"] = listImgPath
+        write_index(sub_index, _index_path)
+        with open(data['db_config']['LIST_PRODUCT'], "w") as outfile:
+            json.dump(detail_product, outfile)
+        with open(_img_list_path_json, "w") as outfile:
+            json.dump(master_data_paths_json, outfile)
+        db.set('stateSystem', 'Updated')
+        detail_product[indexQuery]['status'] = 1
+        detail_product[indexQuery]['message'] = 'Image successfully added to the database'
+        return detail_product[indexQuery]
+    except Exception as error:
+        return {'status':0,'message':str(error)}
+def removeIndex(data,db):
+    try:
+        _index_path =data['db_config'][settings.INDEX_FILE_KEY]
+        _img_list_path_json =data['db_config'][settings.IMG_LIST_FILE_JSON_KEY]
+        with open(data['db_config']['LIST_PRODUCT'], 'r') as file:
+            detail_product = json.load(file)
+        with open(_img_list_path_json, 'r') as file:
+            master_data_paths_json = json.load(file)
+        sub_index = faiss.read_index(_index_path)
+        path_to_remove = []
+        product_name = ''
+        indexQuery = ''
+        for i in range(len(detail_product)):
+            if str(detail_product[i]['id']) == str(data['product_id']):
+                product_name = detail_product[i]['Product_Name']
+                path_to_remove = detail_product[i]['List_Image']
+                indexQuery = i
+                break
+        id_to_remove = []
+        for key in master_data_paths_json.keys():
+            if master_data_paths_json[key]['path'] in path_to_remove:
+                id_to_remove.append(int(key))
+        sub_index.remove_ids(np.array(id_to_remove, dtype='int64'))
+        del detail_product[indexQuery]
+        for key in id_to_remove:
+            del master_data_paths_json[str(key)]
+        shutil.rmtree(settings.DATABASE_PATH+product_name)
+        write_index(sub_index, _index_path)
+        with open(data['db_config']['LIST_PRODUCT'], "w") as outfile:
+            json.dump(detail_product, outfile)
+        with open(_img_list_path_json, "w") as outfile:
+            json.dump(master_data_paths_json, outfile)
+        db.set('stateSystem', 'Updated')
+        return {'status':1, 'message':'Product successfully removed to the database'}
+    except Exception as error:
+        return {'status':0,'message':str(error)}
+def removeImage(data,db):
+    try:
+        _index_path =data['db_config'][settings.INDEX_FILE_KEY]
+        _img_list_path_json =data['db_config'][settings.IMG_LIST_FILE_JSON_KEY]
+        with open(data['db_config']['LIST_PRODUCT'], 'r') as file:
+            detail_product = json.load(file)
+        with open(_img_list_path_json, 'r') as file:
+            master_data_paths_json = json.load(file)
+        sub_index = faiss.read_index(_index_path)
+        indexQuery = ''
+        for i in range(len(detail_product)):
+            if str(detail_product[i]['id']) == str(data['product_id']):
+                indexQuery = i
+                break
+        id_to_remove = []
+        for key in master_data_paths_json.keys():
+            if master_data_paths_json[key]['path'] == data['path_image']:
+                id_to_remove.append(int(key))
+        sub_index.remove_ids(np.array(id_to_remove, dtype='int64'))
+        detail_product[indexQuery]['List_Image'].remove(data['path_image'])
+        for key in id_to_remove:
+            del master_data_paths_json[str(key)]
+        os.remove(settings.DATABASE_PATH+data['path_image'])
+        write_index(sub_index, _index_path)
+        with open(data['db_config']['LIST_PRODUCT'], "w") as outfile:
+            json.dump(detail_product, outfile)
+        with open(_img_list_path_json, "w") as outfile:
+            json.dump(master_data_paths_json, outfile)
+        db.set('stateSystem', 'Updated')
+        return {'status':1, 'message':'Image successfully removed to the database'}
+    except Exception as error:
+        return {'status':0,'message':str(error)}
 def getDetail(productID,db_config):
     with open(db_config['LIST_PRODUCT'], 'r') as file:
         detail_product = json.load(file)
@@ -1023,8 +1065,8 @@ def getDetail(productID,db_config):
         if str(detail_product[i]['id']) == str(productID):
             tmpPath = []
             for path in  detail_product[i]['List_Image']:
-                if '_segment_' not in str(path) and '_Augment_' not in str(path):
-                    tmpPath.append(path)
+                # if '_segment' not in str(path).lower() and '_augment_' not in str(path).lower():
+                tmpPath.append(path)
             return  {'id':detail_product[i]['id'],'Product_Name':detail_product[i]['Product_Name'],'Product_Detail':detail_product[i]['Product_Detail'],'List_Image':tmpPath}
 def getTotalIndex(db_config):
     _index_path =db_config[settings.INDEX_FILE_KEY]      

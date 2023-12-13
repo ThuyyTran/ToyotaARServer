@@ -44,6 +44,7 @@ config = configparser.ConfigParser(inline_comment_prefixes='#')
 db = redis.StrictRedis(host=settings.REDIS_HOST,
                        port=settings.REDIS_PORT, db=settings.REDIS_DB)
 
+db.set('ProcessMode','Search')
 # list database supports
 with open(settings.DATABASE_LIST_PATH, 'r') as json_db:
     db_support = json.load(json_db)
@@ -59,9 +60,12 @@ for k, v in db_support.items():
     api_key = '' if settings.API_KEY not in db_config else db_config[settings.API_KEY]
 
     multi_db_obj_arr[k] = { 'image_dir': image_dir, 'begin_time': begin_time, 'end_time': end_time, 'matching_config': matching_config, 'api_key': api_key }
-model1 = CNN(useRmac=True, use_solar=False)
-model2 = CNN(useRmac=True, use_solar=True)
-clipSeg_processor,clipSeg_model = helpers.init_ClipSegModel()
+db_config_json = {
+    settings.INDEX_FILE_KEY:db_config[settings.INDEX_FILE_KEY],
+    settings.IMG_LIST_FILE_JSON_KEY:db_config[settings.IMG_LIST_FILE_JSON_KEY],
+    'LIST_PRODUCT':db_config['LIST_PRODUCT'],
+    settings.DESC_MODE_CONFIG:db_config[settings.DESC_MODE_CONFIG],
+    }
 def isServerOnline(app_code):
     """ Check server online by app code """
     db_selected = multi_db_obj_arr[app_code]
@@ -93,7 +97,7 @@ def make_tree(path):
   return tree
 def preProcessText(input_string):
     formatted_string = input_string.replace(" ", "_")
-    formatted_string = ''.join(char for char in formatted_string if char.isalnum() or char == '_' or char == '-')
+    # formatted_string = ''.join(char for char in formatted_string if char.isalnum() or char == '_' or char == '-')
     return formatted_string
 @app.route("/online", methods=['GET'])
 def homepage():
@@ -300,7 +304,9 @@ def search():
         else:
             pre_computed_features_str = ''
 
-        req_obj = {settings.ID_KEY: img_id,
+        req_obj = {
+                   'process_status': 'Search',
+                   settings.ID_KEY: img_id,
                    settings.IMAGE_WIDTH_KEY: image.width,
                    settings.IMAGE_HEIGHT_KEY: image.height,
                    settings.CNN_PRE_COMPUTED_KEY: pre_computed_features_str,
@@ -660,12 +666,16 @@ def add_product():
     # Process and save the image
     listImage = []
     listFilenames = []
+    listShape = []
     try:
         if request.files.get(settings.FILE_KEY):
             for imageobject in request.files.getlist(settings.FILE_KEY):
                 img_raw_data = imageobject.read()
                 image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
-                listImage.append(image)
+                listShape.append([image.height,image.width])
+                search_image = np.array(image)
+                img_str = helpers.base64_encode_image(search_image)
+                listImage.append(img_str)
                 file_name, file_extension = os.path.splitext(imageobject.filename)
                 imgName = preProcessText(file_name)+file_extension
                 listFilenames.append(imgName)
@@ -674,16 +684,41 @@ def add_product():
                 img_base64_str = imageobject
                 img_raw_data = base64.b64decode(img_base64_str)
                 image = Image.open(io.BytesIO(img_raw_data))
-                listImage.append(image)
+                listShape.append([image.height,image.width])
+                search_image = np.array(image)
+                img_str = helpers.base64_encode_image(search_image)
+                listImage.append(img_str)
                 file_name, file_extension = os.path.splitext(imageobject.filename)
                 imgName = preProcessText(file_name)+file_extension
                 listFilenames.append(imgName)
         else:
             abort(400)
-        resultList = helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db)
+        # resultList = helpers.addIndex(product_name,product_detail,listImage,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db)
+        uuid_str = str(uuid.uuid4())
+        dataPrototcol = json.dumps({
+            "uuid":uuid_str,
+            "process_status":"AddIndex",
+            'product_name':product_name,
+            'product_detail':product_detail,
+            'listImage':listImage,
+            'listFilenames':listFilenames,
+            'listShape':listShape,
+            'db_config':db_config_json
+            })
+        db.set('ProcessMode','AddIndex')
+        db.rpush(settings.IMAGE_QUEUE,dataPrototcol)
+        time_out = time.time()
+        while True:
+            run_time = int(round((time.time() - time_out) * 1000))
+            if run_time >= settings.REQ_ADD_TIME_OUT*len(listImage):
+                logger.error("ALERT: Request %s time out" % uuid_str)
+                return jsonify({'status': 0, 'message': "ALERT: Request %s time out" % uuid_str}), 408
+            rs = db.get(uuid_str)
+            if rs:
+                db.delete(uuid_str)
+                return jsonify(json.loads(rs)), 500
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
-    return jsonify(resultList), 200
+        return jsonify({'status': 0, 'message': str(e)}), 500
 @app.route('/add_images', methods=['POST'])
 def add_images():
     # Assuming product_name, product_detail, and product_image are the form field names
@@ -697,34 +732,82 @@ def add_images():
     # Process and save the image
     listImage = []
     listFilenames = []
-    if request.files.get(settings.FILE_KEY):
-        for imageobject in request.files.getlist(settings.FILE_KEY):
-            img_raw_data = imageobject.read()
-            image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
-            listImage.append(image)
-            file_name, file_extension = os.path.splitext(imageobject.filename)
-            imgName = preProcessText(file_name)+file_extension
-            listFilenames.append(imgName)
-    elif request.form.get(settings.FILE_KEY):
-        for imageobject in request.form.getlist(settings.FILE_KEY):
-            img_base64_str = imageobject
-            img_raw_data = base64.b64decode(img_base64_str)
-            image = Image.open(io.BytesIO(img_raw_data))
-            listImage.append(image)
-            file_name, file_extension = os.path.splitext(imageobject.filename)
-            imgName = preProcessText(file_name)+file_extension
-            listFilenames.append(imgName)
-    print('=======',product_name)
-    resultList = helpers.addImages(ItemID,product_name,product_detail,listImage,listFilenames,db_config,model1,model2,clipSeg_processor,clipSeg_model,db)
-    return jsonify(resultList), 200
+    listShape = []
+    try:
+        if request.files.get(settings.FILE_KEY):
+            for imageobject in request.files.getlist(settings.FILE_KEY):
+                img_raw_data = imageobject.read()
+                image = Image.open(io.BytesIO(img_raw_data)).convert('RGB')
+                listShape.append([image.height,image.width])
+                search_image = np.array(image)
+                img_str = helpers.base64_encode_image(search_image)
+                listImage.append(img_str)
+                file_name, file_extension = os.path.splitext(imageobject.filename)
+                imgName = preProcessText(file_name)+file_extension
+                listFilenames.append(imgName)
+        elif request.form.get(settings.FILE_KEY):
+            for imageobject in request.form.getlist(settings.FILE_KEY):
+                img_base64_str = imageobject
+                img_raw_data = base64.b64decode(img_base64_str)
+                image = Image.open(io.BytesIO(img_raw_data))
+                listShape.append([image.height,image.width])
+                search_image = np.array(image)
+                img_str = helpers.base64_encode_image(search_image)
+                listImage.append(img_str)
+                file_name, file_extension = os.path.splitext(imageobject.filename)
+                imgName = preProcessText(file_name)+file_extension
+                listFilenames.append(imgName)
+        uuid_str = str(uuid.uuid4())
+        dataPrototcol = json.dumps({
+            "uuid":uuid_str,
+            "product_id":ItemID,
+            "process_status":"AddImages",
+            'product_name':product_name,
+            'product_detail':product_detail,
+            'listImage':listImage,
+            'listFilenames':listFilenames,
+            'listShape':listShape,
+            'db_config':db_config_json
+            })
+        db.set('ProcessMode','AddImages')
+        db.rpush(settings.IMAGE_QUEUE,dataPrototcol)
+        time_out = time.time()
+        while True:
+            run_time = int(round((time.time() - time_out) * 1000))
+            if run_time >= settings.REQ_ADD_TIME_OUT*len(listImage):
+                logger.error("ALERT: Request %s time out" % uuid_str)
+                return jsonify({'status': 0, 'message': "ALERT: Request %s time out" % uuid_str}), 408
+            rs = db.get(uuid_str)
+            if rs:
+                db.delete(uuid_str)
+                return jsonify(json.loads(rs)), 500     
+    except Exception as e:
+        return jsonify({'status': 0, 'message': str(e)}), 500   
 @app.route('/remove_product', methods=['POST'])
 def remove_product():
     productID = request.form.get('id')
     # Validate inputs
     if not productID:
         return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
-    resultList = helpers.removeIndex(productID,db_config,db)
-    return jsonify(resultList), 200
+    uuid_str = str(uuid.uuid4())
+    dataPrototcol = json.dumps({
+        "uuid":uuid_str,
+        "product_id":productID,
+        "process_status":"RemoveIndex",
+        'db_config':db_config_json
+        })
+    db.set('ProcessMode','RemoveIndex')
+    db.rpush(settings.IMAGE_QUEUE,dataPrototcol)
+    time_out = time.time()
+    while True:
+        run_time = int(round((time.time() - time_out) * 1000))
+        if run_time >= settings.REQ_TIME_OUT:
+            logger.error("ALERT: Request %s time out" % uuid_str)
+            return jsonify({'status': 0, 'message': "ALERT: Request %s time out" % uuid_str}), 408
+        rs = db.get(uuid_str)
+        if rs:
+            db.delete(uuid_str)
+            return jsonify(json.loads(rs)), 500     
 @app.route('/get_detail', methods=['POST'])
 def get_detail():
     productID = request.form.get('id')
@@ -748,8 +831,26 @@ def remove_image():
     # Validate inputs
     if not productID or not pathImage:
         return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
-    resultList = helpers.removeImage(productID,pathImage,db_config,db)
-    return jsonify(resultList), 200
+    uuid_str = str(uuid.uuid4())
+    dataPrototcol = json.dumps({
+        "uuid":uuid_str,
+        "product_id":productID,
+        'path_image':pathImage,
+        "process_status":"RemoveImages",
+        'db_config':db_config_json
+        })
+    db.set('ProcessMode','RemoveImages')
+    db.rpush(settings.IMAGE_QUEUE,dataPrototcol)
+    time_out = time.time()
+    while True:
+        run_time = int(round((time.time() - time_out) * 1000))
+        if run_time >= settings.REQ_TIME_OUT:
+            logger.error("ALERT: Request %s time out" % uuid_str)
+            return jsonify({'status': 0, 'message': "ALERT: Request %s time out" % uuid_str}), 408
+        rs = db.get(uuid_str)
+        if rs:
+            db.delete(uuid_str)
+            return jsonify(json.loads(rs)), 500   
 @app.errorhandler(Exception)
 def handle_exception(e):
     code = 500
